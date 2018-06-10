@@ -1,0 +1,14 @@
+---
+layout: page
+title : 分类页
+---
+
+{% for category in site.categories %}
+<h4 style="display: inline-block">{{ category | first }} </h4> </span>({{ category | last | size }})</span>
+
+<ul class="arc-list list-unstyled">
+    {% for post in category.last %}
+        <li>{{ post.date | date:"%Y-%m-%d"}} <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endfor %}
