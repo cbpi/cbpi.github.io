@@ -1807,3 +1807,15 @@ blockquote {
 .uipasta-credit a:hover {
     color: #333333;
 }
+
+.category-list{
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: -2px -1px 88px 0px rgba(0, 0, 0, 0.17);
+}
+
+.arc-list li a {
+    color: #000;
+}

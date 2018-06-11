@@ -25,5 +25,12 @@
 			</ul>
 		</div>
 	</div>
+	<div class="category-list">
+		{% for category in site.categories %}
+		<p>
+			<a href="/category.html?category={{ category | first }}" title="view all posts">{{ category | first }}({{ category | last | size }})</a>
+		</p>
+		{% endfor %}
+	</div>
 </div>
 <!-- About Me (Left Sidebar) End -->
