@@ -2,7 +2,7 @@
 layout: post
 title: gulp-gulpfile文件
 date: 2018-06-05
-category: JavaScript
+category: Gulp
 ---
 
 在项目里面新建一个gulpfile.js，编辑下这个文件添加一个任务。

@@ -2,7 +2,7 @@
 layout: post
 title: gulp-concat合并文件
 date: 2018-06-05
-category: JavaScript
+category: Gulp
 ---
 
 当我们开发结束时，需要将项目中的文件做个合并，这样可以减少文件的数量。首先安装下插件：

@@ -23,11 +23,3 @@ paginate: 12
 paginate_path: "blog/page:num"
 
 auto: true
-# Comment
-comment:
-    disqus: chen_bo
-
-# 百度统计 
-# 使用博客模板请去掉或者更换 id 
-baidu:
-    id: 96715dc203611cdcb5539a15664fe630  

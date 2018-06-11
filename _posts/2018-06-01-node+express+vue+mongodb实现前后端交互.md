@@ -7,9 +7,9 @@ category: JavaScript
 
 # 准备
 用vue-cli脚手架生成生
-{% highlight ruby %}
-	npm install -g @vue/cli
-	init <template> <app-name> 从一个远程模板生成一个项目 (遗留 API, 依赖 `@vue/cli-init`)
+{% highlight javascript %}
+npm install -g @vue/cli
+init <template> <app-name> 从一个远程模板生成一个项目 (遗留 API, 依赖 `@vue/cli-init`)
 {% endhighlight %}
 关于vue-cli的文档可以看[这里](https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli.md)
 
@@ -31,10 +31,10 @@ index.js(服务器入口文件)
 
 安装express，mongoose模块
 
-{% highlight ruby %}npm install express mongoose --save{% endhighlight ruby %}
+{% highlight javascript %}npm install express mongoose --save{% endhighlight %}
 
 在db.js中配置配置mongodb
-{% highlight ruby %}
+{% highlight javascript %}
 	'server/db.js'
 
 	// 引入mongoose模块
@@ -74,7 +74,7 @@ index.js(服务器入口文件)
 
 接下来编写增删改查的API，进入api.js
 
-{% highlight ruby %}
+{% highlight javascript %}
 server/api.js
 
 "use strict";
@@ -130,7 +130,7 @@ module.exports = router;
 {% endhighlight %}
 在这个文件中，首先引入了三个模块，引入express，使用它的路由功能([express 文档](http://www.expressjs.com.cn))，还用到了mongoose中基于模型操作的一些方法，最后导出路由，在入口文件index.js中引入。
 
-{% highlight ruby %}
+{% highlight javascript %}
 
 server/index.js
 
