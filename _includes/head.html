@@ -9,11 +9,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 	<!-- SEO -->
-	<meta name="description" content="Drakecb的github.io">
 	<meta name="author" content="drakecb">
 	<meta name="url" content="http://cbpi.github.io">
 	<meta name="baidu-site-verification" content="ddtIL6Awza" />
-
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 	<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 
 	<!-- Favicon -->
