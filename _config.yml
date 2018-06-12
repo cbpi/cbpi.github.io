@@ -11,13 +11,11 @@ twitter_username: jekyllrb
 github_username:  jekyll
 star_array: [0, 1, 2, 3, 4]
 
-# markdown: rdiscount
 highlighter: rouge
 
 Regeneration: -w
 
-kramdown:
-  input: GFM
+markdown: kramdown
 
 paginate: 12
 paginate_path: "blog/page:num"
