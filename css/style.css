@@ -1819,3 +1819,11 @@ blockquote {
 .arc-list li a {
     color: #000;
 }
+
+ol {
+    padding-left: 10px;
+}
+
+ol li {
+    margin-bottom: 10px;
+}
