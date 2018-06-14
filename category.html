@@ -3,12 +3,22 @@ layout: page
 title : 分类页
 ---
 
-{% for category in site.categories %}
-<h4 style="display: inline-block;border-bottom: 3px solid #1abc9c;padding-bottom: 5px;">{{ category | first }} <span style="font-size:12px">({{ category | last | size }})</span></h4>
+<script>
+    var dataStr = '{ {% for cat in site.categories %}{% if cat[0] != site.categories.first[0] %},{% endif %}"{{ cat[0] }}":[{% for post in cat[1] %}{% if post != cat[1].first %},{% endif %}{"url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }';
+    var data = JSON.parse(dataStr);
 
-<ul class="arc-list list-unstyled">
-    {% for post in category.last %}
-        <li>{{ post.date | date:"%Y-%m-%d"}} <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endfor %}
+    var categoryName = $.query.get("category"); //获取当前url下的分类名称
+    var catArr = data[categoryName];            //根据分类名称获得属于当前分类下所有文章的一个数组
+    
+
+    var ulel = '<ul class="arc-list list-unstyled"></ul>';
+    var liel = '';
+    for(var i in catArr) {
+        liel += '<li>'+catArr[i].date+' <a href="'+catArr[i].url+'">'+catArr[i].title+'</a></li>';
+    }
+
+    $('.arc-lis').text('ulel');
+
+    $('.sub-title').children('h2').text(categoryName);
+    $('.content-page').html('<ul class="arc-list list-unstyled">'+liel+'</ul>');
+</script>
