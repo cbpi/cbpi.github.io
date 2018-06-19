@@ -8,8 +8,10 @@ category: JavaScript
 # 准备
 用vue-cli脚手架生成生
 {% highlight javascript %}
+
 npm install -g @vue/cli
 init <template> <app-name> 从一个远程模板生成一个项目 (遗留 API, 依赖 `@vue/cli-init`)
+
 {% endhighlight %}
 关于vue-cli的文档可以看[这里](https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli.md)
 
@@ -27,7 +29,7 @@ index.js(服务器入口文件)
 
 这个三个文件
 
-![image](https://drakecb.me/markdown/images/1.png)
+![image](/images/1.png)
 
 安装express，mongoose模块
 
@@ -45,7 +47,7 @@ index.js(服务器入口文件)
 	const db = mongoose.connection
 	db.once('error', () => console.log('Mongo connection error'))
 	db.once('open', () => console.log('Mongo connection successed'))
-在根目录下新建models文件夹，在该文件加下新建peopleinfo.js
+   // 在根目录下新建models文件夹，在该文件加下新建peopleinfo.js
 
 	'models/peopleinfo.js'
 
@@ -168,8 +170,46 @@ console.log('success listen…………')
 在终端中执行 'npm run server'来启动本地后台。在这之前确保本地已经安装了MongoDB，并且已经启动。
 链接数据库成功后终端会有这样的提示：
 
-![image](https://drakecb.me/markdown/images/2.png)   
+![image](/images/2.png)   
 
 到这一步，后台的配置算是结束了。
 
 ---
+
+## 前端配置
+
+为了方便页面的架构，推荐使用[Element Ui](http://element-cn.eleme.io/#/zh-CN)，Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库。在vue cli脚手架里面使用Element，首先要在main.js里面引入，  
+![image](/images/v1.png) 
+ 
+接下来我们就可以在项目中愉快的使用了，在项目中我们会用一个表格来实现对数据库的增删改查功能，界面可以这样简单的来安排：
+![image](/images/v2.png)
+
+1. 添加按钮：实现增
+2. 更新按钮：实现改
+3. 删除按钮：实现删
+4. 详情按钮：实现查
+
+前端的代码可以在项目的/src/pages/home.vue里查看，表格的属性设置也可以在element官网上的[组件](http://element-cn.eleme.io/#/zh-CN/component/table)里查看。有几个注意注意项：
+1. 删除单个item的时候要给按钮绑定一个id属性，根据id来删除数据库中的对应数据，id的值可以用scope.row('_id')来取
+2. 更新单项数据的时候需要重新复制下原先的数据，使用[Object.assign()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)这个方法。
+3. 项目里我使用了axios，它是一个基于Promise 用于浏览器和 nodejs 的 HTTP 客户端。他有一下特点：
+
+---
+* 从浏览器中创建 XMLHttpRequest
+
+* 从 node.js 发出 http 请求
+
+* 支持 Promise API
+
+* 拦截请求和响应
+
+* 转换请求和响应数据
+
+* 取消请求
+
+* 自动转换JSON数据
+
+* 客户端支持防止 CSRF/XSRF
+
+
+
