@@ -13,6 +13,7 @@ npm install -g @vue/cli
 init <template> <app-name> 从一个远程模板生成一个项目 (遗留 API, 依赖 `@vue/cli-init`)
 
 {% endhighlight %}
+
 关于vue-cli的文档可以看[这里](https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/cli.md)
 
 安装脚手架完成后就可以看到一个完整的项目结构了
@@ -33,7 +34,11 @@ index.js(服务器入口文件)
 
 安装express，mongoose模块
 
-{% highlight javascript %}npm install express mongoose --save{% endhighlight %}
+{% highlight javascript %}
+
+npm install express mongoose --save
+
+{% endhighlight %}
 
 在db.js中配置配置mongodb
 {% highlight javascript %}
@@ -66,6 +71,7 @@ index.js(服务器入口文件)
 
 	module.exports = People
 {% endhighlight %}
+
 直接用node来操作数据库比较繁琐，一般推荐使用'mongoose'这个第三方模块来对数据库进行增删改查，关于mongoose中Schemas，Models的概念可以在官方网站上阅读
 
 英文：[https://mongoosedoc.top/docs/cnhome.html](https://mongoosedoc.top/docs/cnhome.html)
@@ -130,6 +136,7 @@ router.delete('/api/deleteByid/:id', (req, res) => {
 
 module.exports = router;
 {% endhighlight %}
+
 在这个文件中，首先引入了三个模块，引入express，使用它的路由功能([express 文档](http://www.expressjs.com.cn))，还用到了mongoose中基于模型操作的一些方法，最后导出路由，在入口文件index.js中引入。
 
 {% highlight javascript %}
@@ -163,8 +170,10 @@ console.log('success listen…………')
 {% endhighlight %}
 
 打开更目录下的package.json文件，找到"script"这个选项，添加一条命令
-{% highlight ruby %}
+{% highlight javascript %}
+
 "server": "node server/index.js"
+
 {% endhighlight %}
 
 在终端中执行 'npm run server'来启动本地后台。在这之前确保本地已经安装了MongoDB，并且已经启动。
