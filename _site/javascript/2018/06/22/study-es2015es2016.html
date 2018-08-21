@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        学习ES2015/ES2016
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>学习ES2015/ES2016 | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="学习ES2015/ES2016" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="// lib/math.js export function sum(x, y) { return x + y; } export var pi = 3.141593;" />
+<meta property="og:description" content="// lib/math.js export function sum(x, y) { return x + y; } export var pi = 3.141593;" />
+<link rel="canonical" href="http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html" />
+<meta property="og:url" content="http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-22T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"// lib/math.js export function sum(x, y) { return x + y; } export var pi = 3.141593;","@type":"BlogPosting","url":"http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html","headline":"学习ES2015/ES2016","dateModified":"2018-06-22T00:00:00+08:00","datePublished":"2018-06-22T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      学习ES2015/ES2016
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-06-22 | 本文共 250 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// lib/math.js</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="kd">var</span> <span class="nx">pi</span> <span class="o">=</span> <span class="mf">3.141593</span><span class="p">;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app.js</span>
+<span class="k">import</span> <span class="o">*</span> <span class="k">as</span> <span class="nx">math</span> <span class="k">from</span> <span class="s2">"lib/math"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"2π = "</span> <span class="o">+</span> <span class="nx">math</span><span class="p">.</span><span class="nx">sum</span><span class="p">(</span><span class="nx">math</span><span class="p">.</span><span class="nx">pi</span><span class="p">,</span> <span class="nx">math</span><span class="p">.</span><span class="nx">pi</span><span class="p">));</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// otherApp.js</span>
+<span class="k">import</span> <span class="p">{</span><span class="nx">sum</span><span class="p">,</span> <span class="nx">pi</span><span class="p">}</span> <span class="k">from</span> <span class="s2">"lib/math"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"2π = "</span> <span class="o">+</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">pi</span><span class="p">,</span> <span class="nx">pi</span><span class="p">));</span></code></pre></figure>
+
+<p>还有的功能包括：<code class="highlighter-rouge">export default</code> and <code class="highlighter-rouge">export *</code>:</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// lib/mathplusplus.js</span>
+<span class="k">export</span> <span class="o">*</span> <span class="k">from</span> <span class="s2">"lib/math"</span><span class="p">;</span>
+<span class="k">export</span> <span class="kd">var</span> <span class="nx">e</span> <span class="o">=</span> <span class="mf">2.71828182846</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">exp</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app.js</span>
+<span class="k">import</span> <span class="nx">exp</span><span class="p">,</span> <span class="p">{</span><span class="nx">pi</span><span class="p">,</span> <span class="nx">e</span><span class="p">}</span> <span class="k">from</span> <span class="s2">"lib/mathplusplus"</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"e^π = "</span> <span class="o">+</span> <span class="nx">exp</span><span class="p">(</span><span class="nx">pi</span><span class="p">));</span></code></pre></figure>
+
+<h3 id="数组的扩展">数组的扩展</h3>
+
+<p><code class="highlighter-rouge">find()</code>方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/find"><i class="fas fa-link"></i></a></p>
+
+<p><code class="highlighter-rouge">filter()</code>方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/filter"><i class="fas fa-link"></i></a></p>
+
+<p><code class="highlighter-rouge">every()</code>方法测试数组的所有元素是否都通过了指定函数的测试
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/every"><i class="fas fa-link"></i></a></p>
+
+<p><code class="highlighter-rouge">some()</code>方法测试数组中的某些元素是否通过由提供的函数实现的测试
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/some"><i class="fas fa-link"></i></a></p>
+
+<p><code class="highlighter-rouge">reduce()</code>方法对累加器和数组中的每个元素（从左到右）应用一个函数，将其减少为单个值
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce"><i class="fas fa-link"></i></a></p>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html";
+			this.page.identifier = "/javascript/2018/06/22/study-es2015es2016.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>

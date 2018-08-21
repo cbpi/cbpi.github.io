@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        jekyll学习一(结构)
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>jekyll学习一(结构) | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="jekyll学习一(结构)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="在搭建github pages的时候比对了一下hexo和jekyll，发现后者写起博客来更加利索，所以妥妥的舍弃hexo。首先确保你的电脑上安装了Ruby，安装jekyll的具体步骤在jekyll的中文网站上都有介绍，安装的过程中可能会碰到诸如版本，缺少相关配置的问题，Google一下就可以找到排除问题的办法，因为每个人的环境不同，碰到的安装问题不同，这里就不具体介绍安装流程了。首先来看一下jekyll的结构：" />
+<meta property="og:description" content="在搭建github pages的时候比对了一下hexo和jekyll，发现后者写起博客来更加利索，所以妥妥的舍弃hexo。首先确保你的电脑上安装了Ruby，安装jekyll的具体步骤在jekyll的中文网站上都有介绍，安装的过程中可能会碰到诸如版本，缺少相关配置的问题，Google一下就可以找到排除问题的办法，因为每个人的环境不同，碰到的安装问题不同，这里就不具体介绍安装流程了。首先来看一下jekyll的结构：" />
+<link rel="canonical" href="http://localhost:4000/jekyll/2018/06/09/jekyll01.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/2018/06/09/jekyll01.html" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-09T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"在搭建github pages的时候比对了一下hexo和jekyll，发现后者写起博客来更加利索，所以妥妥的舍弃hexo。首先确保你的电脑上安装了Ruby，安装jekyll的具体步骤在jekyll的中文网站上都有介绍，安装的过程中可能会碰到诸如版本，缺少相关配置的问题，Google一下就可以找到排除问题的办法，因为每个人的环境不同，碰到的安装问题不同，这里就不具体介绍安装流程了。首先来看一下jekyll的结构：","@type":"BlogPosting","url":"http://localhost:4000/jekyll/2018/06/09/jekyll01.html","headline":"jekyll学习一(结构)","dateModified":"2018-06-09T00:00:00+08:00","datePublished":"2018-06-09T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/2018/06/09/jekyll01.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      jekyll学习一(结构)
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-06-09 | 本文共 83 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><p>在搭建github pages的时候比对了一下hexo和jekyll，发现后者写起博客来更加利索，所以妥妥的舍弃hexo。首先确保你的电脑上安装了Ruby，安装jekyll的具体步骤在<a href="https://www.jekyll.com.cn">jekyll</a>的中文网站上都有介绍，安装的过程中可能会碰到诸如版本，缺少相关配置的问题，Google一下就可以找到排除问题的办法，因为每个人的环境不同，碰到的安装问题不同，这里就不具体介绍安装流程了。首先来看一下jekyll的结构：</p>
+
+<p><img src="/assets/img/jekyll.png" alt="image" /></p>
+
+<p>对照上图</p>
+
+<h4 id="_configyml">_config.yml</h4>
+<p>这个是配置文件，在根目录下，类似于wordpress根目录下的wp-config.php，很多配置选项可以写在这里面然后在页面里面调用。</p>
+
+<h4 id="_drafts">_drafts</h4>
+<p>这个是未发布的文章集合，类似于草稿，都会在这个目录文件夹里面</p>
+
+<h4 id="_includes">_includes</h4>
+<p>存放页面公共部分的一个目录，比如同一个页面都有head，footer，copyright这些公共部分，我们可以提取出来语义化命名为.html文件然后在页面里引用，比如在首页里面可以用{% include head.html %}来引用头部信息，这个标签会自动去寻找_includes文件夹下的对应文件。</p>
+
+<h4 id="_layouts">_layouts</h4>
+<p>layouts就是布局的意思，相同的页面我们可以生成一个统一的模板来使用，比如有category和archive这两个页面，展示的分别是根据分类和日期筛选出来的文章，都是左右布局，相似的两个页面只是内容区的部分不一样，我们可以在_layouts目录下面，新建一个page.html，放入相同的部分的代码，在内容区可以用{{content}}来输出不同部分的内容。</p>
+
+<h4 id="_posts">_posts</h4>
+<p>这个目录下面就是放所有的文章了，命名规则需要符合 YEAR-MONTH-DAY-title.MARKUP 这样的形式，例：2018-06-10-your_post_title.md。文章链接的url就会变成/2018/06/09/your_post_title.html这种形式，最好文章标题用英文来命名。</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">---</span>
+<span class="ss">layout: </span><span class="n">post</span>
+<span class="ss">title: </span><span class="n">your_post_title</span>
+<span class="ss">date: </span><span class="mi">2018</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mi">09</span>
+<span class="ss">category: </span><span class="n">jekyll</span>
+<span class="o">---</span></code></pre></figure>
+
+<p>上面是一个文件内幕的头部结构，任何只要包含 YAML 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。</p>
+
+<p>layout: 如果设置的话，会指定使用该模板文件。指定模板文件时候不需要扩展名。模板文件需要放在 _layouts 目录下。</p>
+
+<p>title: 文章标题</p>
+
+<p>data: 文章日期</p>
+
+<p>category: 分类</p>
+
+<h4 id="_data">_data</h4>
+<p>数据目录，可以将数据放入此处，再用for循环来输出，此文件夹内可以使用 .yml、.yaml、.json、csv 扩展名。</p>
+
+<h4 id="_site">_site</h4>
+<p>当Jekyll完成转换，就会将生成的页面放在这个目录里。</p>
+
+<h4 id="indexhtml">index.html</h4>
+<p>入口文件，默认访问首页时会调用这个页面的内容。</p>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "http://localhost:4000/jekyll/2018/06/09/jekyll01.html";
+			this.page.identifier = "/jekyll/2018/06/09/jekyll01.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>

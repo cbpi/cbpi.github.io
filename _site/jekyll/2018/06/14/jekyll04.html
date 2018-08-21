@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        jekyll学习四(获取单个分类下的所有文章)
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>jekyll学习四(获取单个分类下的所有文章) | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="jekyll学习四(获取单个分类下的所有文章)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="在学jekyll的过程中，碰到了一点小小困难，就是在不使用插件的情况下如何获取当前分类下的所有文章，网上查了些解决方案，终于在这篇文章中受到了启发，换种思考方式，可以用JavaScript的方式操作dom实现。这里需要使用到一个第三方js，jquery.query.js，可以在github上下载，接下来po代码：" />
+<meta property="og:description" content="在学jekyll的过程中，碰到了一点小小困难，就是在不使用插件的情况下如何获取当前分类下的所有文章，网上查了些解决方案，终于在这篇文章中受到了启发，换种思考方式，可以用JavaScript的方式操作dom实现。这里需要使用到一个第三方js，jquery.query.js，可以在github上下载，接下来po代码：" />
+<link rel="canonical" href="http://localhost:4000/jekyll/2018/06/14/jekyll04.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/2018/06/14/jekyll04.html" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-14T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"在学jekyll的过程中，碰到了一点小小困难，就是在不使用插件的情况下如何获取当前分类下的所有文章，网上查了些解决方案，终于在这篇文章中受到了启发，换种思考方式，可以用JavaScript的方式操作dom实现。这里需要使用到一个第三方js，jquery.query.js，可以在github上下载，接下来po代码：","@type":"BlogPosting","url":"http://localhost:4000/jekyll/2018/06/14/jekyll04.html","headline":"jekyll学习四(获取单个分类下的所有文章)","dateModified":"2018-06-14T00:00:00+08:00","datePublished":"2018-06-14T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/2018/06/14/jekyll04.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      jekyll学习四(获取单个分类下的所有文章)
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-06-14 | 本文共 214 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><p>在学jekyll的过程中，碰到了一点小小困难，就是在不使用插件的情况下如何获取当前分类下的所有文章，网上查了些解决方案，终于在<a href="https://segmentfault.com/a/1190000000406017#articleHeader3">这篇文章</a>中受到了启发，换种思考方式，可以用JavaScript的方式操作dom实现。这里需要使用到一个第三方js，<a href="https://gist.github.com/bdimcheff/2975441">jquery.query.js</a>，可以在github上下载，接下来po代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">dataStr</span> <span class="o">=</span> <span class="s1">'{ {% for cat in site.categories %}{% if cat[0] != site.categories.first[0] %},{% endif %}"{{ cat[0] }}":[{% for post in cat[1] %}{% if post != cat[1].first %},{% endif %}{"url":"{{post.url}}", "title":"{{post.title}}", "date":"{{post.date | date:"%d/%m/%Y"}}"}{% endfor %}]{% endfor %} }'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">dataStr</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">categoryName</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s2">"category"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">catArr</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">categoryName</span><span class="p">];</span>
+
+
+    <span class="kd">var</span> <span class="nx">ulel</span> <span class="o">=</span> <span class="s1">'&lt;ul class="arc-list list-unstyled"&gt;&lt;/ul&gt;'</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">liel</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">catArr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">liel</span> <span class="o">+=</span> <span class="s1">'&lt;li&gt;'</span><span class="o">+</span><span class="nx">catArr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">date</span><span class="o">+</span><span class="s1">' &lt;a href="'</span><span class="o">+</span><span class="nx">catArr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">url</span><span class="o">+</span><span class="s1">'"&gt;'</span><span class="o">+</span><span class="nx">catArr</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">title</span><span class="o">+</span><span class="s1">'&lt;/a&gt;&lt;/li&gt;'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.arc-lis'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">'ulel'</span><span class="p">);</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.sub-title'</span><span class="p">).</span><span class="nx">children</span><span class="p">(</span><span class="s1">'h2'</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="nx">categoryName</span><span class="p">);</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.content-page'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'&lt;ul class="arc-list list-unstyled"&gt;'</span><span class="o">+</span><span class="nx">liel</span><span class="o">+</span><span class="s1">'&lt;/ul&gt;'</span><span class="p">);</span></code></pre></figure>
+
+<p>首先我们构建了一个包含所有分类的对象，有三个值: ‘title’,’url’,’date’。然后用jquery.query.js来获取url等号后面的内容，比如在我的项目里，展示单个分类下的所有文章我用了category.html这个页面</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s1">'/category.html?category=JavaScript'</span><span class="o">&gt;</span><span class="nx">JavaScript</span><span class="o">&lt;</span><span class="sr">/a&gt;</span></code></pre></figure>
+
+<p>那么获取的值就是’JavaScript’，得到了这个当前分类名称从而就可以得到这个分类下的所有文章了，是一个数组，接下用js循环输出下html就可以得到结果了。<br />
+当然解决这个问题也可以使用插件的方式，感兴趣的可以自己研究下。</p>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "http://localhost:4000/jekyll/2018/06/14/jekyll04.html";
+			this.page.identifier = "/jekyll/2018/06/14/jekyll04.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>

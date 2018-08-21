@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        jekyll学习二(变量)
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>jekyll学习二(变量) | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="jekyll学习二(变量)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="全局变量" />
+<meta property="og:description" content="全局变量" />
+<link rel="canonical" href="http://localhost:4000/jekyll/2018/06/09/jekyll02.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/2018/06/09/jekyll02.html" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-09T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"全局变量","@type":"BlogPosting","url":"http://localhost:4000/jekyll/2018/06/09/jekyll02.html","headline":"jekyll学习二(变量)","dateModified":"2018-06-09T00:00:00+08:00","datePublished":"2018-06-09T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/2018/06/09/jekyll02.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      jekyll学习二(变量)
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-06-09 | 本文共 404 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><blockquote>
+  <h3 id="全局变量">全局变量</h3>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">变量名</th>
+      <th style="text-align: center">是否描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">site</td>
+      <td style="text-align: center">site 的信息 以及 _config.yml 文件中的配置信息</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page</td>
+      <td style="text-align: center">页面专属的信息 + YAML 头文件信息。通过 YAML 头文件自定义的信息都可以在这里被获取</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">content</td>
+      <td style="text-align: center">被 layout 包裹的那些 Post 或者 Page 渲染生成的内容。但是又没定义在 Post 或者 Page 文件中的变量。</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator</td>
+      <td style="text-align: center">每当 paginate 配置选项被设置了的时候，这个变量就可用了。</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <h3 id="site变量">site变量</h3>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">变量名</th>
+      <th style="text-align: center">是否描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">site.time</td>
+      <td style="text-align: center">当前的时间(当你运行Jekyll时的时间)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.pages</td>
+      <td style="text-align: center">所有页面的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.posts</td>
+      <td style="text-align: center">一个按时间逆序的文章列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.related_posts</td>
+      <td style="text-align: center">如果当前被处理的页面是一个文章文件，那这个变量是一个包含了最多10篇相关文章的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.static_files</td>
+      <td style="text-align: center">所有静态页面的列表，每个文件有三个属性：路径，修改时间，扩展名</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.html_pages</td>
+      <td style="text-align: center">所有的html页面的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.collections</td>
+      <td style="text-align: center">所有集合的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.data</td>
+      <td style="text-align: center">包含从_data目录中的YAML文件加载的数据的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.documents</td>
+      <td style="text-align: center">每个集合中的所有文档的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.categories.CATEGORY</td>
+      <td style="text-align: center">所有在CATEGORY分类中的文章列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.tags.TAG</td>
+      <td style="text-align: center">所有拥有TAG标签的文章的列表</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">site.[CONFIGURATION_DATA]</td>
+      <td style="text-align: center">所有的通过命令行和 _config.yml 设置的变量都会存到这个 site 里面。 举例来说，如果你设置了 url: http://mysite.com 在你的配置文件中，那么在你的 Posts 和 Pages 里面，这个变量就被存储在了 site.url。Jekyll 并不会把对 _config.yml 做的改动放到 watch 模式，所以你每次都要重启 Jekyll 来让你的变动生效。</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <h3 id="page变量">page变量</h3>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">变量名</th>
+      <th style="text-align: center">是否描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">page.content</td>
+      <td style="text-align: center">页面中渲染的内容</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.title</td>
+      <td style="text-align: center">页面标题</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.excerpt</td>
+      <td style="text-align: center">页面摘要</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.url</td>
+      <td style="text-align: center">页面URL(除去域名)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.date</td>
+      <td style="text-align: center">指定每一篇文章的时间，这个选项能够覆盖一篇文章中前置数据设置的时间，它的格式是这样的:YYYY-MM-DD HH:MM:SS</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.id</td>
+      <td style="text-align: center">每一篇文章的唯一标示符(在RSS中非常有用)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.categories</td>
+      <td style="text-align: center">这篇文章隶属的分类的一个列表，分类是通过在_post目录中的目录结构推导而来的</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.tags</td>
+      <td style="text-align: center">这篇文章的标签的列表。这些数据能够在YAML前置数据中指定</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.path</td>
+      <td style="text-align: center">页面的源码地址</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.next</td>
+      <td style="text-align: center">按时间序的下一篇文章</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">page.previous</td>
+      <td style="text-align: center">按时间序的上一篇文章</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <h3 id="paginator变量">paginator变量</h3>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">变量名</th>
+      <th style="text-align: center">是否描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">paginator.per_page</td>
+      <td style="text-align: center">每一页Posts的数量</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.posts</td>
+      <td style="text-align: center">这一页可用的Posts</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.total_posts</td>
+      <td style="text-align: center">Posts 的总数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.total_pages</td>
+      <td style="text-align: center">Pages 的总数</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.page</td>
+      <td style="text-align: center">当前页号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.previous_page</td>
+      <td style="text-align: center">前一页的页号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.previous_page_path</td>
+      <td style="text-align: center">前一页的地址</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.next_page</td>
+      <td style="text-align: center">下一页的页号</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">paginator.next_page_path</td>
+      <td style="text-align: center">下一页的地址</td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "http://localhost:4000/jekyll/2018/06/09/jekyll02.html";
+			this.page.identifier = "/jekyll/2018/06/09/jekyll02.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>
