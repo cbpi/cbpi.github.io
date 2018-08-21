@@ -13,6 +13,13 @@ defaults:
     values:
       image: true
 
+plugins:
+  - rouge
+  - kramdown
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jemoji
+
 # --- 网站信息设置 ---
 # 下面填写你的博客标题
 title: Drakecb blog

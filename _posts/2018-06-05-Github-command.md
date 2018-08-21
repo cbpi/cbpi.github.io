@@ -4,6 +4,8 @@ title: Github常用命令(陆续更新)
 date: 2018-06-05
 category: Git
 comments: true
+excerpt: 初始化新仓库：git init,检查状态：git status
+tags: [Git]
 ---
 
 基本

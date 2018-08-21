@@ -4,6 +4,8 @@ title: Github删除所有提交历史记录
 date: 2018-06-11
 category: Git
 comments: true
+excerpt: 几条命令删除所有提交历史记录并强制更新存储库
+tags: [Git]
 ---
 
 1. 尝试 运行 git checkout --orphan latest_branch
