@@ -14,7 +14,7 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
 <link rel="shortcut icon" href="/assets/img/favicon.ico" />
 <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -246,5 +246,27 @@ var _hmt = _hmt || [];
 
 
 
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Back to Top End -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script>
+    /* Scroll To Top */
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() >= 500) {
+        $('.scroll-to-top').fadeIn();
+      } else {
+        $('.scroll-to-top').fadeOut();
+      }
+    });
+
+
+    $('.scroll-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+    </script>
   </body>
 </html>

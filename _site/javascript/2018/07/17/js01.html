@@ -14,7 +14,7 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
 <link rel="shortcut icon" href="/assets/img/favicon.ico" />
 <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
@@ -92,7 +92,7 @@ var _hmt = _hmt || [];
       </p>
 
       <div class="article-title-description">
-        <p>发表于 2018-07-17 | 本文共 2974 字</p>
+        <p>发表于 2018-07-17 | 本文共 3081 字</p>
       </div>
     </header>
 
@@ -553,6 +553,25 @@ var _hmt = _hmt || [];
     <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
+<h4 id="返回顶部">返回顶部</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+** Scroll To Top 
+** 选择器为 .scroll-to-top
+*/</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+	<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">});</span>
+
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="nx">$</span><span class="p">(</span><span class="s1">'html, body'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="mi">800</span><span class="p">);</span>
+	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></div>
 </p>
 
 
@@ -640,5 +659,27 @@ var _hmt = _hmt || [];
 
 
 
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Back to Top End -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script>
+    /* Scroll To Top */
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() >= 500) {
+        $('.scroll-to-top').fadeIn();
+      } else {
+        $('.scroll-to-top').fadeOut();
+      }
+    });
+
+
+    $('.scroll-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+    </script>
   </body>
 </html>
