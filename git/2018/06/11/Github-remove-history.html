@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       
-        关于
+        Github删除所有提交历史记录
       
     </title>
 
@@ -14,7 +14,7 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     
   
   
@@ -52,47 +52,77 @@
 
 
 
-    <link rel="stylesheet" href="/assets/css/about.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
     <link rel="stylesheet" href="/assets/css/markdown.css">
     <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>关于 | Drakecb</title>
+<title>Github删除所有提交历史记录 | Drakecb</title>
 <meta name="generator" content="Jekyll v3.8.3" />
-<meta property="og:title" content="关于" />
+<meta property="og:title" content="Github删除所有提交历史记录" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="从事前端，爱研究，爱猫" />
-<meta property="og:description" content="从事前端，爱研究，爱猫" />
+<meta name="description" content="尝试 运行 git checkout –orphan latest_branch" />
+<meta property="og:description" content="尝试 运行 git checkout –orphan latest_branch" />
 <meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-11T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"description":"从事前端，爱研究，爱猫","@type":"WebPage","url":"/about.html","headline":"关于","@context":"http://schema.org"}</script>
+{"description":"尝试 运行 git checkout –orphan latest_branch","@type":"BlogPosting","url":"/git/2018/06/11/Github-remove-history.html","headline":"Github删除所有提交历史记录","dateModified":"2018-06-11T00:00:00+08:00","datePublished":"2018-06-11T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/git/2018/06/11/Github-remove-history.html"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
 
   </head>
+
   <body>
     <header>
-  <div class="title">
+      <div class="title">
   <a href="/articles">
     
-      关于
+      Github删除所有提交历史记录
     
   </a>
   <span class="title-tip">返回首页</span>
 </div>
 
-</header>
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
 
+      <div class="article-title-description">
+        <p>发表于 2018-06-11 | 本文共 41 字</p>
+      </div>
+    </header>
 
     
 <div class="page-content">
   <div class="content" id="post-content">
-    <p><p>在前端这个领域从事了三年，之前玩过wordpress，搞过docker，也写过php。</p>
-
-<p>喜欢研究新的技术，做做小demo，写写技术心得。</p>
-
-<p>打算在前端继续学习下去，作为一个小码农，如果能活到老码到老，那将会是一个件无比开心的事情！</p>
+    <p><ol>
+  <li>
+    <p>尝试 运行 git checkout –orphan latest_branch</p>
+  </li>
+  <li>
+    <p>添加所有文件git add -A</p>
+  </li>
+  <li>
+    <p>提交更改git commit -am “commit message”</p>
+  </li>
+  <li>
+    <p>删除分支git branch -D master</p>
+  </li>
+  <li>
+    <p>将当前分支重命名git branch -m master</p>
+  </li>
+  <li>
+    <p>最后，强制更新存储库。git push -f origin master</p>
+  </li>
+</ol>
 </p>
 
 
@@ -115,8 +145,8 @@
 		};
 		*/
 		var disqus_config = function () {
-			this.page.url = "/about.html";
-			this.page.identifier = "/about.html";
+			this.page.url = "/git/2018/06/11/Github-remove-history.html";
+			this.page.identifier = "/git/2018/06/11/Github-remove-history.html";
 		};
 
 		(function() { // DON'T EDIT BELOW THIS LINE
@@ -159,6 +189,10 @@
 </footer>
 
 
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
     <script src="/assets/js/link_target.js"></script>
 
     

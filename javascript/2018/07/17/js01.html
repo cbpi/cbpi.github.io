@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        项目中常用的js封装
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>项目中常用的js封装 | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="项目中常用的js封装" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="判断undefined返回空字符串 //如果为undefined 返回空空字符串 function formatundefined(str){ if(str == null || str == undefined || str == &quot;undefined&quot;){ return &quot;&quot;; } return str; }" />
+<meta property="og:description" content="判断undefined返回空字符串 //如果为undefined 返回空空字符串 function formatundefined(str){ if(str == null || str == undefined || str == &quot;undefined&quot;){ return &quot;&quot;; } return str; }" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-07-17T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"判断undefined返回空字符串 //如果为undefined 返回空空字符串 function formatundefined(str){ if(str == null || str == undefined || str == &quot;undefined&quot;){ return &quot;&quot;; } return str; }","@type":"BlogPosting","url":"/javascript/2018/07/17/js01.html","headline":"项目中常用的js封装","dateModified":"2018-07-17T00:00:00+08:00","datePublished":"2018-07-17T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/javascript/2018/07/17/js01.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      项目中常用的js封装
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-07-17 | 本文共 2974 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><h4 id="判断undefined返回空字符串">判断undefined返回空字符串</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//如果为undefined 返回空空字符串</span>
+<span class="kd">function</span> <span class="nx">formatundefined</span><span class="p">(</span><span class="nx">str</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="s2">"undefined"</span><span class="p">){</span>
+		<span class="k">return</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="点击事件-判断对应div是否已加载并显示">点击事件 判断对应div是否已加载并显示</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 点击事件 判断对应div是否已加载并显示
+ * @param showClass  需要加载的div class名
+ * @param loadUrl    请求url
+ */</span>
+<span class="kd">function</span> <span class="nx">showWidgets</span><span class="p">(</span><span class="nx">showClass</span><span class="p">,</span> <span class="nx">loadUrl</span><span class="p">){</span>	
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">is</span><span class="p">(</span><span class="s1">':empty'</span><span class="p">)){</span>
+        <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'display'</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="s1">'block'</span><span class="p">){</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'display'</span><span class="p">,</span> <span class="s1">'none'</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="nx">loadUrl</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="cm">/**
+ * 点击事件 判断对应div是否已加载并显示
+ * 两次id相同则显示隐藏,不同直接加载
+ * @param showClass  需要加载的div class名
+ * @param preid    之前的id
+ * @param curid    现在的id
+ * 
+ */</span>
+<span class="kd">function</span> <span class="nx">showWidgetsById</span><span class="p">(</span><span class="nx">showClass</span><span class="p">,</span> <span class="nx">loadUrl</span><span class="p">,</span><span class="nx">preid</span><span class="p">,</span><span class="nx">curid</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">preid</span><span class="o">==</span><span class="nx">curid</span><span class="p">){</span>
+		<span class="nx">showWidgets</span><span class="p">(</span><span class="nx">showClass</span><span class="p">,</span><span class="nx">loadUrl</span><span class="p">);</span>
+	<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+		<span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">load</span><span class="p">(</span><span class="nx">loadUrl</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="ajax封装">ajax封装</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 
+ * @param type GET/POST
+ * @param url  请求路径
+ * @param data 请求对象,没有就null
+ * @param successFun 回调函数
+ * @param async  true异步,false同步
+ */</span>
+<span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">successFun</span><span class="p">,</span><span class="k">async</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="nx">getSessionId</span><span class="p">();</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="s2">""</span><span class="p">){</span>
+		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+		 <span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">retObj</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="p">}</span>
+	<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+		<span class="na">type</span><span class="p">:</span><span class="nx">type</span><span class="p">,</span>
+		<span class="na">url</span><span class="p">:</span><span class="nx">server_url</span><span class="o">+</span><span class="nx">url</span><span class="p">,</span>
+		<span class="na">contentType</span><span class="p">:</span><span class="s2">"application/x-www-form-urlencoded;charset=UTF-8"</span><span class="p">,</span><span class="c1">//格式</span>
+		<span class="na">dataType</span><span class="p">:</span><span class="s1">'json'</span><span class="p">,</span> 
+		<span class="na">data</span><span class="p">:</span><span class="nx">param</span><span class="p">,</span>	
+		<span class="na">async</span><span class="p">:</span><span class="k">async</span><span class="p">,</span>
+		<span class="na">cache</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+		<span class="na">beforeSend</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="p">},</span>
+		<span class="na">complete</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+		<span class="p">},</span>
+		<span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="c1">//alert("访问后台"+url +"异常,请联系管理员!");</span>
+		<span class="p">},</span>
+		<span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>	
+			 <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>	
+				 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+			 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+				 <span class="c1">//后端出错</span>
+				 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+			 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">2</span><span class="p">){</span>
+				 <span class="c1">//成功,比如新增成功,需要输出的</span>
+				 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+				 <span class="k">if</span><span class="p">(</span><span class="nx">successFun</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+					 <span class="nx">successFun</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+				 <span class="p">}</span>
+			 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">=</span><span class="mi">1</span><span class="p">){</span>
+				 <span class="c1">//数据回调</span>
+				 <span class="k">if</span><span class="p">(</span><span class="nx">successFun</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+					 <span class="nx">successFun</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+				 <span class="p">}</span>
+			 <span class="p">}</span>
+			 <span class="nx">retObj</span><span class="o">=</span><span class="nx">data</span><span class="p">;</span>
+		<span class="p">}</span>
+    <span class="p">});</span>
+	<span class="k">return</span> <span class="nx">retObj</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="上传文件">上传文件</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">fileUpLoad</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">successFun</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="nx">fileButtonId</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="nx">getSessionId</span><span class="p">();</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="s2">""</span><span class="p">){</span>
+		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+		 <span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="p">}</span>
+	<span class="nx">$</span><span class="p">.</span><span class="nx">ajaxFileUpload</span><span class="p">({</span>
+		<span class="na">secureuri</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+		<span class="na">fileElementId</span><span class="p">:</span><span class="nx">fileButtonId</span><span class="p">,</span>
+		<span class="na">datatype</span><span class="p">:</span><span class="s1">'json'</span><span class="p">,</span>
+		<span class="na">async</span><span class="p">:</span><span class="k">async</span><span class="p">,</span>
+		<span class="na">url</span><span class="p">:</span><span class="nx">server_url</span><span class="o">+</span><span class="nx">url</span><span class="p">,</span>
+		<span class="na">type</span><span class="p">:</span><span class="nx">type</span><span class="p">,</span>
+		<span class="na">data</span><span class="p">:</span><span class="nx">param</span><span class="p">,</span>
+		<span class="na">beforeSend</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>
+			<span class="c1">//传数据之前处理函数(可不用写)</span>
+		<span class="p">},</span>
+		<span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">reply</span><span class="p">){</span>
+		<span class="p">},</span>
+		<span class="na">error</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+			<span class="c1">//错误处理函数</span>
+		<span class="p">},</span>
+		<span class="na">complete</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">replay</span><span class="p">){</span>
+			<span class="c1">//传数据完成处理函数(可不用写)</span>
+			<span class="k">try</span><span class="p">{</span>
+				<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">replay</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"{"</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s2">"}"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+				<span class="nx">str</span> <span class="o">=</span> <span class="s2">"{"</span><span class="o">+</span><span class="nx">str</span><span class="o">+</span><span class="s2">"}"</span><span class="p">;</span>
+				<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+				<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>	
+					 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+				 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+					 <span class="c1">//后端出错</span>
+					 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+				 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">2</span><span class="p">){</span>
+					 <span class="c1">//成功,比如新增成功,需要输出的</span>
+					 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+					 <span class="k">if</span><span class="p">(</span><span class="nx">successFun</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+						 <span class="nx">successFun</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+					 <span class="p">}</span>
+				 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">=</span><span class="mi">1</span><span class="p">){</span>
+					 <span class="c1">//数据回调</span>
+					 <span class="k">if</span><span class="p">(</span><span class="nx">successFun</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+						 <span class="nx">successFun</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+					 <span class="p">}</span>
+				 <span class="p">}</span>
+			<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){}</span>
+		<span class="p">}</span>
+    <span class="p">});</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="往sessionstorage中存入移除获取数据以及获取用户信息">往sessionStorage中存入，移除，获取数据，以及获取用户信息</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 往会话中存数据
+ * @param key
+ * @param value
+ */</span>
+<span class="kd">function</span> <span class="nx">putSessionData</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="nx">value</span><span class="p">){</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">value</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * 往会话中移除数据
+ * @param key
+ * @param value
+ */</span>
+<span class="kd">function</span> <span class="nx">removeSessionData</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+ * 往会话中获取数据
+ * @param key
+ */</span>
+<span class="kd">function</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>
+	<span class="k">try</span><span class="p">{</span>
+		<span class="k">return</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">parseJSON</span><span class="p">(</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="nx">key</span><span class="p">));</span>	
+	<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+		<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="cm">/**
+ * 往会话中获取用户信息
+ * @param key
+ */</span>
+<span class="kd">function</span> <span class="nx">getSessionUserInfo</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="s2">"userInfo"</span><span class="p">);</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">userInfo</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+		<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">userInfo</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">getSessionId</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="s2">"userInfo"</span><span class="p">);</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">userInfo</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
+		<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">userInfo</span><span class="p">.</span><span class="nx">sessionId</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="通过key来获取html后面的数据">通过key来获取html?后面的数据</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 通过key来获取html?后面的数据
+ * */</span>
+<span class="kd">function</span> <span class="nx">getUrlParam</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>  
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^</span><span class="se">\?</span><span class="sr">/</span><span class="p">,</span><span class="s1">''</span><span class="p">)).</span><span class="nx">split</span><span class="p">(</span><span class="s1">'&amp;'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">paramsObj</span> <span class="o">=</span> <span class="p">{};</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">iLen</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">iLen</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="nx">url</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">);</span>
+        <span class="nx">paramsObj</span><span class="p">[</span><span class="nx">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">param</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">paramsObj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">||</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">paramsObj</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="判断数据类型">判断数据类型</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 判断数据类型
+ */</span>
+<span class="kd">var</span> <span class="nx">toString</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">type</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">elem</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">elem</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\[\]]</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="判断数组是否包含元素">判断数组是否包含元素</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 判断数组是否包含元素
+ * @param arr
+ * @param obj
+ * @returns {Boolean}
+ */</span>
+<span class="kd">function</span>  <span class="nx">contains</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="nx">obj</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	<span class="k">while</span><span class="p">(</span><span class="nx">i</span><span class="o">--</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="nx">obj</span><span class="p">){</span>
+			<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="移除数组里的元素">移除数组里的元素</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 移除数组里的元素
+ * @param arr
+ * @param obj
+ * @returns {Array}
+ */</span>
+<span class="kd">function</span> <span class="nx">remove</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span><span class="nx">obj</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">newarr</span> <span class="o">=</span>  <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+	<span class="k">while</span><span class="p">(</span><span class="nx">i</span><span class="o">--</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!=</span> <span class="nx">obj</span><span class="p">){</span>
+			<span class="nx">newarr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="nx">newarr</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="原生拖拽">原生拖拽</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">dragEvent</span><span class="p">(</span><span class="nx">drag</span><span class="p">,</span><span class="nx">dbody</span><span class="p">){</span>   
+	<span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">()</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>
+	<span class="nx">drag</span><span class="p">.</span><span class="nx">onmousedown</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">event</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">pageX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollLeft</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">pageY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">;</span>   
+        <span class="kd">var</span> <span class="nx">bodyX</span> <span class="o">=</span> <span class="nx">pageX</span> <span class="o">-</span> <span class="nx">dbody</span><span class="p">.</span><span class="nx">offsetLeft</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">bodyY</span> <span class="o">=</span> <span class="nx">pageY</span> <span class="o">-</span> <span class="nx">dbody</span><span class="p">.</span><span class="nx">offsetTop</span><span class="p">;</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">()</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">event</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">pageX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollLeft</span><span class="p">;</span>
+            <span class="kd">var</span> <span class="nx">pageY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">;</span>
+            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">pageX</span> <span class="o">-</span> <span class="nx">bodyX</span> <span class="o">+</span> <span class="s2">"px"</span><span class="p">;</span>
+            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">pageY</span> <span class="o">-</span> <span class="nx">bodyY</span> <span class="o">+</span> <span class="s2">"px"</span><span class="p">;</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">()</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>
+
+        <span class="p">};</span>
+    <span class="p">};</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">onmouseup</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">onmousemove</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">};</span>
+<span class="p">};</span></code></pre></figure>
+
+<h4 id="判断是否有下级ul">判断是否有下级ul</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">haschildrenUL</span><span class="p">(</span><span class="nx">classname</span><span class="p">,</span><span class="nx">addclass</span><span class="p">){</span>
+	<span class="kd">var</span> <span class="nx">Userlistli</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="nx">classname</span><span class="p">);</span> 
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">z</span> <span class="o">&lt;</span> <span class="nx">Userlistli</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">z</span><span class="o">++</span> <span class="p">){</span>  
+		<span class="kd">var</span> <span class="nx">haschildrenUl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"ul"</span><span class="p">);</span>
+		<span class="k">if</span><span class="p">(</span> <span class="nx">haschildrenUl</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">){</span>
+			<span class="kd">var</span> <span class="nx">hasi</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"i"</span><span class="p">);</span>
+			<span class="nx">$</span><span class="p">(</span><span class="nx">hasi</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+			<span class="nx">$</span><span class="p">(</span><span class="nx">hasi</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">addclass</span><span class="p">);</span>
+		<span class="p">}</span>		 
+	<span class="p">}</span> 
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="判断是否谷歌浏览器">判断是否谷歌浏览器</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 判断是否谷歌浏览器
+ * @returns {Boolean}
+ */</span>
+<span class="kd">function</span> <span class="nx">isChrome</span><span class="p">(){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nb">navigator</span><span class="p">){</span>
+		<span class="kd">var</span> <span class="nx">userAgent</span> <span class="o">=</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">){</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"Chrome"</span><span class="p">)</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">){</span>
+				<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="往数组里面增加属性">往数组里面增加属性</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/**
+ * 往数组里面增加属性
+ * @param array
+ * @param dataType
+ */</span>
+<span class="kd">function</span> <span class="nx">addDataType</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span><span class="nx">dataType</span><span class="p">){</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">array</span><span class="p">){</span>
+		<span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">dataType</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="获取当前日期时间-格式yyyy-mm-dd-hhmmss">获取当前日期时间 格式”yyyy-MM-dd HH:MM:SS”</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//获取当前日期时间 格式"yyyy-MM-dd HH:MM:SS"</span>
+<span class="kd">function</span> <span class="nx">getNowFormatDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="s2">"-"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="s2">":"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">strDate</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">month</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">strDate</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strDate</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">strDate</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">var</span> <span class="nx">currentdata</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+    
+    <span class="k">return</span> <span class="nx">currentdata</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="获取当前日期前一个月时间-格式yyyy-mm-dd-hhmmss">获取当前日期前一个月时间 格式”yyyy-MM-dd HH:MM:SS”</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">getLastFormatDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="nx">date</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="s2">"-"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="s2">":"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">strDate</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">hours</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+	<span class="kd">var</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">month</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">strDate</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strDate</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">strDate</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	 <span class="k">if</span> <span class="p">(</span><span class="nx">hours</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">hours</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">hours</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">hours</span><span class="p">;</span>
+	<span class="p">}</span>
+	 <span class="k">if</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">seconds</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">seconds</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
+	<span class="p">}</span>
+	 <span class="k">if</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">minutes</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
+        <span class="nx">minutes</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">minutes</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="kd">var</span> <span class="nx">lastdata</span> <span class="o">=</span> <span class="nx">year</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
+    
+    <span class="k">return</span> <span class="nx">lastdata</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="随机生产6位数的数字">随机生产6位数的数字</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span>  <span class="nx">getUUidNum</span><span class="p">(){</span>
+    <span class="kd">var</span> <span class="nx">code</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="o">*</span><span class="mi">900000</span><span class="p">)</span><span class="o">+</span><span class="mi">100000</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">code</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="获取当天日期获取前n天的日期">获取当天日期，获取前n天的日期</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//获取当天日期</span>
+<span class="kd">function</span> <span class="nx">getCurrentDate</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">mon</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1">//获取前n天的日期</span>
+<span class="kd">function</span> <span class="nx">getBeforeDate</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">d</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">mon</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;=</span><span class="nx">n</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">mon</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">){</span>
+            <span class="nx">mon</span> <span class="o">=</span> <span class="nx">mon</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="nx">year</span> <span class="o">=</span> <span class="nx">year</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="nx">mon</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nx">d</span><span class="p">.</span><span class="nx">setDate</span><span class="p">(</span><span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">()</span><span class="o">-</span><span class="nx">n</span><span class="p">);</span>
+    <span class="nx">year</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
+    <span class="nx">mon</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="nx">day</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
+    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "/javascript/2018/07/17/js01.html";
+			this.page.identifier = "/javascript/2018/07/17/js01.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Browsersync浏览器同步测试工具
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Browsersync浏览器同步测试工具 | Drakecb</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Browsersync浏览器同步测试工具" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="当你在写静态文件的时候，重复刷新浏览器(F5)会感觉非常的繁琐。Browsersync解决了这些不必要的繁琐，它能让浏览器实时响应你对文件的修改并且可以自动为你刷新页面。如果你是一名前端开发者，这个东西我觉得是你的必备品。" />
+<meta property="og:description" content="当你在写静态文件的时候，重复刷新浏览器(F5)会感觉非常的繁琐。Browsersync解决了这些不必要的繁琐，它能让浏览器实时响应你对文件的修改并且可以自动为你刷新页面。如果你是一名前端开发者，这个东西我觉得是你的必备品。" />
+<meta property="og:site_name" content="Drakecb" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-05T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"当你在写静态文件的时候，重复刷新浏览器(F5)会感觉非常的繁琐。Browsersync解决了这些不必要的繁琐，它能让浏览器实时响应你对文件的修改并且可以自动为你刷新页面。如果你是一名前端开发者，这个东西我觉得是你的必备品。","@type":"BlogPosting","url":"/%E5%B7%A5%E5%85%B7/2018/06/05/Browsersync%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html","headline":"Browsersync浏览器同步测试工具","dateModified":"2018-06-05T00:00:00+08:00","datePublished":"2018-06-05T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"/%E5%B7%A5%E5%85%B7/2018/06/05/Browsersync%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      Browsersync浏览器同步测试工具
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-06-05 | 本文共 65 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><p>当你在写静态文件的时候，重复刷新浏览器(F5)会感觉非常的繁琐。Browsersync解决了这些不必要的繁琐，它能让浏览器实时响应你对文件的修改并且可以自动为你刷新页面。如果你是一名前端开发者，这个东西我觉得是你的必备品。</p>
+
+<p>要使用Browsersync，首先确保你的PC上已经安装了node.js和npm。</p>
+
+<p>第一步：全局安装 Browsersync</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g browser-sync
+</code></pre></div></div>
+
+<p>也可以结合gulpjs安装到项目</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install --save-dev browser-sync
+</code></pre></div></div>
+
+<p>第二步：启用 BrowserSync</p>
+
+<p>进入到你的某个项目目录下，比如有个名为test的项目，我们需要监听该羡慕下的css文件里面的style.css文件</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// --files 路径是相对于运行该命令的项目（目录）
+browser-sync start --server --files "css/*.css"
+</code></pre></div></div>
+
+<p>这条命令会让Browsersync启动一个小型服务器，并且在终端里会显示一条URL来让你查看你运行的页面。</p>
+
+<p>如果需要监听多个文件，我们只需要用英文状态下的逗号(“,”)隔开。比如我们还需要监听一个index.html文件可以这样来操作。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// --files 路径是相对于运行该命令的项目（目录）
+browser-sync start --server --files "css/*.css, *.html"
+// 如果你的文件层级比较深，您可以考虑使用 **（表示任意目录）匹配，任意目录下任意.css 或 .html文件。
+browser-sync start --server --files "**/*.css, **/*.html"
+</code></pre></div></div>
+
+<p><a href="https://github.com/BrowserSync/browser-sync">Browsersync Github</a></p>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "/%E5%B7%A5%E5%85%B7/2018/06/05/Browsersync%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html";
+			this.page.identifier = "/%E5%B7%A5%E5%85%B7/2018/06/05/Browsersync%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+
+    
+
+  </body>
+</html>
