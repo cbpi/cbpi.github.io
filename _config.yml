@@ -27,7 +27,7 @@ copyright_time: 2018
 # 标签页的 logo 及博客的头像，如果你想引用网络图片资源，就取消下面的注解，并填写图片资源的 url 地址
 # 或者，推荐的做法是将这两个图片资源下载到本地的 /assets/img/ 文件夹下，且图片名必须命名为 favicon 和 avatar
 favicon: /assets/img/favicon.ico
-avatar: /assets/img/avatar.webp
+avatar: /assets/img/avatar.jpeg
 # --- 网站信息设置 ---
 
 
