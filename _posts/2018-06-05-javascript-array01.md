@@ -3,11 +3,12 @@ layout: post
 title: 把数组对象相同的key值合并，并且把对应的id放到一个数组
 date: 2018-06-05
 category: JavaScript
+comments: true
 ---
 
 做项目的时候碰到一个问题，需要把返回数据拼接成不同的div列。碰上vpn近端时间被封，只能百度了。还不错找到了差不多的解决方法，下面贴一下js代码：
 
-```
+{% highlight javascript %}
     var old = [
 	   {
 	     id: 1,
@@ -62,7 +63,7 @@ category: JavaScript
 		    }
 		});
 	console.log(res);
-```
+{% endhighlight %}
 
 结合项目要求自己稍微改造了一下，把不同的type放入数组。转自[segmentfault.com](https://segmentfault.com/)
 

@@ -1,23 +1,46 @@
-# Site settings
-title: Drakecb的博客
-email: chenbo9018@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://cbpi.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
-star_array: [0, 1, 2, 3, 4]
+exclude:
+  - script
+  - docs
+  - vendor
 
-highlighter: rouge
+sass:
+  style: compressed
 
-Regeneration: -w
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "assets/img"
+    values:
+      image: true
 
-markdown: kramdown
+title: Drakecb
+name: Drakecb
+description: 从事前端，爱研究，爱猫
 
-paginate: 12
-paginate_path: "blog/page:num"
+github: https://github.com/cbpi
+twitter: https://twitter.com/pii0918
+weibo: https://weibo.com/bo0918
+email: chenbo9018@mail.com
 
-auto: true
+rss: true
+
+plugins:
+  - rouge
+  - kramdown
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jemoji
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  
+baidu_id: 96715dc203611cdcb5539a15664fe630
+
+google_id: UA-120619613-1

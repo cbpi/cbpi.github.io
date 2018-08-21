@@ -3,6 +3,7 @@ layout: post
 title: Github常用命令(陆续更新)
 date: 2018-06-05
 category: Git
+comments: true
 ---
 
 基本

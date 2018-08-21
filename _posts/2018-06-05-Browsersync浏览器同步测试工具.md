@@ -3,6 +3,7 @@ layout: post
 title: Browsersync浏览器同步测试工具
 date: 2018-06-05
 category: 工具
+comments: true
 ---
 
 当你在写静态文件的时候，重复刷新浏览器(F5)会感觉非常的繁琐。Browsersync解决了这些不必要的繁琐，它能让浏览器实时响应你对文件的修改并且可以自动为你刷新页面。如果你是一名前端开发者，这个东西我觉得是你的必备品。

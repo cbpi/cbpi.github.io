@@ -3,6 +3,7 @@ layout: post
 title: Github删除所有提交历史记录
 date: 2018-06-11
 category: Git
+comments: true
 ---
 
 1. 尝试 运行 git checkout --orphan latest_branch
