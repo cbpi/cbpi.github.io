@@ -7,6 +7,28 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>macOs mongo err</title>
+				
+				<description>&lt;p&gt;macOS使用homebrew更新MongoDB到4.0后启动MongoDB会有一个报错&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The data files need to be fully upgraded to version 3.6 before attempting an upgrade to 4.0; see http://dochub.mongodb.org/core/4.0-upgrade-fcv for more details
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;解决方案一&quot;&gt;解决方案一：&lt;/h4&gt;
+
+&lt;p&gt;打开终端，进入到&lt;code class=&quot;highlighter-rouge&quot;&gt;data/db&lt;/code&gt;目录，使用命令&lt;code class=&quot;highlighter-rouge&quot;&gt;rm -rf *&lt;/code&gt;（每当使用该命令时请谨慎小心，不可逆，不可逆，不可逆，重要的事情说三遍），删除&lt;code class=&quot;highlighter-rouge&quot;&gt;db&lt;/code&gt;目录下的所有文件，然后重亲启动MongoDB。&lt;/p&gt;
+
+&lt;h4 id=&quot;解决方案二&quot;&gt;解决方案二：&lt;/h4&gt;
+
+&lt;p&gt;重新下载一个3.6的MongoDB，降级！！！:smile:&lt;/p&gt;
+</description>
+				<pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</link>
+				<guid isPermaLink="true">http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</guid>
+			</item>
+		
+			<item>
 				<title>关于图片格式</title>
 				
 				<description>&lt;p&gt;WebP（发音weppy)，是一种同时提供了有损压缩与无损压缩（可逆压缩）的图片文件格式，派生自视频编码格式VP8，被认为是WebM多媒体格式的姊妹项目，是由Google在购买On2 Technologies后发展出来，以BSD授权条款发布。不过好像这种格式的图片在Safari和firefox浏览器下不被识别，可以用这个&lt;a href=&quot;https://cloudconvert.com/&quot;&gt;在线的图片转换工具&lt;/a&gt;来对图片进行格式转换。&lt;/p&gt;
@@ -1479,218 +1501,6 @@ A记录的记录值可以在终端里用’ping your.github.io’来获取，CNA
 				<pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
 				<link>http://localhost:4000/git/2018/06/11/Github-remove-history.html</link>
 				<guid isPermaLink="true">http://localhost:4000/git/2018/06/11/Github-remove-history.html</guid>
-			</item>
-		
-			<item>
-				<title>jekyll学习二(变量)</title>
-				
-				<description>&lt;blockquote&gt;
-  &lt;h3 id=&quot;全局变量&quot;&gt;全局变量&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;变量名&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;是否描述&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;site 的信息 以及 _config.yml 文件中的配置信息&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面专属的信息 + YAML 头文件信息。通过 YAML 头文件自定义的信息都可以在这里被获取&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;content&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;被 layout 包裹的那些 Post 或者 Page 渲染生成的内容。但是又没定义在 Post 或者 Page 文件中的变量。&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;每当 paginate 配置选项被设置了的时候，这个变量就可用了。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;site变量&quot;&gt;site变量&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;变量名&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;是否描述&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.time&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;当前的时间(当你运行Jekyll时的时间)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.pages&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有页面的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.posts&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;一个按时间逆序的文章列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.related_posts&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;如果当前被处理的页面是一个文章文件，那这个变量是一个包含了最多10篇相关文章的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.static_files&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有静态页面的列表，每个文件有三个属性：路径，修改时间，扩展名&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.html_pages&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有的html页面的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.collections&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有集合的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.data&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;包含从_data目录中的YAML文件加载的数据的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.documents&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;每个集合中的所有文档的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.categories.CATEGORY&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有在CATEGORY分类中的文章列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.tags.TAG&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有拥有TAG标签的文章的列表&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;site.[CONFIGURATION_DATA]&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;所有的通过命令行和 _config.yml 设置的变量都会存到这个 site 里面。 举例来说，如果你设置了 url: http://mysite.com 在你的配置文件中，那么在你的 Posts 和 Pages 里面，这个变量就被存储在了 site.url。Jekyll 并不会把对 _config.yml 做的改动放到 watch 模式，所以你每次都要重启 Jekyll 来让你的变动生效。&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;page变量&quot;&gt;page变量&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;变量名&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;是否描述&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.content&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面中渲染的内容&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.title&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面标题&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.excerpt&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面摘要&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.url&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面URL(除去域名)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.date&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;指定每一篇文章的时间，这个选项能够覆盖一篇文章中前置数据设置的时间，它的格式是这样的:YYYY-MM-DD HH:MM:SS&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.id&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;每一篇文章的唯一标示符(在RSS中非常有用)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.categories&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;这篇文章隶属的分类的一个列表，分类是通过在_post目录中的目录结构推导而来的&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.tags&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;这篇文章的标签的列表。这些数据能够在YAML前置数据中指定&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.path&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;页面的源码地址&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.next&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;按时间序的下一篇文章&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;page.previous&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;按时间序的上一篇文章&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;paginator变量&quot;&gt;paginator变量&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;变量名&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;是否描述&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.per_page&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;每一页Posts的数量&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.posts&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;这一页可用的Posts&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.total_posts&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Posts 的总数&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.total_pages&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Pages 的总数&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.page&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;当前页号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.previous_page&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前一页的页号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.previous_page_path&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;前一页的地址&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.next_page&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;下一页的页号&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paginator.next_page_path&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;下一页的地址&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-</description>
-				<pubDate>Sat, 09 Jun 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/jekyll/2018/06/09/jekyll02.html</link>
-				<guid isPermaLink="true">http://localhost:4000/jekyll/2018/06/09/jekyll02.html</guid>
 			</item>
 		
 	</channel>
