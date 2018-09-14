@@ -7,6 +7,48 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>如何在内网使用vue-cli</title>
+				
+				<description>&lt;h2 id=&quot;现有工具&quot;&gt;现有工具&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;一台没有网络环境的windows7 64位pc&lt;/li&gt;
+  &lt;li&gt;一台可以连接互联网的windows10 64位pc&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;步骤&quot;&gt;步骤&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;（此步骤在有网pc上操作） &lt;br /&gt;
+有网电脑上登陆&lt;a href=&quot;http://nodejs.cn&quot;&gt;Node.js 中文&lt;/a&gt;、&lt;a href=&quot;https://nodejs.org/&quot;&gt;Node.js 英文&lt;/a&gt;官网，下载对应操作系统的安装文件，文件下载好后下一步下一步无限下一步直到安装完成为止。使用(win+r)，输入cmd打开命令行界面，在命令行界面里面输入&lt;code class=&quot;highlighter-rouge&quot;&gt;node -v&lt;/code&gt;如果输出版本信息，说明nodejs安装成功，&lt;code class=&quot;highlighter-rouge&quot;&gt;npm -v&lt;/code&gt; 会返回npm的版本信息。到此为止有网下的node环境已经安装好了，接下来我们进入我的电脑-&amp;gt;c:盘-&amp;gt;用户-&amp;gt;你的用户名文件夹-&amp;gt;AppData(这个文件夹默认隐藏的，需要在查看，显示隐藏项目里面打钩开启才能看见)-&amp;gt;Roaming-&amp;gt;npm，此时这个文件夹下面是空的。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;（此步骤在有网pc上操作） &lt;br /&gt;
+因为vue-cli只能用npm安装，打开命令行界面，输入&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install -g @vue/cli&lt;/code&gt;全局安装，漫长的等待过后，我们继续回到第一个步骤的最终路径下面，发现此时npm文件加下已经有东西了。（刚装完node.js这个目录下是空的）&lt;img src=&quot;http://pdfetjd6h.bkt.clouddn.com/IMG_1234.PNG&quot; alt=&quot;image&quot; /&gt; &lt;br /&gt;
+&lt;img src=&quot;http://pdfetjd6h.bkt.clouddn.com/IMG_1235.PNG&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;（此步骤在有网pc上操作）
+    &lt;blockquote&gt;
+      &lt;ul&gt;
+        &lt;li&gt;将步骤1.中的node.js安装文件拷贝至U盘&lt;/li&gt;
+        &lt;li&gt;将步骤1.中的npm目录整个拷贝到U盘&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;（此步骤在无网pc上操作） &lt;br /&gt;
+将U盘插在无网pc上，取出步骤3.中的2个文件，首先安装node环境，安装完成后，参考步骤1.中的路径将npm文件夹拷贝到相应路径下。到此无网pc中的node环境也已经搭建好了。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在有网环境下用vue-cli创建一个项目，安装所有依赖，安装完成后将项目整个拷贝至无网pc中，这样就可以愉快的在无网环境下做开发了。如果开发过程中还需用到node模块，只需在有网环境中先安装依赖包，然后再拷贝至无网pc中运行就可以了，整个步骤可以重复，保证一点：&lt;strong&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;拷贝过程是将项目的整个目录拷贝过去&lt;/code&gt;&lt;/strong&gt;。（ps：如果开发系统不同，比如在macOS下使用vue-cli创建的项目，需要先拷贝至同操作系统的有网pc，然后先删除项目中的node_modules，接着执行&lt;code class=&quot;highlighter-rouge&quot;&gt;npm install&lt;/code&gt;命令，待所有依赖包都安装结束后再把这个项目目录拷贝到无网pc中，这样做是是为了防止不同操作系统运行&lt;code class=&quot;highlighter-rouge&quot;&gt;vue-cli-service serve&lt;/code&gt;会报不是内部命令的错误）。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+				<pubDate>Fri, 14 Sep 2018 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/vue/2018/09/14/use-vue-cli-offline.html</link>
+				<guid isPermaLink="true">http://localhost:4000/vue/2018/09/14/use-vue-cli-offline.html</guid>
+			</item>
+		
+			<item>
 				<title>macOs mongo err</title>
 				
 				<description>&lt;p&gt;macOS使用homebrew更新MongoDB到4.0后启动MongoDB会有一个报错&lt;/p&gt;
@@ -1472,35 +1514,6 @@ A记录的记录值可以在终端里用’ping your.github.io’来获取，CNA
 				<pubDate>Tue, 12 Jun 2018 00:00:00 +0800</pubDate>
 				<link>http://localhost:4000/jekyll/2018/06/12/jekyll03.html</link>
 				<guid isPermaLink="true">http://localhost:4000/jekyll/2018/06/12/jekyll03.html</guid>
-			</item>
-		
-			<item>
-				<title>Github删除所有提交历史记录</title>
-				
-				<description>&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;尝试 运行 git checkout –orphan latest_branch&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;添加所有文件git add -A&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;提交更改git commit -am “commit message”&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;删除分支git branch -D master&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;将当前分支重命名git branch -m master&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;最后，强制更新存储库。git push -f origin master&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-				<pubDate>Mon, 11 Jun 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/git/2018/06/11/Github-remove-history.html</link>
-				<guid isPermaLink="true">http://localhost:4000/git/2018/06/11/Github-remove-history.html</guid>
 			</item>
 		
 	</channel>
