@@ -92,7 +92,7 @@ var _hmt = _hmt || [];
       </p>
 
       <div class="article-title-description">
-        <p>发表于 2018-07-17 | 本文共 3081 字</p>
+        <p>发表于 2018-07-17 | 本文共 3150 字</p>
       </div>
     </header>
 
@@ -571,6 +571,16 @@ var _hmt = _hmt || [];
 	<span class="nx">$</span><span class="p">(</span><span class="s1">'html, body'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="mi">800</span><span class="p">);</span>
 	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 <span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="获取一个对象的长度">获取一个对象的长度</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+** Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 。
+** 语法 Object.keys(obj)
+*/</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span> <span class="c1">// console: ['0', '1', '2']</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">).</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// console: 3</span>
 </code></pre></div></div>
 </p>
 
