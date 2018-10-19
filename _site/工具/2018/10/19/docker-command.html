@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      
+        Docker常用命令
+      
+    </title>
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    
+<link rel="shortcut icon" href="/assets/img/favicon.ico" />
+<link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+
+
+
+    <link rel="stylesheet" href="/assets/css/post.css">
+    <link rel="stylesheet" href="/assets/css/prism.css">
+    
+    <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
+    
+    <link rel="stylesheet" href="/assets/css/markdown.css">
+    <!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Docker常用命令 | Drakecb的博客</title>
+<meta name="generator" content="Jekyll v3.8.3" />
+<meta property="og:title" content="Docker常用命令" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="列举docker里面常用的一些命令，镜像操作，容器操作等等。" />
+<meta property="og:description" content="列举docker里面常用的一些命令，镜像操作，容器操作等等。" />
+<link rel="canonical" href="http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html" />
+<meta property="og:url" content="http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html" />
+<meta property="og:site_name" content="Drakecb的博客" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-10-19T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<script type="application/ld+json">
+{"description":"列举docker里面常用的一些命令，镜像操作，容器操作等等。","@type":"BlogPosting","url":"http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html","headline":"Docker常用命令","dateModified":"2018-10-19T00:00:00+08:00","datePublished":"2018-10-19T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?96715dc203611cdcb5539a15664fe630";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120619613-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-120619613-1');
+</script>
+
+
+
+
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+  <a href="/articles">
+    
+      Docker常用命令
+    
+  </a>
+  <span class="title-tip">返回首页</span>
+</div>
+
+      <p id="author" style="display: none">
+        
+        Drakecb
+        
+      </p>
+
+      <div class="article-title-description">
+        <p>发表于 2018-10-19 | 本文共 567 字</p>
+      </div>
+    </header>
+
+    
+<div class="page-content">
+  <div class="content" id="post-content">
+    <p><blockquote>
+  <p>根据搜索的文献，官网的文档，列举了使用docker时常用的一些命令</p>
+</blockquote>
+
+<h3 id="查看docker基本信息">查看docker基本信息</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">docker</span> <span class="o">--</span><span class="nx">version</span>                <span class="err">#查看版本</span>
+<span class="nx">docker</span><span class="o">-</span><span class="nx">compose</span> <span class="o">--</span><span class="nx">version</span>        <span class="err">#查看版本</span>
+<span class="nx">docker</span><span class="o">-</span><span class="nx">machine</span> <span class="o">--</span><span class="nx">version</span>        <span class="err">#查看版本</span>
+<span class="nx">docker</span> <span class="nx">version</span>                  <span class="err">#查看</span><span class="nx">client</span><span class="err">和</span><span class="nx">server</span><span class="err">端版本，并可以查看是否开启体验功能</span>
+<span class="nx">docker</span> <span class="nx">info</span>                     <span class="err">#显示</span><span class="nx">docker</span><span class="err">系统的信息</span>
+<span class="nx">docker</span> <span class="nx">logs</span>                     <span class="err">#日志信息</span>
+<span class="nx">service</span> <span class="nx">docker</span> <span class="nx">status</span>           <span class="err">#故障检查</span>
+<span class="nx">sudo</span> <span class="nx">service</span> <span class="nx">docker</span> <span class="nx">start</span><span class="o">|</span><span class="nx">stop</span>  <span class="err">#启动关闭</span><span class="nx">docker</span>
+</code></pre></div></div>
+
+<h3 id="检查">检查</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">docker</span> <span class="nx">ps</span>                            <span class="err">#查看当前正在运行的</span><span class="nx">image</span><span class="err">实例</span>
+<span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span>                         <span class="err">#查看所有镜像实例</span>
+<span class="nx">docker</span> <span class="nx">run</span> <span class="nx">hello</span><span class="o">-</span><span class="nx">world</span>               <span class="err">#验证</span><span class="nx">docker</span><span class="err">是否在运行中</span>
+<span class="nx">docker</span> <span class="nx">inspect</span> <span class="o">&lt;</span><span class="nx">task</span> <span class="nx">or</span> <span class="nx">container</span><span class="o">&gt;</span>   <span class="err">#检查任务或容器</span>
+</code></pre></div></div>
+
+<h3 id="镜像image操作">镜像(image)操作</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">docker</span> <span class="nx">build</span> <span class="o">-</span><span class="nx">t</span> <span class="o">&lt;</span><span class="nx">image</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">.</span>                      <span class="err">#使用当前目录下的</span><span class="nx">Dockerfile</span><span class="err">构建镜像</span>
+<span class="nx">docker</span> <span class="nx">images</span>                                       <span class="err">#查看镜像</span>
+<span class="nx">docker</span> <span class="nx">image</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">a</span>                                  <span class="err">#显示机器上所有的镜像</span>
+<span class="nx">docker</span> <span class="nx">image</span> <span class="nx">rm</span> <span class="o">&lt;</span><span class="nx">image</span> <span class="nx">id</span><span class="o">&gt;</span>                          <span class="err">#删除指定的镜像</span>
+<span class="nx">docker</span> <span class="nx">image</span> <span class="nx">rm</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">image</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>            <span class="err">#删除所有的镜像</span>
+<span class="nx">docker</span> <span class="nx">rmi</span> <span class="p">[</span><span class="nx">image</span><span class="o">-</span><span class="nx">id</span><span class="o">/</span><span class="nx">image</span><span class="o">-</span><span class="nx">name</span><span class="p">]</span>                    <span class="err">#删除指定的镜像，如</span><span class="nx">docker</span> <span class="nx">rmi</span> <span class="nx">nginx</span>
+<span class="nx">docker</span> <span class="nx">tag</span> <span class="o">&lt;</span><span class="nx">image</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nx">username</span><span class="o">&gt;</span><span class="sr">/&lt;repository&gt;:&lt;tag&gt;    #为自定义的镜像打上tag。如：$docker tag hellopython followtry/</span><span class="nx">demo</span><span class="p">:</span><span class="nx">latest</span>
+<span class="nx">docker</span> <span class="nx">push</span> <span class="o">&lt;</span><span class="nx">username</span><span class="o">&gt;</span><span class="sr">/&lt;repository&gt;:&lt;tag&gt;           #将自定义的镜像发布到仓库。如：docker push followtry/</span><span class="nx">demo</span><span class="p">:</span><span class="nx">latest</span>
+    <span class="err">上传后访问地址：</span><span class="nx">https</span><span class="p">:</span><span class="c1">//cloud.docker.com/swarm/followtry/repository/docker/followtry/demo/general</span>
+<span class="nx">docker</span> <span class="nx">pull</span> <span class="o">&lt;</span><span class="nx">username</span><span class="o">&gt;</span><span class="sr">/&lt;repository&gt;                 #pull自定义的上传上去的镜像。如：$docker pull followtry/</span><span class="nx">demo</span>
+<span class="nx">docker</span> <span class="nx">run</span> <span class="nx">username</span><span class="o">/</span><span class="nx">repository</span><span class="p">:</span><span class="nx">tag</span>                  <span class="err">#运行仓库的镜像</span>
+</code></pre></div></div>
+
+<h3 id="容器container操作">容器(container)操作</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">docker</span> <span class="nx">container</span> <span class="nx">ls</span>                                <span class="err">#列出所有运行中的容器</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">a</span>                             <span class="err">#列出所有容器，包括未运行的</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">q</span>                              <span class="err">#只列出运行的容器的</span><span class="nx">id</span><span class="err">集合</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">stop</span> <span class="o">&lt;</span><span class="nx">hash</span><span class="o">&gt;</span>                       <span class="err">#优雅停用指定的容器</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">kill</span> <span class="o">&lt;</span><span class="nx">hash</span><span class="o">&gt;</span>                       <span class="err">#强制关闭指定的容器</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">rm</span> <span class="o">&lt;</span><span class="nx">hash</span><span class="o">&gt;</span>                         <span class="err">#删除指定的容器</span>
+<span class="nx">docker</span> <span class="nx">container</span> <span class="nx">rm</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">container</span> <span class="nx">ls</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>   <span class="err">#删除所有的容器</span>
+<span class="nx">docker</span> <span class="nx">run</span> <span class="o">-</span><span class="nx">d</span> <span class="o">-</span><span class="nx">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">80</span> <span class="o">--</span><span class="nx">name</span> <span class="nx">webserver</span> <span class="nx">nginx</span>    <span class="err">#运行</span><span class="nx">nginx</span><span class="err">镜像实例，</span><span class="o">-</span><span class="nx">d</span><span class="err">：后台，</span><span class="o">-</span><span class="nx">p</span><span class="p">:</span><span class="err">绑定端口</span><span class="mi">8080</span><span class="err">到</span><span class="nx">docker</span><span class="err">的</span><span class="mi">80</span>
+<span class="nx">docker</span> <span class="nx">stop</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>           <span class="err">#停止容器</span><span class="nx">webserver</span>
+<span class="nx">docker</span> <span class="nx">start</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>          <span class="err">#启动容器</span><span class="nx">webserver</span>
+<span class="nx">docker</span> <span class="nx">port</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>           <span class="err">#查看指定容器的端口映射</span>
+<span class="nx">docker</span> <span class="nx">logs</span> <span class="o">-</span><span class="nx">f</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>        <span class="err">#查看指定容器的日志</span>
+<span class="nx">docker</span> <span class="nx">top</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>            <span class="err">#查看容器的进程</span>
+<span class="nx">docker</span> <span class="nx">inspect</span> <span class="o">&lt;</span><span class="nx">containerid</span><span class="o">/</span><span class="nx">container</span><span class="o">-</span><span class="nx">name</span><span class="o">&gt;</span>        <span class="err">#检查容器的底层信息</span>
+<span class="nx">docker</span> <span class="nx">rm</span> <span class="o">&lt;</span><span class="nx">hash</span><span class="o">&gt;</span>                                   <span class="err">#从此机器中删除指定的容器</span>
+<span class="nx">docker</span> <span class="nx">rm</span> <span class="nx">$</span><span class="p">(</span><span class="nx">docker</span> <span class="nx">ps</span> <span class="o">-</span><span class="nx">a</span> <span class="o">-</span><span class="nx">q</span><span class="p">)</span>                       <span class="err">#从此机器中删除所有容器</span>
+<span class="nx">docker</span> <span class="nx">kill</span> <span class="o">&lt;</span><span class="nx">hash</span><span class="o">&gt;</span>                                 <span class="err">#强制关闭指定的容器</span>
+</code></pre></div></div>
+<p>参考文献 <a href="https://docs.docker-cn.com/">https://docs.docker-cn.com/</a> <br />
+参考文献 <a href="https://segmentfault.com/a/1190000012063374">Docker常用命令</a></p>
+</p>
+
+
+
+      <hr>
+      <div id="btn-show-comment">
+        <div onclick="showComment()">显示评论</div>
+      </div>
+      <div id="comment" style="display: none">
+		<div id="disqus_thread"></div>
+		<script>
+
+		/**
+		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+		/*
+		var disqus_config = function () {
+		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+		};
+		*/
+		var disqus_config = function () {
+			this.page.url = "http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html";
+			this.page.identifier = "/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html";
+		};
+
+		(function() { // DON'T EDIT BELOW THIS LINE
+		var d = document, s = d.createElement('script');
+		s.src = 'https://cbpi.disqus.com/embed.js';
+		s.setAttribute('data-timestamp', +new Date());
+		(d.head || d.body).appendChild(s);
+		})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+
+
+    <script>
+      function showComment() {
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
+        }
+      }
+      function showReward() {
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        } else {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+        }
+      }
+    </script>
+  </div>
+</div>
+
+    <footer><section class="copyright">
+  <p>Copyright &copy; 2018 Drakecb | Power by
+    <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
+     | Theme
+     <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
+  </p>
+</section>
+</footer>
+
+
+    <script src="/assets/js/prism.js"></script>
+    
+    <script src="/assets/js/prism-line-numbers.js"></script>
+    
+    <script src="/assets/js/link_target.js"></script>
+
+    
+    
+    <script src="/assets/js/copy_with_declaration.js"></script>
+    
+
+    
+
+<div style="display: none">
+  <script src="https://s22.cnzz.com/z_stat.php?id=1274506488&web_id=1274506488"
+   language="JavaScript"></script>
+</div>
+
+
+
+
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Back to Top End -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script>
+    /* Scroll To Top */
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() >= 500) {
+        $('.scroll-to-top').fadeIn();
+      } else {
+        $('.scroll-to-top').fadeOut();
+      }
+    });
+
+
+    $('.scroll-to-top').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
+      return false;
+    });
+    </script>
+  </body>
+</html>
