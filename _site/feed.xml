@@ -7,6 +7,950 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Git飞行规则(Flight Rules)</title>
+				
+				<description>&lt;p&gt;&lt;a href=&quot;https://gitter.im/k88hudson/git-flight-rules?utm_source=badge&amp;amp;utm_medium=badge&amp;amp;utm_campaign=pr-badge&amp;amp;utm_content=badge&quot;&gt;&lt;img src=&quot;https://badges.gitter.im/Join%20Chat.svg&quot; alt=&quot;Join the chat at https://gitter.im/k88hudson/git-flight-rules&quot; /&gt;&lt;/a&gt;
+&lt;!-- START doctoc generated TOC please keep comment here to allow auto update --&gt;
+&lt;!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE --&gt;
+&lt;strong&gt;Table of Contents&lt;/strong&gt;  &lt;em&gt;generated with &lt;a href=&quot;https://github.com/thlorenz/doctoc&quot;&gt;DocToc&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits&quot;&gt;编辑提交(editting commits)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E5%88%9A%E6%89%8D%E6%8F%90%E4%BA%A4%E4%BA%86%E4%BB%80%E4%B9%88&quot;&gt;我刚才提交了什么?&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AFcommit-message%E5%86%99%E9%94%99%E4%BA%86&quot;&gt;我的提交信息(commit message)写错了&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%8F%90%E4%BA%A4commit%E9%87%8C%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E9%82%AE%E7%AE%B1%E4%B8%8D%E5%AF%B9&quot;&gt;我提交(commit)里的用户名和邮箱不对&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%BB%8E%E4%B8%80%E4%B8%AA%E6%8F%90%E4%BA%A4commit%E9%87%8C%E7%A7%BB%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6&quot;&gt;我想从一个提交(commit)里移除一个文件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E5%88%A0%E9%99%A4%E6%88%91%E7%9A%84%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4commit&quot;&gt;我想删除我的的最后一次提交(commit)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E5%88%A0%E9%99%A4%E4%BB%BB%E6%84%8F%E6%8F%90%E4%BA%A4commit&quot;&gt;删除任意提交(commit)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E5%B0%9D%E8%AF%95%E6%8E%A8%E4%B8%80%E4%B8%AA%E4%BF%AE%E6%AD%A3%E5%90%8E%E7%9A%84%E6%8F%90%E4%BA%A4amended-commit%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BD%86%E6%98%AF%E6%8A%A5%E9%94%99&quot;&gt;我尝试推一个修正后的提交(amended commit)到远程，但是报错：&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%84%8F%E5%A4%96%E7%9A%84%E5%81%9A%E4%BA%86%E4%B8%80%E6%AC%A1%E7%A1%AC%E9%87%8D%E7%BD%AEhard-reset%E6%88%91%E6%83%B3%E6%89%BE%E5%9B%9E%E6%88%91%E7%9A%84%E5%86%85%E5%AE%B9&quot;&gt;我意外的做了一次硬重置(hard reset)，我想找回我的内容&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E6%9A%82%E5%AD%98staging&quot;&gt;暂存(Staging)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E9%9C%80%E8%A6%81%E6%8A%8A%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9%E6%B7%BB%E5%8A%A0%E5%88%B0%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84%E6%8F%90%E4%BA%A4commit&quot;&gt;我需要把暂存的内容添加到上一次的提交(commit)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E8%A6%81%E6%9A%82%E5%AD%98%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86%E8%80%8C%E4%B8%8D%E6%98%AF%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%85%A8%E9%83%A8&quot;&gt;我想要暂存一个新文件的一部分，而不是这个文件的全部&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%8A%8A%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E9%87%8C%E7%9A%84%E5%8F%98%E5%8C%96changes%E5%8A%A0%E5%88%B0%E4%B8%A4%E4%B8%AA%E6%8F%90%E4%BA%A4commit%E9%87%8C&quot;&gt;我想把在一个文件里的变化(changes)加到两个提交(commit)里&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%8A%8A%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9%E5%8F%98%E6%88%90%E6%9C%AA%E6%9A%82%E5%AD%98%E6%8A%8A%E6%9C%AA%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9%E6%9A%82%E5%AD%98%E8%B5%B7%E6%9D%A5&quot;&gt;我想把暂存的内容变成未暂存，把未暂存的内容暂存起来&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E6%9C%AA%E6%9A%82%E5%AD%98unstaged%E7%9A%84%E5%86%85%E5%AE%B9&quot;&gt;未暂存(Unstaged)的内容&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%8A%8A%E6%9C%AA%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9%E7%A7%BB%E5%8A%A8%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E5%88%86%E6%94%AF&quot;&gt;我想把未暂存的内容移动到一个新分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%8A%8A%E6%9C%AA%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9%E7%A7%BB%E5%8A%A8%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9A%84%E5%88%86%E6%94%AF&quot;&gt;我想把未暂存的内容移动到另一个已存在的分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84%E5%8F%98%E5%8C%96uncommitted-changes&quot;&gt;我想丢弃本地未提交的变化(uncommitted changes)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%B8%A2%E5%BC%83%E6%9F%90%E4%BA%9B%E6%9C%AA%E6%9A%82%E5%AD%98%E7%9A%84%E5%86%85%E5%AE%B9&quot;&gt;我想丢弃某些未暂存的内容&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E5%88%86%E6%94%AFbranches&quot;&gt;分支(Branches)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E4%BB%8E%E9%94%99%E8%AF%AF%E7%9A%84%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96%E4%BA%86%E5%86%85%E5%AE%B9%E6%88%96%E6%8A%8A%E5%86%85%E5%AE%B9%E6%8B%89%E5%8F%96%E5%88%B0%E4%BA%86%E9%94%99%E8%AF%AF%E7%9A%84%E5%88%86%E6%94%AF&quot;&gt;我从错误的分支拉取了内容，或把内容拉取到了错误的分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%89%94%E6%8E%89%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%8F%90%E4%BA%A4commit%E4%BB%A5%E4%BE%BF%E6%88%91%E7%9A%84%E5%88%86%E6%94%AF%E4%B8%8E%E8%BF%9C%E7%A8%8B%E7%9A%84%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4&quot;&gt;我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E9%9C%80%E8%A6%81%E6%8F%90%E4%BA%A4%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E5%88%86%E6%94%AF%E4%BD%86%E9%94%99%E8%AF%AF%E7%9A%84%E6%8F%90%E4%BA%A4%E5%88%B0%E4%BA%86master&quot;&gt;我需要提交到一个新分支，但错误的提交到了master&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%BF%9D%E7%95%99%E6%9D%A5%E8%87%AA%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AAref-ish%E7%9A%84%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6&quot;&gt;我想保留来自另外一个ref-ish的整个文件&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%8A%8A%E5%87%A0%E4%B8%AA%E6%8F%90%E4%BA%A4commit%E6%8F%90%E4%BA%A4%E5%88%B0%E4%BA%86%E5%90%8C%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%E8%80%8C%E8%BF%99%E4%BA%9B%E6%8F%90%E4%BA%A4%E5%BA%94%E8%AF%A5%E5%88%86%E5%B8%83%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%86%E6%94%AF%E9%87%8C&quot;&gt;我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E5%88%A0%E9%99%A4%E4%B8%8A%E6%B8%B8upstream%E5%88%86%E6%94%AF%E8%A2%AB%E5%88%A0%E9%99%A4%E4%BA%86%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF&quot;&gt;我想删除上游(upstream)分支被删除了的本地分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E4%B8%8D%E5%B0%8F%E5%BF%83%E5%88%A0%E9%99%A4%E4%BA%86%E6%88%91%E7%9A%84%E5%88%86%E6%94%AF&quot;&gt;我不小心删除了我的分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF&quot;&gt;我想删除一个分支&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%BB%8E%E5%88%AB%E4%BA%BA%E6%AD%A3%E5%9C%A8%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%AD%BE%E5%87%BAcheckout%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF&quot;&gt;我想从别人正在工作的远程分支签出(checkout)一个分支&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rebasing-%E5%92%8C%E5%90%88%E5%B9%B6merging&quot;&gt;Rebasing 和合并(Merging)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E6%92%A4%E9%94%80rebasemerge&quot;&gt;我想撤销rebase/merge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E5%B7%B2%E7%BB%8Frebase%E8%BF%87-%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E6%83%B3%E5%BC%BA%E6%8E%A8force-push&quot;&gt;我已经rebase过, 但是我不想强推(force push)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E9%9C%80%E8%A6%81%E7%BB%84%E5%90%88combine%E5%87%A0%E4%B8%AA%E6%8F%90%E4%BA%A4commit&quot;&gt;我需要组合(combine)几个提交(commit)&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#%E5%AE%89%E5%85%A8%E5%90%88%E5%B9%B6merging%E7%AD%96%E7%95%A5&quot;&gt;安全合并(merging)策略&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E9%9C%80%E8%A6%81%E5%B0%86%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E6%88%90%E4%B8%80%E4%B8%AA%E6%8F%90%E4%BA%A4commit&quot;&gt;我需要将一个分支合并成一个提交(commit)&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E5%8F%AA%E6%83%B3%E7%BB%84%E5%90%88combine%E6%9C%AA%E6%8E%A8%E7%9A%84%E6%8F%90%E4%BA%A4unpushed-commit&quot;&gt;我只想组合(combine)未推的提交(unpushed commit)&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%88%86%E6%94%AF%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E6%8F%90%E4%BA%A4commit%E9%83%BD%E5%90%88%E5%B9%B6merge%E8%BF%87%E4%BA%86&quot;&gt;检查是否分支上的所有提交(commit)都合并(merge)过了&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E4%BA%A4%E4%BA%92%E5%BC%8Frebaseinteractive-rebase%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98&quot;&gt;交互式rebase(interactive rebase)可能出现的问题&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#%E8%BF%99%E4%B8%AArebase-%E7%BC%96%E8%BE%91%E5%B1%8F%E5%B9%95%E5%87%BA%E7%8E%B0noop&quot;&gt;这个rebase 编辑屏幕出现’noop’&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5&quot;&gt;有冲突的情况&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E6%9D%82%E9%A1%B9miscellaneous-objects&quot;&gt;杂项(Miscellaneous Objects)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E5%85%8B%E9%9A%86%E6%89%80%E6%9C%89%E5%AD%90%E6%A8%A1%E5%9D%97&quot;&gt;克隆所有子模块&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BEtag&quot;&gt;删除标签(tag)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%81%A2%E5%A4%8D%E5%B7%B2%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BEtag&quot;&gt;恢复已删除标签(tag)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E5%B7%B2%E5%88%A0%E9%99%A4%E8%A1%A5%E4%B8%81patch&quot;&gt;已删除补丁(patch)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6tracking-files&quot;&gt;跟踪文件(Tracking Files)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E5%8F%AA%E6%83%B3%E6%94%B9%E5%8F%98%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%90%8D%E5%AD%97%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E8%80%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9&quot;&gt;我只想改变一个文件名字的大小写，而不修改内容&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E4%BB%8Egit%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%BD%86%E4%BF%9D%E7%95%99%E8%AF%A5%E6%96%87%E4%BB%B6&quot;&gt;我想从Git删除一个文件，但保留该文件&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E9%85%8D%E7%BD%AEconfiguration&quot;&gt;配置(Configuration)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E7%BB%99%E4%B8%80%E4%BA%9Bgit%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E5%88%AB%E5%90%8Dalias&quot;&gt;我想给一些Git命令添加别名(alias)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E6%83%B3%E7%BC%93%E5%AD%98%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93repository%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81&quot;&gt;我想缓存一个仓库(repository)的用户名和密码&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E6%88%91%E4%B8%8D%E7%9F%A5%E9%81%93%E6%88%91%E5%81%9A%E9%94%99%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88&quot;&gt;我不知道我做错了些什么&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#%E5%85%B6%E5%AE%83%E8%B5%84%E6%BA%90other-resources&quot;&gt;其它资源(Other Resources)&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E4%B9%A6books&quot;&gt;书(Books)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E6%95%99%E7%A8%8Btutorials&quot;&gt;教程(Tutorials)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#%E8%84%9A%E6%9C%AC%E5%92%8C%E5%B7%A5%E5%85%B7scripts-and-tools&quot;&gt;脚本和工具(Scripts and Tools)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#gui%E5%AE%A2%E6%88%B7%E7%AB%AFgui-clients&quot;&gt;GUI客户端(GUI Clients)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- END doctoc generated TOC please keep comment here to allow auto update --&gt;
+
+&lt;h2 id=&quot;编辑提交editting-commits&quot;&gt;编辑提交(editting commits)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a name=&quot;diff-last&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我刚才提交了什么&quot;&gt;我刚才提交了什么?&lt;/h3&gt;
+
+&lt;p&gt;如果你用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git commit -a&lt;/code&gt; 提交了一次变化(changes)，而你又不确定到底这次提交了哪些内容。 你就可以用下面的命令显示当前&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD&lt;/code&gt;上的最近一次的提交(commit):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git show
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或者&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;-n1&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;#i-wrote-the-wrong-thing-in-a-commit-message&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我的提交信息commit-message写错了&quot;&gt;我的提交信息(commit message)写错了&lt;/h3&gt;
+
+&lt;p&gt;如果你的提交信息(commit message)写错了且这次提交(commit)还没有推(push), 你可以通过下面的方法来修改提交信息(commit message):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--only&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这会打开你的默认编辑器, 在这里你可以编辑信息. 另一方面, 你也可以用一条命令一次完成:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--only&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'xxxxxxx'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你已经推(push)了这次提交(commit), 你可以修改这次提交(commit)然后强推(force push), 但是不推荐这么做。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;commit-wrong-author&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我提交commit里的用户名和邮箱不对&quot;&gt;我提交(commit)里的用户名和邮箱不对&lt;/h3&gt;
+
+&lt;p&gt;如果这只是单个提交(commit)，修改它：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--author&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Authorname &amp;lt;authoremail@mydomain.com&amp;gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你需要修改所有历史, 参考 ‘git filter-branch’的指南页.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#i-want-to-remove-a-file-from-a-commit&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想从一个提交commit里移除一个文件&quot;&gt;我想从一个提交(commit)里移除一个文件&lt;/h3&gt;
+
+&lt;p&gt;通过下面的方法，从一个提交(commit)里移除一个文件:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout HEAD^ myfile
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这将非常有用，当你有一个开放的补丁(open patch)，你往上面提交了一个不必要的文件，你需要强推(force push)去更新这个远程补丁。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;delete-pushed-commit&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想删除我的的最后一次提交commit&quot;&gt;我想删除我的的最后一次提交(commit)&lt;/h3&gt;
+
+&lt;p&gt;如果你需要删除推了的提交(pushed commits)，你可以使用下面的方法。可是，这会不可逆的改变你的历史，也会搞乱那些已经从该仓库拉取(pulled)了的人的历史。简而言之，如果你不是很确定，千万不要这么做。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset HEAD^ &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;remote] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;branch]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你还没有推到远程, 把Git重置(reset)到你最后一次提交前的状态就可以了(同时保存暂存的变化):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(my-branch*)$ git reset --soft HEAD@{1}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这只能在没有推送之前有用. 如果你已经推了, 唯一安全能做的是 &lt;code class=&quot;highlighter-rouge&quot;&gt;git revert SHAofBadCommit&lt;/code&gt;， 那会创建一个新的提交(commit)用于撤消前一个提交的所有变化(changes)； 或者, 如果你推的这个分支是rebase-safe的 (例如： 其它开发者不会从这个分支拉), 只需要使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git push -f&lt;/code&gt;； 更多, 请参考 &lt;a href=&quot;#deleteremove-last-pushed-commit&quot;&gt;the above section&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;delete-any-commit&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;删除任意提交commit&quot;&gt;删除任意提交(commit)&lt;/h3&gt;
+
+&lt;p&gt;同样的警告：不到万不得已的时候不要这么做.&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;--onto&lt;/span&gt; SHA1_OF_BAD_COMMIT^ SHA1_OF_BAD_COMMIT
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;remote] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;branch]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或者做一个 &lt;a href=&quot;#interactive-rebase&quot;&gt;交互式rebase&lt;/a&gt; 删除那些你想要删除的提交(commit)里所对应的行。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;#force-push&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我尝试推一个修正后的提交amended-commit到远程但是报错&quot;&gt;我尝试推一个修正后的提交(amended commit)到远程，但是报错：&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;To https://github.com/yourusername/repo.git
+&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;rejected]        mybranch -&amp;gt; mybranch &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;non-fast-forward&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+error: failed to push some refs to &lt;span class=&quot;s1&quot;&gt;'https://github.com/tanay1337/webmaker.org.git'&lt;/span&gt;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g.
+hint: &lt;span class=&quot;s1&quot;&gt;'git pull ...'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; before pushing again.
+hint: See the &lt;span class=&quot;s1&quot;&gt;'Note about fast-forwards'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git push --help'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;details.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;注意, rebasing(见下面)和修正(amending)会用一个&lt;strong&gt;新的提交(commit)代替旧的&lt;/strong&gt;, 所以如果之前你已经往远程仓库上推过一次修正前的提交(commit)，那你现在就必须强推(force push) (&lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt;)。 注意 – &lt;em&gt;总是&lt;/em&gt; 确保你指明一个分支!&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push origin mybranch &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;一般来说, &lt;strong&gt;要避免强推&lt;/strong&gt;. 最好是创建和推(push)一个新的提交(commit)，而不是强推一个修正后的提交。后者会使那些与该分支或该分支的子分支工作的开发者，在源历史中产生冲突。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;undo-git-reset-hard&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我意外的做了一次硬重置hard-reset我想找回我的内容&quot;&gt;我意外的做了一次硬重置(hard reset)，我想找回我的内容&lt;/h3&gt;
+
+&lt;p&gt;如果你意外的做了 &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset --hard&lt;/code&gt;, 你通常能找回你的提交(commit), 因为Git对每件事都会有日志，且都会保存几天。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reflog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你将会看到一个你过去提交(commit)的列表, 和一个重置的提交。 选择你想要回到的提交(commit)的SHA，再重置一次:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; SHA1234
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这样就完成了。&lt;/p&gt;
+
+&lt;h2 id=&quot;暂存staging&quot;&gt;暂存(Staging)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;#i-need-to-add-staged-changes-to-the-previous-commit&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我需要把暂存的内容添加到上一次的提交commit&quot;&gt;我需要把暂存的内容添加到上一次的提交(commit)&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;--amend&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;commit-partial-new-file&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想要暂存一个新文件的一部分而不是这个文件的全部&quot;&gt;我想要暂存一个新文件的一部分，而不是这个文件的全部&lt;/h3&gt;
+
+&lt;p&gt;一般来说, 如果你想暂存一个文件的一部分, 你可这样做:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;--patch&lt;/span&gt; filename.x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-p&lt;/code&gt; 简写。这会打开交互模式， 你将能够用 &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; 选项来分隔提交(commit)； 然而, 如果这个文件是新的, 会没有这个选择， 添加一个新文件时, 这样做:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; filename.x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后, 你需要用 &lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; 选项来手动选择需要添加的行，执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;git diff --cached&lt;/code&gt; 将会显示哪些行暂存了哪些行只是保存在本地了。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;stage-in-two-commits&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想把在一个文件里的变化changes加到两个提交commit里&quot;&gt;我想把在一个文件里的变化(changes)加到两个提交(commit)里&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; 会把整个文件加入到一个提交. &lt;code class=&quot;highlighter-rouge&quot;&gt;git add -p&lt;/code&gt; 允许交互式的选择你想要提交的部分.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;unstaging-edits-and-staging-the-unstaged&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想把暂存的内容变成未暂存把未暂存的内容暂存起来&quot;&gt;我想把暂存的内容变成未暂存，把未暂存的内容暂存起来&lt;/h3&gt;
+
+&lt;p&gt;这个有点困难， 我能想到的最好的方法是先stash未暂存的内容， 然后重置(reset)，再pop第一步stashed的内容, 最后再add它们。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash &lt;span class=&quot;nt&quot;&gt;-k&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash pop
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;未暂存unstaged的内容&quot;&gt;未暂存(Unstaged)的内容&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;move-unstaged-edits-to-new-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想把未暂存的内容移动到一个新分支&quot;&gt;我想把未暂存的内容移动到一个新分支&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;move-unstaged-edits-to-old-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想把未暂存的内容移动到另一个已存在的分支&quot;&gt;我想把未暂存的内容移动到另一个已存在的分支&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout my-branch
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash pop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;i-want-to-discard-my-local-uncommitted-changes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想丢弃本地未提交的变化uncommitted-changes&quot;&gt;我想丢弃本地未提交的变化(uncommitted changes)&lt;/h3&gt;
+
+&lt;p&gt;如果你只是想重置源(origin)和你本地(local)之间的一些提交(commit)，你可以：&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# one commit&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; HEAD^
+&lt;span class=&quot;c&quot;&gt;# two commits&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; HEAD^^
+&lt;span class=&quot;c&quot;&gt;# four commits&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; HEAD~4
+&lt;span class=&quot;c&quot;&gt;# or&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重置某个特殊的文件, 你可以用文件名做为参数:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset filename
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;i-want-to-discard-specific-unstaged-changes&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想丢弃某些未暂存的内容&quot;&gt;我想丢弃某些未暂存的内容&lt;/h3&gt;
+
+&lt;p&gt;如果你想丢弃工作拷贝中的一部分内容，而不是全部。&lt;/p&gt;
+
+&lt;p&gt;签出(checkout)不需要的内容，保留需要的。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Answer y to all of the snippets you want to drop&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;另外一个方法是使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;stash&lt;/code&gt;， Stash所有要保留下的内容, 重置工作拷贝, 重新应用保留的部分。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Select all of the snippets you want to save&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash pop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或者, stash 你不需要的部分, 然后stash drop。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Select all of the snippets you don't want to save&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git stash drop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;分支branches&quot;&gt;分支(Branches)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a name=&quot;pull-wrong-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我从错误的分支拉取了内容或把内容拉取到了错误的分支&quot;&gt;我从错误的分支拉取了内容，或把内容拉取到了错误的分支&lt;/h3&gt;
+
+&lt;p&gt;这是另外一种使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git reflog&lt;/code&gt; 情况，找到在这次错误拉(pull) 之前HEAD的指向。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reflog
+ab7555f HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;0&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;: pull origin wrong-branch: Fast-forward
+c5bc55a HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;: checkout: checkout message goes here
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重置分支到你所需的提交(desired commit):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; c5bc55a
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;完成。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;discard-local-commits&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想扔掉本地的提交commit以便我的分支与远程的保持一致&quot;&gt;我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致&lt;/h3&gt;
+
+&lt;p&gt;先确认你没有推(push)你的内容到远程。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; 会显示你领先(ahead)源(origin)多少个提交:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git status
+&lt;span class=&quot;c&quot;&gt;# On branch my-branch&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Your branch is ahead of 'origin/my-branch' by 2 commits.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#   (use &quot;git push&quot; to publish your local commits)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;一种方法是:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; origin/my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;commit-wrong-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我需要提交到一个新分支但错误的提交到了master&quot;&gt;我需要提交到一个新分支，但错误的提交到了master&lt;/h3&gt;
+
+&lt;p&gt;在master下创建一个新分支，不切换到新分支,仍在master下:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;把master分支重置到前一个提交:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; HEAD^
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD^&lt;/code&gt; 是 &lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD^1&lt;/code&gt; 的简写，你可以通过指定要设置的&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD&lt;/code&gt;来进一步重置。&lt;/p&gt;
+
+&lt;p&gt;或者, 如果你不想使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD^&lt;/code&gt;, 找到你想重置到的提交(commit)的hash(&lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt; 能够完成)， 然后重置到这个hash。 使用&lt;code class=&quot;highlighter-rouge&quot;&gt;git push&lt;/code&gt; 同步内容到远程。&lt;/p&gt;
+
+&lt;p&gt;例如, master分支想重置到的提交的hash为&lt;code class=&quot;highlighter-rouge&quot;&gt;a13b85e&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; a13b85e
+HEAD is now at a13b85e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;签出(checkout)刚才新建的分支继续工作:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;keep-whole-file&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想保留来自另外一个ref-ish的整个文件&quot;&gt;我想保留来自另外一个ref-ish的整个文件&lt;/h3&gt;
+
+&lt;p&gt;假设你正在做一个原型方案(原文为working spike (see note)), 有成百的内容，每个都工作得很好。现在, 你提交到了一个分支，保存工作内容:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;solution&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Adding all changes from this spike into one big commit.&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;当你想要把它放到一个分支里 (可能是&lt;code class=&quot;highlighter-rouge&quot;&gt;feature&lt;/code&gt;, 或者 &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt;), 你关心是保持整个文件的完整，你想要一个大的提交分隔成比较小。&lt;/p&gt;
+
+&lt;p&gt;假设你有:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;分支 &lt;code class=&quot;highlighter-rouge&quot;&gt;solution&lt;/code&gt;, 拥有原型方案， 领先 &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt; 分支。&lt;/li&gt;
+  &lt;li&gt;分支 &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt;, 在这里你应用原型方案的一些内容。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我去可以通过把内容拿到你的分支里，来解决这个问题:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;develop&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout solution &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; file1.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这会把这个文件内容从分支 &lt;code class=&quot;highlighter-rouge&quot;&gt;solution&lt;/code&gt; 拿到分支 &lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt; 里来:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# On branch develop&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Your branch is up-to-date with 'origin/develop'.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Changes to be committed:&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#  (use &quot;git reset HEAD &amp;lt;file&amp;gt;...&quot; to unstage)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#        modified:   file1.txt&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后, 正常提交。&lt;/p&gt;
+
+&lt;p&gt;Note: Spike solutions are made to analyze or solve the problem. These solutions are used for estimation and discarded once everyone gets clear visualization of the problem. ~ &lt;a href=&quot;https://en.wikipedia.org/wiki/Extreme_programming_practices&quot;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;cherry-pick&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我把几个提交commit提交到了同一个分支而这些提交应该分布在不同的分支里&quot;&gt;我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里&lt;/h3&gt;
+
+&lt;p&gt;假设你有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt;分支， 执行&lt;code class=&quot;highlighter-rouge&quot;&gt;git log&lt;/code&gt;, 你看到你做过两次提交:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log
+commit e3851e817c451cc36f2e6f3049db528415e3c114
+Author: Alex Lee &amp;lt;alexlee@example.com&amp;gt;
+Date:   Tue Jul 22 15:39:27 2014 &lt;span class=&quot;nt&quot;&gt;-0400&lt;/span&gt;
+    Bug &lt;span class=&quot;c&quot;&gt;#21 - Added CSRF protection&lt;/span&gt;
+commit 5ea51731d150f7ddc4a365437931cd8be3bf3131
+Author: Alex Lee &amp;lt;alexlee@example.com&amp;gt;
+Date:   Tue Jul 22 15:39:12 2014 &lt;span class=&quot;nt&quot;&gt;-0400&lt;/span&gt;
+    Bug &lt;span class=&quot;c&quot;&gt;#14 - Fixed spacing on title&lt;/span&gt;
+commit a13b85e984171c6e2a1729bb061994525f626d14
+Author: Aki Rose &amp;lt;akirose@example.com&amp;gt;
+Date:   Tue Jul 21 01:12:48 2014 &lt;span class=&quot;nt&quot;&gt;-0400&lt;/span&gt;
+    First commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;让我们用提交hash(commit hash)标记bug (&lt;code class=&quot;highlighter-rouge&quot;&gt;e3851e8&lt;/code&gt; for #21, &lt;code class=&quot;highlighter-rouge&quot;&gt;5ea5173&lt;/code&gt; for #14).&lt;/p&gt;
+
+&lt;p&gt;首先, 我们把&lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt;分支重置到正确的提交(&lt;code class=&quot;highlighter-rouge&quot;&gt;a13b85e&lt;/code&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; a13b85e
+HEAD is now at a13b85e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;现在, 我们对 bug #21 创建一个新的分支:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; 21
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;21&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;接着, 我们用 &lt;em&gt;cherry-pick&lt;/em&gt; 把对bug #21的提交放入当前分支。 这意味着我们将应用(apply)这个提交(commit)，仅仅这一个提交(commit)，直接在HEAD上面。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;21&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git cherry-pick e3851e8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这时候, 这里可能会产生冲突， 参见&lt;a href=&quot;#interactive-rebase&quot;&gt;交互式 rebasing 章&lt;/a&gt; &lt;a href=&quot;#merge-conflict&quot;&gt;&lt;strong&gt;冲突节&lt;/strong&gt;&lt;/a&gt; 解决冲突.&lt;/p&gt;
+
+&lt;p&gt;再者， 我们为bug #14 创建一个新的分支, 也基于&lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt;分支&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;21&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout master
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; 14
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;最后, 为 bug #14 执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;cherry-pick&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git cherry-pick 5ea5173
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;delete-stale-local-branches&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想删除上游upstream分支被删除了的本地分支&quot;&gt;我想删除上游(upstream)分支被删除了的本地分支&lt;/h3&gt;
+&lt;p&gt;一旦你在github 上面合并(merge)了一个pull request, 你就可以删除你fork里被合并的分支。 如果你不准备继续在这个分支里工作, 删除这个分支的本地拷贝会更干净，使你不会陷入工作分支和一堆陈旧分支的混乱之中。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;restore-a-deleted-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我不小心删除了我的分支&quot;&gt;我不小心删除了我的分支&lt;/h3&gt;
+
+&lt;p&gt;如果你定期推送到远程, 多数情况下应该是安全的，但有些时候还是可能删除了还没有推到远程的分支。 让我们先创建一个分支和一个新的文件:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; my-branch
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;foo.txt
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;README.md foo.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;添加文件并做一次提交&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'foo.txt added'&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;foo.txt added
+ 1 files changed, 1 insertions&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ create mode 100644 foo.txt
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log
+commit 4e3cd85a670ced7cc17a2b5d8d3d809ac88d5012
+Author: siemiatj &amp;lt;siemiatj@example.com&amp;gt;
+Date:   Wed Jul 30 00:34:10 2014 +0200
+    foo.txt added
+commit 69204cdf0acbab201619d95ad8295928e7f411d5
+Author: Kate Hudson &amp;lt;katehudson@example.com&amp;gt;
+Date:   Tue Jul 29 13:14:46 2014 &lt;span class=&quot;nt&quot;&gt;-0400&lt;/span&gt;
+    Fixes &lt;span class=&quot;c&quot;&gt;#6: Force pushing after amending commits&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;现在我们切回到主(master)分支，‘不小心的’删除&lt;code class=&quot;highlighter-rouge&quot;&gt;my-branch&lt;/code&gt;分支&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout master
+Switched to branch &lt;span class=&quot;s1&quot;&gt;'master'&lt;/span&gt;
+Your branch is up-to-date with &lt;span class=&quot;s1&quot;&gt;'origin/master'&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; my-branch
+Deleted branch my-branch &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;was 4e3cd85&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;oh noes, deleted my branch!
+oh noes, deleted my branch!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在这时候你应该想起了&lt;code class=&quot;highlighter-rouge&quot;&gt;reflog&lt;/code&gt;, 一个升级版的日志，它存储了仓库(repo)里面所有动作的历史。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(master)$ git reflog
+69204cd HEAD@{0}: checkout: moving from my-branch to master
+4e3cd85 HEAD@{1}: commit: foo.txt added
+69204cd HEAD@{2}: checkout: moving from master to my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;正如你所见，我们有一个来自删除分支的提交hash(commit hash)，接下来看看是否能恢复删除了的分支。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; my-branch-help
+Switched to a new branch &lt;span class=&quot;s1&quot;&gt;'my-branch-help'&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch-help&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; 4e3cd85
+HEAD is now at 4e3cd85 foo.txt added
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch-help&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls
+&lt;/span&gt;README.md foo.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看! 我们把删除的文件找回来了。 Git的 &lt;code class=&quot;highlighter-rouge&quot;&gt;reflog&lt;/code&gt; 在rebasing出错的时候也是同样有用的。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;i-want-to-delete-a-branch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想删除一个分支&quot;&gt;我想删除一个分支&lt;/h3&gt;
+
+&lt;p&gt;删除一个远程分支:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push origin &lt;span class=&quot;nt&quot;&gt;--delete&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你也可以:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push origin :my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;删除一个本地分支:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git branch &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;i-want-to-checkout-to-a-remote-branch-that-someone-else-is-working-on&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想从别人正在工作的远程分支签出checkout一个分支&quot;&gt;我想从别人正在工作的远程分支签出(checkout)一个分支&lt;/h3&gt;
+
+&lt;p&gt;首先, 从远程拉取(fetch) 所有分支:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;nt&quot;&gt;--all&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;假设你想要从远程的&lt;code class=&quot;highlighter-rouge&quot;&gt;daves&lt;/code&gt;分支签出到本地的&lt;code class=&quot;highlighter-rouge&quot;&gt;daves&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;--track&lt;/span&gt; origin/daves
+Branch daves &lt;span class=&quot;nb&quot;&gt;set &lt;/span&gt;up to track remote branch daves from origin.
+Switched to a new branch &lt;span class=&quot;s1&quot;&gt;'daves'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;(&lt;code class=&quot;highlighter-rouge&quot;&gt;--track&lt;/code&gt; 是 &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -b [branch] [remotename]/[branch]&lt;/code&gt; 的简写)&lt;/p&gt;
+
+&lt;p&gt;这样就得到了一个&lt;code class=&quot;highlighter-rouge&quot;&gt;daves&lt;/code&gt;分支的本地拷贝, 任何推过(pushed)的更新，远程都能看到.&lt;/p&gt;
+
+&lt;h2 id=&quot;rebasing-和合并merging&quot;&gt;Rebasing 和合并(Merging)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a name=&quot;undo-rebase&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想撤销rebasemerge&quot;&gt;我想撤销rebase/merge&lt;/h3&gt;
+
+&lt;p&gt;你可以合并(merge)或rebase了一个错误的分支, 或者完成不了一个进行中的rebase/merge。 Git 在进行危险操作的时候会把原始的HEAD保存在一个叫ORIG_HEAD的变量里, 所以要把分支恢复到rebase/merge前的状态是很容易的。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; ORIG_HEAD
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;force-push-rebase&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我已经rebase过-但是我不想强推force-push&quot;&gt;我已经rebase过, 但是我不想强推(force push)&lt;/h3&gt;
+
+&lt;p&gt;不幸的是，如果你想把这些变化(changes)反应到远程分支上，你就必须得强推(force push)。 是因你快进(Fast forward)了提交，改变了Git历史, 远程分支不会接受变化(changes)，除非强推(force push)。这就是许多人使用 merge 工作流, 而不是 rebasing 工作流的主要原因之一， 开发者的强推(force push)会使大的团队陷入麻烦。使用时需要注意，一种安全使用 rebase 的方法是，不要把你的变化(changes)反映到远程分支上, 而是按下面的做:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout my-branch
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; master
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout master
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git merge &lt;span class=&quot;nt&quot;&gt;--ff-only&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;更多, 参见 &lt;a href=&quot;http://stackoverflow.com/questions/11058312/how-can-i-use-git-rebase-without-requiring-a-forced-push&quot;&gt;this SO thread&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;interactive-rebase&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我需要组合combine几个提交commit&quot;&gt;我需要组合(combine)几个提交(commit)&lt;/h3&gt;
+
+&lt;p&gt;假设你的工作分支将会做对于 &lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; 的pull-request。 一般情况下你不关心提交(commit)的时间戳，只想组合 &lt;em&gt;所有&lt;/em&gt; 提交(commit) 到一个单独的里面, 然后重置(reset)重提交(recommit)。 确保主(master)分支是最新的和你的变化都已经提交了, 然后:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--soft&lt;/span&gt; master
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git commit &lt;span class=&quot;nt&quot;&gt;-am&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New awesome feature&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你想要更多的控制, 想要保留时间戳, 你需要做交互式rebase (interactive rebase):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果没有相对的其它分支， 你将不得不相对自己的&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD&lt;/code&gt; 进行 rebase。 例如：你想组合最近的两次提交(commit), 你将相对于&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD~2&lt;/code&gt; 进行rebase， 组合最近3次提交(commit), 相对于&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD~3&lt;/code&gt;, 等等。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; HEAD~2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在你执行了交互式 rebase的命令(interactive rebase command)后, 你将在你的编辑器里看到类似下面的内容:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pick a9c8a1d Some refactoring
+pick &lt;span class=&quot;m&quot;&gt;01&lt;/span&gt;b2fd8 New awesome feature
+pick b729ad5 fixup
+pick e3851e8 another &lt;span class=&quot;k&quot;&gt;fix&lt;/span&gt;
+# Rebase &lt;span class=&quot;m&quot;&gt;8074&lt;/span&gt;d12&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;b729ad5 onto &lt;span class=&quot;m&quot;&gt;8074&lt;/span&gt;d12
+#
+# Commands&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+#  &lt;span class=&quot;k&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; pick &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; use commit
+#  &lt;span class=&quot;k&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; reword &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; use commit&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; but edit the commit message
+#  &lt;span class=&quot;k&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; edit &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; use commit&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; but stop &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; amending
+#  s&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; squash &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; use commit&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; but meld into &lt;span class=&quot;k&quot;&gt;previous&lt;/span&gt; commit
+#  &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; fixup &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; like &lt;span class=&quot;s2&quot;&gt;&quot;squash&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; but discard this commit's log message
+#  &lt;span class=&quot;k&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; exec &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; run command &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;the rest of the line&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; using &lt;span class=&quot;k&quot;&gt;shell&lt;/span&gt;
+#
+# These lines can be &lt;span class=&quot;k&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;ordered; they are executed from &lt;span class=&quot;k&quot;&gt;top&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; bottom&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+#
+# If you remove &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; line here THAT COMMIT WILL BE LOST&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+#
+# However&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; you remove everything&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; the rebase will be aborted&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+#
+# Note that empty commits are commented out
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;所有以 &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; 开头的行都是注释, 不会影响 rebase.&lt;/p&gt;
+
+&lt;p&gt;然后，你可以用任何上面命令列表的命令替换 &lt;code class=&quot;highlighter-rouge&quot;&gt;pick&lt;/code&gt;, 你也可以通过删除对应的行来删除一个提交(commit)。&lt;/p&gt;
+
+&lt;p&gt;例如, 如果你想 &lt;strong&gt;单独保留最旧(first)的提交(commit),组合所有剩下的到第二个里面&lt;/strong&gt;, 你就应该编辑第二个提交(commit)后面的每个提交(commit) 前的单词为 &lt;code class=&quot;highlighter-rouge&quot;&gt;f&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pick a9c8a1d Some refactoring
+pick &lt;span class=&quot;m&quot;&gt;01&lt;/span&gt;b2fd8 New awesome feature
+&lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; b729ad5 fixup
+&lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; e3851e8 another &lt;span class=&quot;k&quot;&gt;fix&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你想组合这些提交(commit) &lt;strong&gt;并重命名这个提交(commit)&lt;/strong&gt;, 你应该在第二个提交(commit)旁边添加一个&lt;code class=&quot;highlighter-rouge&quot;&gt;r&lt;/code&gt;，或者更简单的用&lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt; 替代 &lt;code class=&quot;highlighter-rouge&quot;&gt;f&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pick a9c8a1d Some refactoring
+pick &lt;span class=&quot;m&quot;&gt;01&lt;/span&gt;b2fd8 New awesome feature
+s b729ad5 fixup
+s e3851e8 another &lt;span class=&quot;k&quot;&gt;fix&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你可以在接下来弹出的文本提示框里重命名提交(commit)。&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Newer&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; awesomer features
+# Please enter the commit message &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; your &lt;span class=&quot;k&quot;&gt;changes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; Lines starting
+# with &lt;span class=&quot;s1&quot;&gt;'#'&lt;/span&gt; will be ignored&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; and an empty message aborts the commit&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+# rebase &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; progress; onto &lt;span class=&quot;m&quot;&gt;8074&lt;/span&gt;d12
+# You are currently editing &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; commit &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; rebasing branch &lt;span class=&quot;s1&quot;&gt;'master'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'8074d12'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
+#
+# Changes &lt;span class=&quot;k&quot;&gt;to&lt;/span&gt; be committed&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+#	modified&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;   README&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;md
+#
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果成功了, 你应该看到类似下面的内容:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;Successfully rebased and updated refs/heads/master.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;安全合并merging策略&quot;&gt;安全合并(merging)策略&lt;/h4&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--no-commit&lt;/code&gt; 执行合并(merge)但不自动提交, 给用户在做提交前检查和修改的机会。 &lt;code class=&quot;highlighter-rouge&quot;&gt;no-ff&lt;/code&gt; 会为特性分支(feature branch)的存在过留下证据, 保持项目历史一致。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git merge &lt;span class=&quot;nt&quot;&gt;--no-ff&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-commit&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;我需要将一个分支合并成一个提交commit&quot;&gt;我需要将一个分支合并成一个提交(commit)&lt;/h4&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git merge &lt;span class=&quot;nt&quot;&gt;--squash&lt;/span&gt; my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;rebase-unpushed-commits&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;我只想组合combine未推的提交unpushed-commit&quot;&gt;我只想组合(combine)未推的提交(unpushed commit)&lt;/h4&gt;
+
+&lt;p&gt;有时候，在将数据推向上游之前，你有几个正在进行的工作提交(commit)。这时候不希望把已经推(push)过的组合进来，因为其他人可能已经有提交(commit)引用它们了。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; @&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;u&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这会产生一次交互式的rebase(interactive rebase), 只会列出没有推(push)的提交(commit)， 在这个列表时进行reorder/fix/squash 都是安全的。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;check-if-all-commits-on-a-branch-are-merged&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;检查是否分支上的所有提交commit都合并merge过了&quot;&gt;检查是否分支上的所有提交(commit)都合并(merge)过了&lt;/h3&gt;
+
+&lt;p&gt;检查一个分支上的所有提交(commit)是否都已经合并(merge)到了其它分支, 你应该在这些分支的head(或任何 commits)之间做一次diff:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log &lt;span class=&quot;nt&quot;&gt;--graph&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--left-right&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--cherry-pick&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--oneline&lt;/span&gt; HEAD...feature/120-on-scroll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这会告诉你在一个分支里有而另一个分支没有的所有提交(commit), 和分支之间不共享的提交(commit)的列表。 另一个做法可以是:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git log master ^feature/120-on-scroll &lt;span class=&quot;nt&quot;&gt;--no-merges&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;交互式rebaseinteractive-rebase可能出现的问题&quot;&gt;交互式rebase(interactive rebase)可能出现的问题&lt;/h3&gt;
+
+&lt;p&gt;&lt;a name=&quot;noop&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;这个rebase-编辑屏幕出现noop&quot;&gt;这个rebase 编辑屏幕出现’noop’&lt;/h4&gt;
+
+&lt;p&gt;如果你看到的是这样:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;noop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这意味着你rebase的分支和当前分支在同一个提交(commit)上, 或者 &lt;em&gt;领先(ahead)&lt;/em&gt; 当前分支。 你可以尝试:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;检查确保主(master)分支没有问题&lt;/li&gt;
+  &lt;li&gt;rebase  &lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD~2&lt;/code&gt; 或者更早&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a name=&quot;merge-conflict&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;有冲突的情况&quot;&gt;有冲突的情况&lt;/h4&gt;
+
+&lt;p&gt;如果你不能成功的完成rebase, 你可能必须要解决冲突。&lt;/p&gt;
+
+&lt;p&gt;首先执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; 找出哪些文件有冲突:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git status
+On branch my-branch
+Changes not staged &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;commit:
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git add &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to update what will be committed&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;use &lt;span class=&quot;s2&quot;&gt;&quot;git checkout -- &amp;lt;file&amp;gt;...&quot;&lt;/span&gt; to discard changes &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;working directory&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	modified:   README.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在这个例子里面, &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; 有冲突。 打开这个文件找到类似下面的内容:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;   &lt;span class=&quot;p&quot;&gt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&lt;/span&gt; HEAD
+   some code
+   &lt;span class=&quot;p&quot;&gt;=========&lt;/span&gt;
+   some code
+   &lt;span class=&quot;p&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;你需要解决新提交的代码(示例里, 从中间&lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;线到&lt;code class=&quot;highlighter-rouge&quot;&gt;new-commit&lt;/code&gt;的地方)与&lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD&lt;/code&gt; 之间不一样的地方.&lt;/p&gt;
+
+&lt;p&gt;有时候这些合并非常复杂，你应该使用可视化的差异编辑器(visual diff editor):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git mergetool &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; opendiff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在你解决完所有冲突和测试过后, &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; 变化了的(changed)文件, 然后用&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase --continue&lt;/code&gt; 继续rebase。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git add README.md
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;--continue&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果在解决完所有的冲突过后，得到了与提交前一样的结果, 可以执行&lt;code class=&quot;highlighter-rouge&quot;&gt;git rebase --skip&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;任何时候你想结束整个rebase 过程，回来rebase前的分支状态, 你可以做:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;my-branch&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git rebase &lt;span class=&quot;nt&quot;&gt;--abort&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;miscellaneous-objects&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;杂项miscellaneous-objects&quot;&gt;杂项(Miscellaneous Objects)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a name=&quot;clone-submodules&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;克隆所有子模块&quot;&gt;克隆所有子模块&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt; git://github.com/foo/bar.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果已经克隆了:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git submodule update &lt;span class=&quot;nt&quot;&gt;--init&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--recursive&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;delete-tag&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;删除标签tag&quot;&gt;删除标签(tag)&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git tag &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &amp;lt;tag_name&amp;gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git push &amp;lt;remote&amp;gt; :refs/tags/&amp;lt;tag_name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;recover-tag&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;恢复已删除标签tag&quot;&gt;恢复已删除标签(tag)&lt;/h3&gt;
+
+&lt;p&gt;如果你想恢复一个已删除标签(tag), 可以按照下面的步骤: 首先, 需要找到无法访问的标签(unreachable tag):&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fsck &lt;span class=&quot;nt&quot;&gt;--unreachable&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;tag
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;记下这个标签(tag)的hash，然后用Git的 &lt;a href=&quot;http://git-scm.com/docs/git-update-ref&quot;&gt;update-ref&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git update-ref refs/tags/&amp;lt;tag_name&amp;gt; &amp;lt;&lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这时你的标签(tag)应该已经恢复了。&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&quot;deleted-patch&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;已删除补丁patch&quot;&gt;已删除补丁(patch)&lt;/h3&gt;
+
+&lt;p&gt;如果某人在 GitHub 上给你发了一个pull request, 但是然后他删除了他自己的原始 fork, 你将没法克隆他们的提交(commit)或使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;git am&lt;/code&gt;。在这种情况下, 最好手动的查看他们的提交(commit)，并把它们拷贝到一个本地新分支，然后做提交。&lt;/p&gt;
+
+&lt;p&gt;做完提交后, 再修改作者，参见&lt;a href=&quot;#commit-wrong-author&quot;&gt;变更作者&lt;/a&gt;。 然后, 应用变化, 再发起一个新的pull request。&lt;/p&gt;
+
+&lt;h2 id=&quot;跟踪文件tracking-files&quot;&gt;跟踪文件(Tracking Files)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;i-want-to-change-a-file-names-capitalization-without-changing-the-contents-of-the-file&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我只想改变一个文件名字的大小写而不修改内容&quot;&gt;我只想改变一个文件名字的大小写，而不修改内容&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git &lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt; myfile MyFile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;remove-from-git&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想从git删除一个文件但保留该文件&quot;&gt;我想从Git删除一个文件，但保留该文件&lt;/h3&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--cached&lt;/span&gt; log.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;配置configuration&quot;&gt;配置(Configuration)&lt;/h2&gt;
+
+&lt;p&gt;&lt;a name=&quot;adding-command-aliases&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想给一些git命令添加别名alias&quot;&gt;我想给一些Git命令添加别名(alias)&lt;/h3&gt;
+
+&lt;p&gt;在 OS X 和 Linux 下, 你的 Git的配置文件储存在 &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.gitconfig&lt;/code&gt;。我在&lt;code class=&quot;highlighter-rouge&quot;&gt;[alias]&lt;/code&gt; 部分添加了一些快捷别名(和一些我容易拼写错误的)，如下:&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;alias&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; add
+    amend &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; commit &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;amend
+    &lt;span class=&quot;k&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; commit
+    ca &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; commit &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;amend
+    ci &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; commit &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;a&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;co&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; checkout
+    &lt;span class=&quot;k&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;diff&lt;/span&gt;
+    dc &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;diff&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;changed
+    &lt;span class=&quot;k&quot;&gt;ds&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;diff&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;staged
+    &lt;span class=&quot;k&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; fetch
+    loll &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; log &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;graph &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;decorate &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;pretty&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;oneline &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;abbrev&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;commit
+    &lt;span class=&quot;k&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; merge
+    one &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; log &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;pretty&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;oneline
+    outstanding &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; rebase &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; @&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    s &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; status
+    unpushed &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; log @&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    wc &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; whatchanged
+    wip &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; rebase &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;i&lt;/span&gt; @&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    zap &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; fetch &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;p&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a name=&quot;credential-helper&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我想缓存一个仓库repository的用户名和密码&quot;&gt;我想缓存一个仓库(repository)的用户名和密码&lt;/h3&gt;
+
+&lt;p&gt;你可能有一个仓库需要授权，这时你可以缓存用户名和密码，而不用每次推/拉(push/pull)的时候都输入，Credential helper能帮你。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; credential.helper cache
+&lt;span class=&quot;c&quot;&gt;# Set git to use the credential memory cache&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git config &lt;span class=&quot;nt&quot;&gt;--global&lt;/span&gt; credential.helper &lt;span class=&quot;s1&quot;&gt;'cache --timeout=3600'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Set the cache to timeout after 1 hour (setting is in seconds)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;#ive-no-idea-what-i-did-wrong&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;我不知道我做错了些什么&quot;&gt;我不知道我做错了些什么&lt;/h2&gt;
+
+&lt;p&gt;你把事情搞砸了：你 &lt;code class=&quot;highlighter-rouge&quot;&gt;重置(reset)&lt;/code&gt; 了一些东西, 或者你合并了错误的分支, 亦或你强推了后找不到你自己的提交(commit)了。有些时候, 你一直都做得很好, 但你想回到以前的某个状态。&lt;/p&gt;
+
+&lt;p&gt;这就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;git reflog&lt;/code&gt; 的目的， &lt;code class=&quot;highlighter-rouge&quot;&gt;reflog&lt;/code&gt; 记录对分支顶端(the tip of a branch)的任何改变, 即使那个顶端没有被任何分支或标签引用。基本上, 每次HEAD的改变, 一条新的记录就会增加到&lt;code class=&quot;highlighter-rouge&quot;&gt;reflog&lt;/code&gt;。遗憾的是，这只对本地分支起作用，且它只跟踪动作 (例如，不会跟踪一个没有被记录的文件的任何改变)。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;master&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reflog
+0a2e358 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;0&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;: reset: moving to HEAD~2
+0254ea7 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;1&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;: checkout: moving from 2.2 to master
+c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;: checkout: moving from master to 2.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上面的reflog展示了从master分支签出(checkout)到2.2 分支，然后再签回。 那里，还有一个硬重置(hard reset)到一个较旧的提交。最新的动作出现在最上面以 &lt;code class=&quot;highlighter-rouge&quot;&gt;HEAD@{0}&lt;/code&gt;标识.&lt;/p&gt;
+
+&lt;p&gt;如果事实证明你不小心回移(move back)了提交(commit), reflog 会包含你不小心回移前master上指向的提交(0254ea7)。&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git reset &lt;span class=&quot;nt&quot;&gt;--hard&lt;/span&gt; 0254ea7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;然后使用git reset就可以把master改回到之前的commit，这提供了一个在历史被意外更改情况下的安全网。&lt;/p&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog&quot;&gt;摘自&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h1 id=&quot;其它资源other-resources&quot;&gt;其它资源(Other Resources)&lt;/h1&gt;
+
+&lt;h2 id=&quot;书books&quot;&gt;书(Books)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-scm.com/book/en/v2&quot;&gt;Pro Git&lt;/a&gt; - Scott Chacon’s excellent git book&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/pluralsight/git-internals-pdf&quot;&gt;Git Internals&lt;/a&gt; - Scott Chacon’s other excellent git book&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;教程tutorials&quot;&gt;教程(Tutorials)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://learngitbranching.js.org/&quot;&gt;Learn Git branching&lt;/a&gt; 一个基于网页的交互式 branching/merging/rebasing 教程&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa&quot;&gt;Getting solid at Git rebase vs. merge&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/asmeurer/git-workflow&quot;&gt;git-workflow&lt;/a&gt; - &lt;a href=&quot;https://github.com/asmeurer&quot;&gt;Aaron Meurer&lt;/a&gt;的怎么使用Git为开源仓库贡献&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hugogiraudel.com/2015/08/13/github-as-a-workflow/&quot;&gt;GitHub as a workflow&lt;/a&gt; - 使用GitHub做为工作流的趣事, 尤其是空PRs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;脚本和工具scripts-and-tools&quot;&gt;脚本和工具(Scripts and Tools)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://firstaidgit.io/&quot;&gt;firstaidgit.io&lt;/a&gt; 一个可搜索的最常被问到的Git的问题&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/unixorn/git-extra-commands&quot;&gt;git-extra-commands&lt;/a&gt; - 一堆有用的额外的Git脚本&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/tj/git-extras&quot;&gt;git-extras&lt;/a&gt; - GIT 工具集 – repo summary, repl, changelog population, author commit percentages and more&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/qw3rtman/git-fire&quot;&gt;git-fire&lt;/a&gt; - git-fire 是一个 Git 插件，用于帮助在紧急情况下添加所有当前文件, 做提交(committing), 和推(push)到一个新分支(阻止合并冲突)。&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/git-tips/tips&quot;&gt;git-tips&lt;/a&gt; - Git小提示&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/Originate/git-town&quot;&gt;git-town&lt;/a&gt; - 通用，高级Git工作流支持！ http://www.git-town.com&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gui客户端gui-clients&quot;&gt;GUI客户端(GUI Clients)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gitkraken.com/&quot;&gt;GitKraken&lt;/a&gt; - 豪华的Git客户端 Windows, Mac &amp;amp; Linux&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://git-cola.github.io/&quot;&gt;git-cola&lt;/a&gt; - 另外一个Git客户端 Windows &amp;amp; OS X&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/git-up/GitUp&quot;&gt;GitUp&lt;/a&gt; - 一个新的Git客户端，在处理Git的复杂性上有自己的特点&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rowanj.github.io/gitx/&quot;&gt;gitx-dev&lt;/a&gt; - 图形化的Git客户端 OS X&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sourcetreeapp.com/&quot;&gt;Source Tree&lt;/a&gt; - 免费的图形化Git客户端 Windows &amp;amp; OS X&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.git-tower.com/&quot;&gt;Tower&lt;/a&gt; - 图形化Git客户端 OS X(付费)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;转自： &lt;a href=&quot;https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits&quot;&gt;https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits&lt;/a&gt;&lt;/p&gt;
+</description>
+				<pubDate>Sat, 12 Jan 2019 00:00:00 +0800</pubDate>
+				<link>http://localhost:4000/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</link>
+				<guid isPermaLink="true">http://localhost:4000/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</guid>
+			</item>
+		
+			<item>
 				<title>Docker常用命令</title>
 				
 				<description>&lt;blockquote&gt;
@@ -1532,48 +2476,6 @@ document.write(fib(10));
 				<pubDate>Tue, 19 Jun 2018 00:00:00 +0800</pubDate>
 				<link>http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/06/19/Homebrew.html</link>
 				<guid isPermaLink="true">http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/06/19/Homebrew.html</guid>
-			</item>
-		
-			<item>
-				<title>CSS实现表格头部thead固定</title>
-				
-				<description>&lt;p&gt;开发项目中想要实现表格的头部固定，也就是说thead要随着页面滚动永远显示，可以用css或者js方式来实现：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;css 实现方法：&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;thead&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-sticky&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-moz-sticky&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-ms-sticky&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-o-sticky&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sticky&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;z-index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
- &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;tbody&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;DEMO：&lt;/p&gt;
-&lt;iframe src=&quot;//jsfiddle.net/sb6bgtLr/1/embedded/html,css,result/&quot; width=&quot;100%&quot; height=&quot;300&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;火狐浏览器可能会出现内容和标题错位。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;js 实现方法&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/mkoryak/floatThead&quot;&gt;表头固定js&lt;/a&gt;&lt;/p&gt;
-
-</description>
-				<pubDate>Tue, 19 Jun 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/css/2018/06/19/Css01.html</link>
-				<guid isPermaLink="true">http://localhost:4000/css/2018/06/19/Css01.html</guid>
 			</item>
 		
 	</channel>
