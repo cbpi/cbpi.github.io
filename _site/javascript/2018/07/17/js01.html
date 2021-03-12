@@ -27,9 +27,9 @@
     <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
     
     <link rel="stylesheet" href="/assets/css/markdown.css">
-    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>项目中常用的js封装 | Drakecb的博客</title>
-<meta name="generator" content="Jekyll v3.8.3" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="项目中常用的js封装" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="实际项目开发，经常会碰到可以复用的代码，可以自己写一个属于自己的代码库解决实际生产问题。" />
@@ -40,9 +40,10 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-07-17T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="项目中常用的js封装" />
 <meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"description":"实际项目开发，经常会碰到可以复用的代码，可以自己写一个属于自己的代码库解决实际生产问题。","@type":"BlogPosting","url":"http://localhost:4000/javascript/2018/07/17/js01.html","headline":"项目中常用的js封装","dateModified":"2018-07-17T00:00:00+08:00","datePublished":"2018-07-17T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/2018/07/17/js01.html"},"@context":"http://schema.org"}</script>
+{"dateModified":"2018-07-17T00:00:00+08:00","datePublished":"2018-07-17T00:00:00+08:00","url":"http://localhost:4000/javascript/2018/07/17/js01.html","headline":"项目中常用的js封装","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/2018/07/17/js01.html"},"description":"实际项目开发，经常会碰到可以复用的代码，可以自己写一个属于自己的代码库解决实际生产问题。","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -92,7 +93,7 @@ var _hmt = _hmt || [];
       </p>
 
       <div class="article-title-description">
-        <p>发表于 2018-07-17 | 本文共 3150 字</p>
+        <p>发表于 2018-07-17 | 本文共 3278 字</p>
       </div>
     </header>
 
@@ -103,8 +104,8 @@ var _hmt = _hmt || [];
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//如果为undefined 返回空空字符串</span>
 <span class="kd">function</span> <span class="nx">formatundefined</span><span class="p">(</span><span class="nx">str</span><span class="p">){</span>
-	<span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="s2">"undefined"</span><span class="p">){</span>
-		<span class="k">return</span> <span class="s2">""</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">str</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">str</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">undefined</span><span class="dl">"</span><span class="p">){</span>
+		<span class="k">return</span> <span class="dl">""</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">str</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
@@ -117,10 +118,10 @@ var _hmt = _hmt || [];
  * @param loadUrl    请求url
  */</span>
 <span class="kd">function</span> <span class="nx">showWidgets</span><span class="p">(</span><span class="nx">showClass</span><span class="p">,</span> <span class="nx">loadUrl</span><span class="p">){</span>	
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">is</span><span class="p">(</span><span class="s1">':empty'</span><span class="p">)){</span>
-        <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'display'</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="s1">'block'</span><span class="p">){</span>
-            <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'display'</span><span class="p">,</span> <span class="s1">'none'</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">is</span><span class="p">(</span><span class="dl">'</span><span class="s1">:empty</span><span class="dl">'</span><span class="p">)){</span>
+        <span class="kd">var</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="dl">'</span><span class="s1">display</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">block</span><span class="dl">'</span><span class="p">){</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="dl">'</span><span class="s1">display</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">none</span><span class="dl">'</span><span class="p">);</span>
         <span class="p">}</span><span class="k">else</span><span class="p">{</span>
             <span class="nx">$</span><span class="p">(</span><span class="nx">showClass</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
         <span class="p">}</span>
@@ -160,20 +161,20 @@ var _hmt = _hmt || [];
  */</span>
 <span class="kd">function</span> <span class="nx">send</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">successFun</span><span class="p">,</span><span class="k">async</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="nx">getSessionId</span><span class="p">();</span>
-	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="s2">""</span><span class="p">){</span>
-		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="dl">""</span><span class="p">){</span>
+		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/jczh/login.html</span><span class="dl">"</span><span class="p">;</span>
 		 <span class="k">return</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="kd">var</span> <span class="nx">retObj</span><span class="p">;</span>
-	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">param</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span><span class="dl">"</span><span class="s2">sessionId</span><span class="dl">"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
 	<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
-		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">param</span><span class="dl">"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="dl">"</span><span class="s2">sessionId</span><span class="dl">"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
 	<span class="p">}</span>
 	<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
 		<span class="na">type</span><span class="p">:</span><span class="nx">type</span><span class="p">,</span>
 		<span class="na">url</span><span class="p">:</span><span class="nx">server_url</span><span class="o">+</span><span class="nx">url</span><span class="p">,</span>
-		<span class="na">contentType</span><span class="p">:</span><span class="s2">"application/x-www-form-urlencoded;charset=UTF-8"</span><span class="p">,</span><span class="c1">//格式</span>
-		<span class="na">dataType</span><span class="p">:</span><span class="s1">'json'</span><span class="p">,</span> 
+		<span class="na">contentType</span><span class="p">:</span><span class="dl">"</span><span class="s2">application/x-www-form-urlencoded;charset=UTF-8</span><span class="dl">"</span><span class="p">,</span><span class="c1">//格式</span>
+		<span class="na">dataType</span><span class="p">:</span><span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">,</span> 
 		<span class="na">data</span><span class="p">:</span><span class="nx">param</span><span class="p">,</span>	
 		<span class="na">async</span><span class="p">:</span><span class="k">async</span><span class="p">,</span>
 		<span class="na">cache</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
@@ -186,7 +187,7 @@ var _hmt = _hmt || [];
 		<span class="p">},</span>
 		<span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>	
 			 <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>	
-				 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+				 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/jczh/login.html</span><span class="dl">"</span><span class="p">;</span>
 			 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
 				 <span class="c1">//后端出错</span>
 				 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
@@ -212,18 +213,18 @@ var _hmt = _hmt || [];
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">fileUpLoad</span><span class="p">(</span><span class="nx">type</span><span class="p">,</span><span class="nx">url</span><span class="p">,</span><span class="nx">data</span><span class="p">,</span><span class="nx">successFun</span><span class="p">,</span><span class="k">async</span><span class="p">,</span><span class="nx">fileButtonId</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">sessionId</span> <span class="o">=</span> <span class="nx">getSessionId</span><span class="p">();</span>
-	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="s2">""</span><span class="p">){</span>
-		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">null</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="kc">undefined</span><span class="o">||</span><span class="nx">sessionId</span><span class="o">==</span><span class="dl">""</span><span class="p">){</span>
+		 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/jczh/login.html</span><span class="dl">"</span><span class="p">;</span>
 		 <span class="k">return</span><span class="p">;</span>
 	<span class="p">}</span>
-	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+	<span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">param</span><span class="dl">"</span><span class="p">:</span><span class="dl">""</span><span class="p">,</span><span class="dl">"</span><span class="s2">sessionId</span><span class="dl">"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
 	<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
-		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"param"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="s2">"sessionId"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
+		<span class="nx">param</span> <span class="o">=</span> <span class="p">{</span><span class="dl">"</span><span class="s2">param</span><span class="dl">"</span> <span class="p">:</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">),</span><span class="dl">"</span><span class="s2">sessionId</span><span class="dl">"</span><span class="p">:</span><span class="nx">sessionId</span><span class="p">};</span>
 	<span class="p">}</span>
 	<span class="nx">$</span><span class="p">.</span><span class="nx">ajaxFileUpload</span><span class="p">({</span>
 		<span class="na">secureuri</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
 		<span class="na">fileElementId</span><span class="p">:</span><span class="nx">fileButtonId</span><span class="p">,</span>
-		<span class="na">datatype</span><span class="p">:</span><span class="s1">'json'</span><span class="p">,</span>
+		<span class="na">datatype</span><span class="p">:</span><span class="dl">'</span><span class="s1">json</span><span class="dl">'</span><span class="p">,</span>
 		<span class="na">async</span><span class="p">:</span><span class="k">async</span><span class="p">,</span>
 		<span class="na">url</span><span class="p">:</span><span class="nx">server_url</span><span class="o">+</span><span class="nx">url</span><span class="p">,</span>
 		<span class="na">type</span><span class="p">:</span><span class="nx">type</span><span class="p">,</span>
@@ -239,11 +240,11 @@ var _hmt = _hmt || [];
 		<span class="na">complete</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">replay</span><span class="p">){</span>
 			<span class="c1">//传数据完成处理函数(可不用写)</span>
 			<span class="k">try</span><span class="p">{</span>
-				<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">replay</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">"{"</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s2">"}"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
-				<span class="nx">str</span> <span class="o">=</span> <span class="s2">"{"</span><span class="o">+</span><span class="nx">str</span><span class="o">+</span><span class="s2">"}"</span><span class="p">;</span>
+				<span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">replay</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">{</span><span class="dl">"</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">"</span><span class="s2">}</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+				<span class="nx">str</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">{</span><span class="dl">"</span><span class="o">+</span><span class="nx">str</span><span class="o">+</span><span class="dl">"</span><span class="s2">}</span><span class="dl">"</span><span class="p">;</span>
 				<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
 				<span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==-</span><span class="mi">1</span><span class="p">){</span>	
-					 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+					 <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/jczh/login.html</span><span class="dl">"</span><span class="p">;</span>
 				 <span class="p">}</span><span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">code</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
 					 <span class="c1">//后端出错</span>
 					 <span class="nx">alert</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
@@ -300,15 +301,15 @@ var _hmt = _hmt || [];
  * @param key
  */</span>
 <span class="kd">function</span> <span class="nx">getSessionUserInfo</span><span class="p">(){</span>
-	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="s2">"userInfo"</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="dl">"</span><span class="s2">userInfo</span><span class="dl">"</span><span class="p">);</span>
 	<span class="k">if</span><span class="p">(</span><span class="nx">userInfo</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
-		<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">"/jczh/login.html"</span><span class="p">;</span>
+		<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="dl">"</span><span class="s2">/jczh/login.html</span><span class="dl">"</span><span class="p">;</span>
 		<span class="k">return</span><span class="p">;</span>
 	<span class="p">}</span>
 	<span class="k">return</span> <span class="nx">userInfo</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">getSessionId</span><span class="p">(){</span>
-	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="s2">"userInfo"</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">getSessionData</span><span class="p">(</span><span class="dl">"</span><span class="s2">userInfo</span><span class="dl">"</span><span class="p">);</span>
 	<span class="k">if</span><span class="p">(</span><span class="nx">userInfo</span><span class="o">==</span><span class="kc">null</span><span class="p">){</span>
 		<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
 	<span class="p">}</span>
@@ -321,14 +322,14 @@ var _hmt = _hmt || [];
  * 通过key来获取html?后面的数据
  * */</span>
 <span class="kd">function</span> <span class="nx">getUrlParam</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>  
-    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^</span><span class="se">\?</span><span class="sr">/</span><span class="p">,</span><span class="s1">''</span><span class="p">)).</span><span class="nx">split</span><span class="p">(</span><span class="s1">'&amp;'</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="nb">decodeURI</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^</span><span class="se">\?</span><span class="sr">/</span><span class="p">,</span><span class="dl">''</span><span class="p">)).</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">&amp;</span><span class="dl">'</span><span class="p">);</span>
     <span class="kd">var</span> <span class="nx">paramsObj</span> <span class="o">=</span> <span class="p">{};</span>
     <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">iLen</span> <span class="o">=</span> <span class="nx">url</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">iLen</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-        <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="nx">url</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">'='</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">param</span> <span class="o">=</span> <span class="nx">url</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1">=</span><span class="dl">'</span><span class="p">);</span>
         <span class="nx">paramsObj</span><span class="p">[</span><span class="nx">param</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">param</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
     <span class="p">}</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>
-        <span class="k">return</span> <span class="nx">paramsObj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">||</span> <span class="s1">''</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">paramsObj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">||</span> <span class="dl">''</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="nx">paramsObj</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
@@ -341,9 +342,9 @@ var _hmt = _hmt || [];
 <span class="kd">var</span> <span class="nx">toString</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">;</span>
 <span class="kd">function</span> <span class="nx">type</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">elem</span> <span class="o">+</span> <span class="s1">''</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">elem</span> <span class="o">+</span> <span class="dl">''</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">elem</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\[\]]</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
+    <span class="k">return</span> <span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">elem</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\[\]]</span><span class="sr">/g</span><span class="p">,</span> <span class="dl">''</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">();</span>
 <span class="p">}</span></code></pre></figure>
 
 <h4 id="判断数组是否包含元素">判断数组是否包含元素</h4>
@@ -398,8 +399,8 @@ var _hmt = _hmt || [];
             <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">event</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span>
             <span class="kd">var</span> <span class="nx">pageX</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollLeft</span><span class="p">;</span>
             <span class="kd">var</span> <span class="nx">pageY</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">||</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">+</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">;</span>
-            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">pageX</span> <span class="o">-</span> <span class="nx">bodyX</span> <span class="o">+</span> <span class="s2">"px"</span><span class="p">;</span>
-            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">pageY</span> <span class="o">-</span> <span class="nx">bodyY</span> <span class="o">+</span> <span class="s2">"px"</span><span class="p">;</span>
+            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">pageX</span> <span class="o">-</span> <span class="nx">bodyX</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">px</span><span class="dl">"</span><span class="p">;</span>
+            <span class="nx">dbody</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">top</span> <span class="o">=</span> <span class="nx">pageY</span> <span class="o">-</span> <span class="nx">bodyY</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">px</span><span class="dl">"</span><span class="p">;</span>
             <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span> <span class="p">?</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">()</span> <span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>
 
         <span class="p">};</span>
@@ -414,9 +415,9 @@ var _hmt = _hmt || [];
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">haschildrenUL</span><span class="p">(</span><span class="nx">classname</span><span class="p">,</span><span class="nx">addclass</span><span class="p">){</span>
 	<span class="kd">var</span> <span class="nx">Userlistli</span> <span class="o">=</span>  <span class="nx">$</span><span class="p">(</span><span class="nx">classname</span><span class="p">);</span> 
 	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">z</span> <span class="o">&lt;</span> <span class="nx">Userlistli</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">z</span><span class="o">++</span> <span class="p">){</span>  
-		<span class="kd">var</span> <span class="nx">haschildrenUl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"ul"</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">haschildrenUl</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="dl">"</span><span class="s2">ul</span><span class="dl">"</span><span class="p">);</span>
 		<span class="k">if</span><span class="p">(</span> <span class="nx">haschildrenUl</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">){</span>
-			<span class="kd">var</span> <span class="nx">hasi</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"i"</span><span class="p">);</span>
+			<span class="kd">var</span> <span class="nx">hasi</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Userlistli</span><span class="p">[</span><span class="nx">z</span><span class="p">]).</span><span class="nx">find</span><span class="p">(</span><span class="dl">"</span><span class="s2">i</span><span class="dl">"</span><span class="p">);</span>
 			<span class="nx">$</span><span class="p">(</span><span class="nx">hasi</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
 			<span class="nx">$</span><span class="p">(</span><span class="nx">hasi</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">addclass</span><span class="p">);</span>
 		<span class="p">}</span>		 
@@ -433,7 +434,7 @@ var _hmt = _hmt || [];
 	<span class="k">if</span><span class="p">(</span><span class="nb">navigator</span><span class="p">){</span>
 		<span class="kd">var</span> <span class="nx">userAgent</span> <span class="o">=</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">;</span>
 		<span class="k">if</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">){</span>
-			<span class="k">if</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"Chrome"</span><span class="p">)</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">){</span>
+			<span class="k">if</span><span class="p">(</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">"</span><span class="s2">Chrome</span><span class="dl">"</span><span class="p">)</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">){</span>
 				<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 			<span class="p">}</span>
 		<span class="p">}</span>
@@ -459,18 +460,18 @@ var _hmt = _hmt || [];
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//获取当前日期时间 格式"yyyy-MM-dd HH:MM:SS"</span>
 <span class="kd">function</span> <span class="nx">getNowFormatDate</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
-    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="s2">"-"</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="s2">":"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">strDate</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">month</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
+        <span class="nx">month</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">strDate</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strDate</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">strDate</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
+        <span class="nx">strDate</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kd">var</span> <span class="nx">currentdata</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">currentdata</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getHours</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">()</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
     
     <span class="k">return</span> <span class="nx">currentdata</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
@@ -480,8 +481,8 @@ var _hmt = _hmt || [];
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">getLastFormatDate</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
     <span class="nx">date</span><span class="p">.</span><span class="nx">setMonth</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="s2">"-"</span><span class="p">;</span>
-    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="s2">":"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator1</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">seperator2</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">:</span><span class="dl">"</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
     <span class="kd">var</span> <span class="nx">month</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 	<span class="kd">var</span> <span class="nx">strDate</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
@@ -489,23 +490,23 @@ var _hmt = _hmt || [];
 	<span class="kd">var</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getSeconds</span><span class="p">();</span>
 	<span class="kd">var</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nx">date</span><span class="p">.</span><span class="nx">getMinutes</span><span class="p">();</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">month</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">month</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">month</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
+        <span class="nx">month</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">month</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">strDate</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">strDate</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">strDate</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
+        <span class="nx">strDate</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">strDate</span><span class="p">;</span>
 	<span class="p">}</span>
 	
 	 <span class="k">if</span> <span class="p">(</span><span class="nx">hours</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">hours</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">hours</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">hours</span><span class="p">;</span>
+        <span class="nx">hours</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">hours</span><span class="p">;</span>
 	<span class="p">}</span>
 	 <span class="k">if</span> <span class="p">(</span><span class="nx">seconds</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">seconds</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">seconds</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
+        <span class="nx">seconds</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
 	<span class="p">}</span>
 	 <span class="k">if</span> <span class="p">(</span><span class="nx">minutes</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">minutes</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">){</span>
-        <span class="nx">minutes</span> <span class="o">=</span> <span class="s2">"0"</span> <span class="o">+</span> <span class="nx">minutes</span><span class="p">;</span>
+        <span class="nx">minutes</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">minutes</span><span class="p">;</span>
     <span class="p">}</span>
     
-    <span class="kd">var</span> <span class="nx">lastdata</span> <span class="o">=</span> <span class="nx">year</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">lastdata</span> <span class="o">=</span> <span class="nx">year</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">month</span> <span class="o">+</span> <span class="nx">seperator1</span> <span class="o">+</span> <span class="nx">strDate</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">hours</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">minutes</span> <span class="o">+</span> <span class="nx">seperator2</span> <span class="o">+</span> <span class="nx">seconds</span><span class="p">;</span>
     
     <span class="k">return</span> <span class="nx">lastdata</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
@@ -525,7 +526,7 @@ var _hmt = _hmt || [];
     <span class="kd">var</span> <span class="nx">year</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
     <span class="kd">var</span> <span class="nx">mon</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">day</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
-    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
+    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
 <span class="p">}</span>
 
@@ -549,7 +550,7 @@ var _hmt = _hmt || [];
     <span class="nx">year</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">();</span>
     <span class="nx">mon</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getMonth</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
     <span class="nx">day</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>
-    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="s1">'0'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
+    <span class="nx">s</span> <span class="o">=</span> <span class="nx">year</span><span class="o">+</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="o">+</span><span class="p">(</span><span class="nx">mon</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="o">+</span><span class="nx">mon</span><span class="p">):</span><span class="nx">mon</span><span class="p">)</span><span class="o">+</span><span class="dl">"</span><span class="s2">-</span><span class="dl">"</span><span class="o">+</span><span class="p">(</span><span class="nx">day</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">?(</span><span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="o">+</span><span class="nx">day</span><span class="p">):</span><span class="nx">day</span><span class="p">);</span>
     <span class="k">return</span> <span class="nx">s</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
@@ -560,15 +561,15 @@ var _hmt = _hmt || [];
 */</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 	<span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">)</span> <span class="p">{</span>
-	<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
+	<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.scroll-to-top</span><span class="dl">'</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
 	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-	<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">();</span>
+	<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.scroll-to-top</span><span class="dl">'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">();</span>
 	<span class="p">}</span>
 <span class="p">});</span>
 
 
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.scroll-to-top'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-	<span class="nx">$</span><span class="p">(</span><span class="s1">'html, body'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="mi">800</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.scroll-to-top</span><span class="dl">'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	<span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">html, body</span><span class="dl">'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span> <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span> <span class="mi">800</span><span class="p">);</span>
 	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div></div>
@@ -578,7 +579,7 @@ var _hmt = _hmt || [];
 ** Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 。
 ** 语法 Object.keys(obj)
 */</span>
-<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">a</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">b</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">c</span><span class="dl">'</span><span class="p">];</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">));</span> <span class="c1">// console: ['0', '1', '2']</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">arr</span><span class="p">).</span><span class="nx">length</span><span class="p">);</span> <span class="c1">// console: 3</span>
 </code></pre></div></div>

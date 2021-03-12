@@ -27,9 +27,9 @@
     <link rel="stylesheet" href="/assets/css/prism-line-numbers.css">
     
     <link rel="stylesheet" href="/assets/css/markdown.css">
-    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>把数组对象相同的key值合并，并且把对应的id放到一个数组 | Drakecb的博客</title>
-<meta name="generator" content="Jekyll v3.8.3" />
+<meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="把数组对象相同的key值合并，并且把对应的id放到一个数组" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="如何合并数组对象中相同的key值" />
@@ -40,9 +40,10 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-06-05T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="把数组对象相同的key值合并，并且把对应的id放到一个数组" />
 <meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"description":"如何合并数组对象中相同的key值","@type":"BlogPosting","url":"http://localhost:4000/javascript/2018/06/05/javascript-array01.html","headline":"把数组对象相同的key值合并，并且把对应的id放到一个数组","dateModified":"2018-06-05T00:00:00+08:00","datePublished":"2018-06-05T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/2018/06/05/javascript-array01.html"},"@context":"http://schema.org"}</script>
+{"dateModified":"2018-06-05T00:00:00+08:00","datePublished":"2018-06-05T00:00:00+08:00","url":"http://localhost:4000/javascript/2018/06/05/javascript-array01.html","headline":"把数组对象相同的key值合并，并且把对应的id放到一个数组","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/2018/06/05/javascript-array01.html"},"description":"如何合并数组对象中相同的key值","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -92,7 +93,7 @@ var _hmt = _hmt || [];
       </p>
 
       <div class="article-title-description">
-        <p>发表于 2018-06-05 | 本文共 318 字</p>
+        <p>发表于 2018-06-05 | 本文共 346 字</p>
       </div>
     </header>
 
@@ -104,38 +105,38 @@ var _hmt = _hmt || [];
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">    <span class="kd">var</span> <span class="nx">old</span> <span class="o">=</span> <span class="p">[</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'css'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'html11'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">css</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">html11</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'css'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'html22'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">css</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">html22</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'javacript'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'code33'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">javacript</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">code33</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'javacript'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'code44'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">javacript</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">code44</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'php'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'drake'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">php</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">drake</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'php'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'brew'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">php</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">brew</span><span class="dl">'</span>
 	   <span class="p">},</span>
 	   <span class="p">{</span>
 	     <span class="na">id</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-	     <span class="na">name</span><span class="p">:</span> <span class="s1">'php'</span><span class="p">,</span>
-	     <span class="na">type</span><span class="p">:</span> <span class="s1">'brewss'</span>
+	     <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">php</span><span class="dl">'</span><span class="p">,</span>
+	     <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">brewss</span><span class="dl">'</span>
 	   <span class="p">}</span>
           <span class="p">];</span>
 	  <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="p">{};</span>
