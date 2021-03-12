@@ -7,15 +7,15 @@
 		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>Homebrew资源缓慢</title>
+				<title>Homebrew更新资源缓慢</title>
 				
-				<description>&lt;p&gt;　　很久没有写blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的git-page竟然很多依赖都需要更新，能怎么办能，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：&lt;/p&gt;
+				<description>&lt;p&gt;　　很久没有写Blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的github-page竟然很多依赖都需要更新，能怎么办呢，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：&lt;/p&gt;
 
-&lt;h3 id=&quot;手动执行下面这句命令更换为中科院的镜像&quot;&gt;手动执行下面这句命令，更换为中科院的镜像：&lt;/h3&gt;
+&lt;h4 id=&quot;手动执行下面这句命令更换为中科院的镜像&quot;&gt;手动执行下面这句命令，更换为中科院的镜像：&lt;/h4&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像&quot;&gt;复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像&lt;/h3&gt;
+&lt;h4 id=&quot;复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像&quot;&gt;复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像&lt;/h4&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd &quot;$(brew --repo)&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -28,13 +28,13 @@
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;然后执行&quot;&gt;然后执行&lt;/h3&gt;
+&lt;h4 id=&quot;然后执行&quot;&gt;然后执行&lt;/h4&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
 				<pubDate>Fri, 12 Mar 2021 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html</link>
-				<guid isPermaLink="true">http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html</guid>
+				<link>http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html</link>
+				<guid isPermaLink="true">http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html</guid>
 			</item>
 		
 			<item>

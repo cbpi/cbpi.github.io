@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
       
-        Homebrew资源缓慢
+        Homebrew更新资源缓慢
       
     </title>
 
@@ -28,22 +28,22 @@
     
     <link rel="stylesheet" href="/assets/css/markdown.css">
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Homebrew资源缓慢 | Drakecb的博客</title>
+<title>Homebrew更新资源缓慢 | Drakecb的博客</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Homebrew资源缓慢" />
+<meta property="og:title" content="Homebrew更新资源缓慢" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="使用Homebrew安装或者更新资源下载缓慢" />
 <meta property="og:description" content="使用Homebrew安装或者更新资源下载缓慢" />
-<link rel="canonical" href="http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html" />
-<meta property="og:url" content="http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html" />
+<link rel="canonical" href="http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html" />
+<meta property="og:url" content="http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html" />
 <meta property="og:site_name" content="Drakecb的博客" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-12T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Homebrew资源缓慢" />
+<meta property="twitter:title" content="Homebrew更新资源缓慢" />
 <meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"dateModified":"2021-03-12T00:00:00+08:00","datePublished":"2021-03-12T00:00:00+08:00","url":"http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html","headline":"Homebrew资源缓慢","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html"},"description":"使用Homebrew安装或者更新资源下载缓慢","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"dateModified":"2021-03-12T00:00:00+08:00","datePublished":"2021-03-12T00:00:00+08:00","url":"http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html","headline":"Homebrew更新资源缓慢","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html"},"description":"使用Homebrew安装或者更新资源下载缓慢","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
       <div class="title">
   <a href="/articles">
     
-      Homebrew资源缓慢
+      Homebrew更新资源缓慢
     
   </a>
   <span class="title-tip">返回首页</span>
@@ -100,13 +100,13 @@ var _hmt = _hmt || [];
     
 <div class="page-content">
   <div class="content" id="post-content">
-    <p><p>　　很久没有写blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的git-page竟然很多依赖都需要更新，能怎么办能，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：</p>
+    <p><p>　　很久没有写Blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的github-page竟然很多依赖都需要更新，能怎么办呢，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：</p>
 
-<h3 id="手动执行下面这句命令更换为中科院的镜像">手动执行下面这句命令，更换为中科院的镜像：</h3>
+<h4 id="手动执行下面这句命令更换为中科院的镜像">手动执行下面这句命令，更换为中科院的镜像：</h4>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git://mirrors.ustc.edu.cn/homebrew-core.git/ /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core --depth=1
 </code></pre></div></div>
 
-<h3 id="复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像">复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像</h3>
+<h4 id="复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像">复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像</h4>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd "$(brew --repo)"
 </code></pre></div></div>
 
@@ -119,7 +119,7 @@ var _hmt = _hmt || [];
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
 </code></pre></div></div>
 
-<h3 id="然后执行">然后执行</h3>
+<h4 id="然后执行">然后执行</h4>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update
 </code></pre></div></div>
 </p>
@@ -144,8 +144,8 @@ var _hmt = _hmt || [];
 		};
 		*/
 		var disqus_config = function () {
-			this.page.url = "http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html";
-			this.page.identifier = "/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew%E8%B7%9F%E6%96%B0%E6%85%A2.html";
+			this.page.url = "http://localhost:4000/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html";
+			this.page.identifier = "/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/2021/03/12/Homebrew-core.html";
 		};
 
 		(function() { // DON'T EDIT BELOW THIS LINE
