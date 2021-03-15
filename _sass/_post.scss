@@ -29,7 +29,7 @@ header {
 
   a::before {
     -webkit-animation: twinkle 2s linear infinite !important;
-            animation: twinkle 2s linear infinite !important;
+    animation: twinkle 2s linear infinite !important;
   }
 }
 
@@ -66,4 +66,8 @@ header {
 .scroll-to-top:hover,
 .scroll-to-top:focus {
   color: #ffea00;
+}
+
+.pay-layout {
+  display: flex;
 }

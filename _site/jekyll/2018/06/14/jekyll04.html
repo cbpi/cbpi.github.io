@@ -97,8 +97,7 @@ var _hmt = _hmt || [];
       </div>
     </header>
 
-    
-<div class="page-content">
+    <div class="page-content">
   <div class="content" id="post-content">
     <p><p>在学jekyll的过程中，碰到了一点小小困难，就是在不使用插件的情况下如何获取当前分类下的所有文章，网上查了些解决方案，终于在<a href="https://segmentfault.com/a/1190000000406017#articleHeader3">这篇文章</a>中受到了启发，换种思考方式，可以用JavaScript的方式操作dom实现。这里需要使用到一个第三方js，<a href="https://gist.github.com/bdimcheff/2975441">jquery.query.js</a>，可以在github上下载，接下来po代码：</p>
 
@@ -128,59 +127,65 @@ var _hmt = _hmt || [];
 当然解决这个问题也可以使用插件的方式，感兴趣的可以自己研究下。</p>
 </p>
 
-
-
-      <hr>
-      <div id="btn-show-comment">
-        <div onclick="showComment()">显示评论</div>
-      </div>
-      <div id="comment" style="display: none">
-		<div id="disqus_thread"></div>
-		<script>
-
-		/**
-		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-		/*
+    <hr />
+    <h6>如果觉得本文对你有用，打个赏也无妨😁</h6>
+    <div class="pay-layout">
+      <img src="/assets/img/alipay.png" alt="支付宝收款码" width="250" height="250" />
+      <img src="/assets/img/wxpay.png" alt="微信收款码" width="250" height="250" />
+    </div>
+    <div id="btn-show-comment">
+      <div onclick="showComment()">显示评论</div>
+    </div>
+    <div id="comment" style="display: none">
+      <div id="disqus_thread"></div>
+      <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
 		var disqus_config = function () {
 		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
 		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 		};
 		*/
-		var disqus_config = function () {
-			this.page.url = "https://cbpi.github.io/jekyll/2018/06/14/jekyll04.html";
-			this.page.identifier = "/jekyll/2018/06/14/jekyll04.html";
-		};
+        var disqus_config = function () {
+          this.page.url = 'https://cbpi.github.io/jekyll/2018/06/14/jekyll04.html'
+          this.page.identifier = '/jekyll/2018/06/14/jekyll04.html'
+        }
 
-		(function() { // DON'T EDIT BELOW THIS LINE
-		var d = document, s = d.createElement('script');
-		s.src = 'https://cbpi.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
-		})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      </div>
-
-
+        ;(function () {
+          // DON'T EDIT BELOW THIS LINE
+          var d = document,
+            s = d.createElement('script')
+          s.src = 'https://cbpi.disqus.com/embed.js'
+          s.setAttribute('data-timestamp', +new Date())
+          ;(d.head || d.body).appendChild(s)
+        })()
+      </script>
+      <noscript
+        >Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+      >
+    </div>
 
     <script>
       function showComment() {
-        if(document.getElementById("comment").style.display=="none") {
-          document.getElementById("comment").style.display="block";
-          document.getElementById("btn-show-comment").style.display="none";
+        if (document.getElementById('comment').style.display == 'none') {
+          document.getElementById('comment').style.display = 'block'
+          document.getElementById('btn-show-comment').style.display = 'none'
         }
       }
       function showReward() {
-        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
-          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        if (document.getElementsByClassName('reward-qr-code')[0].style.display == 'none') {
+          document.getElementsByClassName('reward-qr-code')[0].style.display = 'block'
         } else {
-          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+          document.getElementsByClassName('reward-qr-code')[0].style.display = 'none'
         }
       }
     </script>
   </div>
 </div>
+
 
     <footer><section class="copyright">
   <p>Copyright &copy; 2018 Drakecb | Power by

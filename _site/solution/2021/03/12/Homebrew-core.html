@@ -97,8 +97,7 @@ var _hmt = _hmt || [];
       </div>
     </header>
 
-    
-<div class="page-content">
+    <div class="page-content">
   <div class="content" id="post-content">
     <p><p>　　很久没有写Blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的github-page竟然很多依赖都需要更新，能怎么办呢，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：</p>
 
@@ -124,59 +123,65 @@ var _hmt = _hmt || [];
 </code></pre></div></div>
 </p>
 
-
-
-      <hr>
-      <div id="btn-show-comment">
-        <div onclick="showComment()">显示评论</div>
-      </div>
-      <div id="comment" style="display: none">
-		<div id="disqus_thread"></div>
-		<script>
-
-		/**
-		*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-		*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-		/*
+    <hr />
+    <h6>如果觉得本文对你有用，打个赏也无妨😁</h6>
+    <div class="pay-layout">
+      <img src="/assets/img/alipay.png" alt="支付宝收款码" width="250" height="250" />
+      <img src="/assets/img/wxpay.png" alt="微信收款码" width="250" height="250" />
+    </div>
+    <div id="btn-show-comment">
+      <div onclick="showComment()">显示评论</div>
+    </div>
+    <div id="comment" style="display: none">
+      <div id="disqus_thread"></div>
+      <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
 		var disqus_config = function () {
 		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
 		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 		};
 		*/
-		var disqus_config = function () {
-			this.page.url = "https://cbpi.github.io/solution/2021/03/12/Homebrew-core.html";
-			this.page.identifier = "/solution/2021/03/12/Homebrew-core.html";
-		};
+        var disqus_config = function () {
+          this.page.url = 'https://cbpi.github.io/solution/2021/03/12/Homebrew-core.html'
+          this.page.identifier = '/solution/2021/03/12/Homebrew-core.html'
+        }
 
-		(function() { // DON'T EDIT BELOW THIS LINE
-		var d = document, s = d.createElement('script');
-		s.src = 'https://cbpi.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
-		})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-      </div>
-
-
+        ;(function () {
+          // DON'T EDIT BELOW THIS LINE
+          var d = document,
+            s = d.createElement('script')
+          s.src = 'https://cbpi.disqus.com/embed.js'
+          s.setAttribute('data-timestamp', +new Date())
+          ;(d.head || d.body).appendChild(s)
+        })()
+      </script>
+      <noscript
+        >Please enable JavaScript to view the
+        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
+      >
+    </div>
 
     <script>
       function showComment() {
-        if(document.getElementById("comment").style.display=="none") {
-          document.getElementById("comment").style.display="block";
-          document.getElementById("btn-show-comment").style.display="none";
+        if (document.getElementById('comment').style.display == 'none') {
+          document.getElementById('comment').style.display = 'block'
+          document.getElementById('btn-show-comment').style.display = 'none'
         }
       }
       function showReward() {
-        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
-          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
+        if (document.getElementsByClassName('reward-qr-code')[0].style.display == 'none') {
+          document.getElementsByClassName('reward-qr-code')[0].style.display = 'block'
         } else {
-          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
+          document.getElementsByClassName('reward-qr-code')[0].style.display = 'none'
         }
       }
     </script>
   </div>
 </div>
+
 
     <footer><section class="copyright">
   <p>Copyright &copy; 2018 Drakecb | Power by

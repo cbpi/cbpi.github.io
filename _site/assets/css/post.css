@@ -332,3 +332,6 @@ header {
 .scroll-to-top:hover,
 .scroll-to-top:focus {
   color: #ffea00; }
+
+.pay-layout {
+  display: flex; }
