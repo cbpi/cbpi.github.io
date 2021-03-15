@@ -2,7 +2,7 @@
 layout: post
 title: Homebrew更新资源缓慢
 date: 2021-03-12
-category: 解决方案
+category: solution
 comments: true
 excerpt: 使用Homebrew安装或者更新资源下载缓慢
 tags: [解决方案]
