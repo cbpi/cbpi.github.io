@@ -3,11 +3,11 @@
 body {
   @include flex(column);
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+     -ms-flex-align: center;
+        align-items: center;
   -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+     -ms-flex-pack: end;
+   justify-content: flex-end;
 
   min-height: 100vh;
   margin: 0;
@@ -28,13 +28,13 @@ a {
   width: 150px;
   height: 150px;
 
-  &::before {
+  &::before{
     -webkit-animation: pulse 1s linear infinite;
-    animation: pulse 1s linear infinite;
+            animation: pulse 1s linear infinite;
     border: #ffffff solid 10px;
     border-radius: 50%;
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+            box-sizing: border-box;
     content: ' ';
     height: 140%;
     left: -20%;
@@ -42,7 +42,7 @@ a {
     position: absolute;
     top: -20%;
     -webkit-transform: scale(0.714);
-    transform: scale(0.714);
+            transform: scale(0.714);
     width: 140%;
     z-index: 1;
   }
@@ -75,8 +75,7 @@ a {
   background: #fff;
 }
 
-.index-content h1,
-p {
+.index-content h1, p {
   position: relative;
   text-align: center;
 }

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-minimalism"
-  spec.version       = "0.1.8"
+  spec.version       = "0.1.13"
   spec.authors       = ["showzeng"]
   spec.email         = ["kingstageshow@gmail.com"]
 
@@ -19,6 +19,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.5"
   spec.add_runtime_dependency "jemoji", "~> 0.10"
 
-  spec.add_development_dependency "bundler", "~> 1.16"
+  spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "html-proofer", "~> 3.0"
 end

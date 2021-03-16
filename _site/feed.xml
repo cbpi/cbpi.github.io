@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
-		<title>Drakecb</title>
-		<description>从事前端，爱研究，爱猫</description>
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+		<title>minimalism</title>
+		<description>Minimalism is a jekyll theme for minimalist</description>
+		<link></link>
+		<atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>Homebrew更新资源缓慢</title>
@@ -33,8 +33,8 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
 				<pubDate>Fri, 12 Mar 2021 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/solution/2021/03/12/Homebrew-core.html</link>
-				<guid isPermaLink="true">http://localhost:4000/solution/2021/03/12/Homebrew-core.html</guid>
+				<link>/solution/2021/03/12/Homebrew-core.html</link>
+				<guid isPermaLink="true">/solution/2021/03/12/Homebrew-core.html</guid>
 			</item>
 		
 			<item>
@@ -977,8 +977,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 &lt;p&gt;转自： &lt;a href=&quot;https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits&quot;&gt;https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits&lt;/a&gt;&lt;/p&gt;
 </description>
 				<pubDate>Sat, 12 Jan 2019 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</link>
-				<guid isPermaLink="true">http://localhost:4000/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</guid>
+				<link>/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</link>
+				<guid isPermaLink="true">/git/2019/01/12/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight-Rules).html</guid>
 			</item>
 		
 			<item>
@@ -1047,8 +1047,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 参考文献 &lt;a href=&quot;https://segmentfault.com/a/1190000012063374&quot;&gt;Docker常用命令&lt;/a&gt;&lt;/p&gt;
 </description>
 				<pubDate>Fri, 19 Oct 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html</link>
-				<guid isPermaLink="true">http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html</guid>
+				<link>/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html</link>
+				<guid isPermaLink="true">/%E5%B7%A5%E5%85%B7/2018/10/19/docker-command.html</guid>
 			</item>
 		
 			<item>
@@ -1139,8 +1139,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 &lt;p&gt;如果熟练运用箭头函数以前的hack写法就没什么用的必要了，当然习惯问题还是根据自己来决定。&lt;/p&gt;
 </description>
 				<pubDate>Sun, 30 Sep 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/vue/2018/09/30/vue-study.html</link>
-				<guid isPermaLink="true">http://localhost:4000/vue/2018/09/30/vue-study.html</guid>
+				<link>/vue/2018/09/30/vue-study.html</link>
+				<guid isPermaLink="true">/vue/2018/09/30/vue-study.html</guid>
 			</item>
 		
 			<item>
@@ -1181,8 +1181,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 &lt;/ol&gt;
 </description>
 				<pubDate>Fri, 14 Sep 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/vue/2018/09/14/use-vue-cli-offline.html</link>
-				<guid isPermaLink="true">http://localhost:4000/vue/2018/09/14/use-vue-cli-offline.html</guid>
+				<link>/vue/2018/09/14/use-vue-cli-offline.html</link>
+				<guid isPermaLink="true">/vue/2018/09/14/use-vue-cli-offline.html</guid>
 			</item>
 		
 			<item>
@@ -1203,8 +1203,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 &lt;p&gt;重新下载一个3.6的MongoDB，降级！！！:smile:&lt;/p&gt;
 </description>
 				<pubDate>Mon, 27 Aug 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</link>
-				<guid isPermaLink="true">http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</guid>
+				<link>/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</link>
+				<guid isPermaLink="true">/%E5%B7%A5%E5%85%B7/2018/08/27/macOs-mongoerr.html</guid>
 			</item>
 		
 			<item>
@@ -1221,8 +1221,8 @@ c10f740 HEAD@&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;2&lt;span class=&quot
 
 </description>
 				<pubDate>Tue, 21 Aug 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/21/Imageformat.html</link>
-				<guid isPermaLink="true">http://localhost:4000/%E5%B7%A5%E5%85%B7/2018/08/21/Imageformat.html</guid>
+				<link>/%E5%B7%A5%E5%85%B7/2018/08/21/Imageformat.html</link>
+				<guid isPermaLink="true">/%E5%B7%A5%E5%85%B7/2018/08/21/Imageformat.html</guid>
 			</item>
 		
 			<item>
@@ -1910,8 +1910,8 @@ document.write(fib(10));
 &lt;/div&gt;
 </description>
 				<pubDate>Sun, 12 Aug 2018 21:30:23 +0800</pubDate>
-				<link>http://localhost:4000/markdown/2018/08/12/markdown-syntax-and-rendering.html</link>
-				<guid isPermaLink="true">http://localhost:4000/markdown/2018/08/12/markdown-syntax-and-rendering.html</guid>
+				<link>/markdown/2018/08/12/markdown-syntax-and-rendering.html</link>
+				<guid isPermaLink="true">/markdown/2018/08/12/markdown-syntax-and-rendering.html</guid>
 			</item>
 		
 			<item>
@@ -2402,8 +2402,8 @@ document.write(fib(10));
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
 				<pubDate>Tue, 17 Jul 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/javascript/2018/07/17/js01.html</link>
-				<guid isPermaLink="true">http://localhost:4000/javascript/2018/07/17/js01.html</guid>
+				<link>/javascript/2018/07/17/js01.html</link>
+				<guid isPermaLink="true">/javascript/2018/07/17/js01.html</guid>
 			</item>
 		
 			<item>
@@ -2455,8 +2455,8 @@ document.write(fib(10));
 &lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;/p&gt;
 </description>
 				<pubDate>Fri, 22 Jun 2018 00:00:00 +0800</pubDate>
-				<link>http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html</link>
-				<guid isPermaLink="true">http://localhost:4000/javascript/2018/06/22/study-es2015es2016.html</guid>
+				<link>/javascript/2018/06/22/study-es2015es2016.html</link>
+				<guid isPermaLink="true">/javascript/2018/06/22/study-es2015es2016.html</guid>
 			</item>
 		
 	</channel>

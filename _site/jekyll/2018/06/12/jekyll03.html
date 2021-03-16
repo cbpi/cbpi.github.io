@@ -14,10 +14,47 @@
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
     
-<link rel="shortcut icon" href="/assets/img/favicon.ico" />
-<link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" />
+    <link rel="bookmark" href="/assets/img/favicon.ico" type="image/x-icon" />
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
 
 
@@ -28,50 +65,22 @@
     
     <link rel="stylesheet" href="/assets/css/markdown.css">
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>jekyll学习三(小知识点) | Drakecb的博客</title>
+<title>jekyll学习三(小知识点) | Minimalism</title>
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="jekyll学习三(小知识点)" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="jekyll学习过程中碰到的一些小问题，比如评论功能，引用代码片段，高亮显示，绑定自己的域名。" />
 <meta property="og:description" content="jekyll学习过程中碰到的一些小问题，比如评论功能，引用代码片段，高亮显示，绑定自己的域名。" />
-<link rel="canonical" href="http://localhost:4000/jekyll/2018/06/12/jekyll03.html" />
-<meta property="og:url" content="http://localhost:4000/jekyll/2018/06/12/jekyll03.html" />
-<meta property="og:site_name" content="Drakecb的博客" />
+<meta property="og:site_name" content="Minimalism" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-06-12T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="jekyll学习三(小知识点)" />
-<meta name="twitter:site" content="@" />
 <script type="application/ld+json">
-{"dateModified":"2018-06-12T00:00:00+08:00","datePublished":"2018-06-12T00:00:00+08:00","url":"http://localhost:4000/jekyll/2018/06/12/jekyll03.html","headline":"jekyll学习三(小知识点)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/2018/06/12/jekyll03.html"},"description":"jekyll学习过程中碰到的一些小问题，比如评论功能，引用代码片段，高亮显示，绑定自己的域名。","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"/jekyll/2018/06/12/jekyll03.html","headline":"jekyll学习三(小知识点)","dateModified":"2018-06-12T00:00:00+08:00","datePublished":"2018-06-12T00:00:00+08:00","description":"jekyll学习过程中碰到的一些小问题，比如评论功能，引用代码片段，高亮显示，绑定自己的域名。","mainEntityOfPage":{"@type":"WebPage","@id":"/jekyll/2018/06/12/jekyll03.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     
-
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?96715dc203611cdcb5539a15664fe630";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-120619613-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-120619613-1');
-</script>
-
-
-
 
   </head>
 
@@ -88,7 +97,7 @@ var _hmt = _hmt || [];
 
       <p id="author" style="display: none">
         
-        Drakecb
+        minimalism
         
       </p>
 
@@ -169,59 +178,30 @@ A记录的记录值可以在终端里用’ping your.github.io’来获取，CNA
 </ol>
 </p>
 
-    <hr />
-    <h6>如果觉得本文对你有用，打个赏也无妨😁</h6>
-    <div class="pay-layout">
-      <img src="/assets/img/alipay.png" alt="支付宝收款码" width="250" height="250" />
-      <img src="/assets/img/wxpay.png" alt="微信收款码" width="250" height="250" />
+    <div class="licenses">
+      <hr>
+      <p>本作品采用<a rel="license"
+        href="http://creativecommons.org/licenses/by-nc-nd/4.0/"
+        target="_blank">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可。</p>
     </div>
-    <div id="btn-show-comment">
-      <div onclick="showComment()">显示评论</div>
-    </div>
-    <div id="comment" style="display: none">
-      <div id="disqus_thread"></div>
-      <script>
-        /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-        /*
-		var disqus_config = function () {
-		this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-		this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-		};
-		*/
-        var disqus_config = function () {
-          this.page.url = 'http://localhost:4000/jekyll/2018/06/12/jekyll03.html'
-          this.page.identifier = '/jekyll/2018/06/12/jekyll03.html'
-        }
 
-        ;(function () {
-          // DON'T EDIT BELOW THIS LINE
-          var d = document,
-            s = d.createElement('script')
-          s.src = 'https://cbpi.disqus.com/embed.js'
-          s.setAttribute('data-timestamp', +new Date())
-          ;(d.head || d.body).appendChild(s)
-        })()
-      </script>
-      <noscript
-        >Please enable JavaScript to view the
-        <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript
-      >
-    </div>
+    
+
+    
 
     <script>
       function showComment() {
-        if (document.getElementById('comment').style.display == 'none') {
-          document.getElementById('comment').style.display = 'block'
-          document.getElementById('btn-show-comment').style.display = 'none'
+        if(document.getElementById("comment").style.display=="none") {
+          document.getElementById("comment").style.display="block";
+          document.getElementById("btn-show-comment").style.display="none";
         }
       }
+
       function showReward() {
-        if (document.getElementsByClassName('reward-qr-code')[0].style.display == 'none') {
-          document.getElementsByClassName('reward-qr-code')[0].style.display = 'block'
+        if (document.getElementsByClassName("reward-qr-code")[0].style.display=="none" ) {
+          document.getElementsByClassName("reward-qr-code")[0].style.display="block";
         } else {
-          document.getElementsByClassName('reward-qr-code')[0].style.display = 'none'
+          document.getElementsByClassName("reward-qr-code")[0].style.display="none";
         }
       }
     </script>
@@ -230,7 +210,7 @@ A记录的记录值可以在终端里用’ping your.github.io’来获取，CNA
 
 
     <footer><section class="copyright">
-  <p>Copyright &copy; 2018 Drakecb | Power by
+  <p>Copyright &copy; 2018 minimalism | Power by
     <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>
      | Theme
      <a href="https://github.com/showzeng/minimalism" target="_blank">Minimalism</a>
@@ -240,47 +220,17 @@ A记录的记录值可以在终端里用’ping your.github.io’来获取，CNA
 
 
     <script src="/assets/js/prism.js"></script>
+    <script src="/assets/js/zooming.min.js"></script>
+    
     
     <script src="/assets/js/prism-line-numbers.js"></script>
     
-    <script src="/assets/js/link_target.js"></script>
+    <script src="/assets/js/post_content_init.js"></script>
 
     
-    
-    <script src="/assets/js/copy_with_declaration.js"></script>
     
 
     
 
-<div style="display: none">
-  <script src="https://s22.cnzz.com/z_stat.php?id=1274506488&web_id=1274506488"
-   language="JavaScript"></script>
-</div>
-
-
-
-
-    <!-- Back to Top Start -->
-    <a href="#" class="scroll-to-top"><i class="fas fa-angle-double-up"></i></a>
-    <!-- Back to Top End -->
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    
-    <script>
-    /* Scroll To Top */
-
-    $(window).scroll(function () {
-      if ($(this).scrollTop() >= 500) {
-        $('.scroll-to-top').fadeIn();
-      } else {
-        $('.scroll-to-top').fadeOut();
-      }
-    });
-
-
-    $('.scroll-to-top').click(function () {
-      $('html, body').animate({ scrollTop: 0 }, 800);
-      return false;
-    });
-    </script>
   </body>
 </html>
