@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="🧠 一、管理岗位核心能力 团队管理与领导力 •    如何激励团队成员 •    如何进行绩效评估与反馈 •    如何设定目标并追踪执行 •    如何处理冲突与沟通障碍 •    如何招聘、培养人才  项目管理 •    熟悉敏捷开发（Scrum、Kanban） •    学会使用项目管理工具（Jira、Trello、Notion） •    制定项目计划、分配任务、控制进度与质量 •">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于前端开发转管理岗位">
+<meta property="og:url" content="https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog">
+<meta property="og:description" content="🧠 一、管理岗位核心能力 团队管理与领导力 •    如何激励团队成员 •    如何进行绩效评估与反馈 •    如何设定目标并追踪执行 •    如何处理冲突与沟通障碍 •    如何招聘、培养人才  项目管理 •    熟悉敏捷开发（Scrum、Kanban） •    学会使用项目管理工具（Jira、Trello、Notion） •    制定项目计划、分配任务、控制进度与质量 •">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-09T05:15:54.000Z">
+<meta property="article:modified_time" content="2025-04-21T08:56:52.000Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="陈波, 博客, Vue.js, JavaScript, PHP开发, 技术分享, 前端开发, 全栈开发">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>关于前端开发转管理岗位</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/28/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BA%93/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&text=关于前端开发转管理岗位"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&is_video=false&description=关于前端开发转管理岗位"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于前端开发转管理岗位&body=Check out this article: https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&name=关于前端开发转管理岗位&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&t=关于前端开发转管理岗位"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-%E4%B8%80%E3%80%81%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">🧠 一、管理岗位核心能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">📚 二、技术管理相关知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%88-%E4%B8%89%E3%80%81%E4%B8%9A%E5%8A%A1%E7%90%86%E8%A7%A3%E8%83%BD%E5%8A%9B"><span class="toc-number">3.</span> <span class="toc-text">📈 三、业务理解能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%B0-%E5%9B%9B%E3%80%81%E5%8F%AF%E6%8E%A8%E8%8D%90%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">4.</span> <span class="toc-text">🧰 四、可推荐学习路径</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        关于前端开发转管理岗位
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-04-09T05:15:54.000Z" class="dt-published" itemprop="datePublished">2025-04-09</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="🧠-一、管理岗位核心能力"><a href="#🧠-一、管理岗位核心能力" class="headerlink" title="🧠 一、管理岗位核心能力"></a>🧠 一、管理岗位核心能力</h2><ol>
+<li><p>团队管理与领导力<br> •    如何激励团队成员<br> •    如何进行绩效评估与反馈<br> •    如何设定目标并追踪执行<br> •    如何处理冲突与沟通障碍<br> •    如何招聘、培养人才</p>
+</li>
+<li><p>项目管理<br> •    熟悉敏捷开发（Scrum、Kanban）<br> •    学会使用项目管理工具（Jira、Trello、Notion）<br> •    制定项目计划、分配任务、控制进度与质量<br> •    风险管理与应对方案</p>
+</li>
+<li><p>跨部门沟通能力<br> •    与产品、设计、后端、测试等协作<br> •    向上级汇报进展、问题、需求<br> •    将技术问题用业务语言阐述，推动决策</p>
+</li>
+</ol>
+<h2 id="📚-二、技术管理相关知识"><a href="#📚-二、技术管理相关知识" class="headerlink" title="📚 二、技术管理相关知识"></a>📚 二、技术管理相关知识</h2><ol>
+<li><p>架构能力提升<br> •    理解前后端整体架构设计<br> •    微前端、模块化、可维护性设计<br> •    性能优化、安全策略</p>
+</li>
+<li><p>代码质量控制<br> •    Code Review 的规范与技巧<br> •    制定团队的编码规范<br> •    自动化测试与CI/CD 流程</p>
+</li>
+<li><p>技术选型与决策<br> •    如何评估新技术栈是否适合团队<br> •    平衡技术先进性与稳定性</p>
+</li>
+</ol>
+<h2 id="📈-三、业务理解能力"><a href="#📈-三、业务理解能力" class="headerlink" title="📈 三、业务理解能力"></a>📈 三、业务理解能力</h2><p>管理者不能只懂技术，还要懂 业务，要学习：<br>    •    产品需求背后的商业逻辑<br>    •    如何用数据衡量产品和技术成果（如转化率、留存率、响应时间等）</p>
+<h2 id="🧰-四、可推荐学习路径"><a href="#🧰-四、可推荐学习路径" class="headerlink" title="🧰 四、可推荐学习路径"></a>🧰 四、可推荐学习路径</h2><p>方向    推荐内容<br>书籍    《高效能程序员的管理之道》《技术领导力手册》《Scrum敏捷项目管理》《OKR工作法》<br>视频/课程    极客时间《技术管理实战36讲》李运华《技术领导力》Udemy/LinkedIn Learning 的项目管理与领导力课程<br>工具    Jira、Notion、Slack、GitHub Projects、TAPD<br>实践建议    主动承担项目推进、Code Review、Mentor 初级成员、参与招聘</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>推荐内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>书籍</td>
+<td>高效能程序员的管理之道》《技术领导力手册》《Scrum敏捷项目管理》《OKR工作法》</td>
+</tr>
+<tr>
+<td>视频/课程</td>
+<td>极客时间《技术管理实战36讲》李运华《技术领导力》Udemy/LinkedIn Learning 的项目管理与领导力课程</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>Jira、Notion、Slack、GitHub Projects、TAPD</td>
+</tr>
+<tr>
+<td>实践建议</td>
+<td>主动承担项目推进、Code Review、Mentor 初级成员、参与招聘</td>
+</tr>
+</tbody></table>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-%E4%B8%80%E3%80%81%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D%E6%A0%B8%E5%BF%83%E8%83%BD%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">🧠 一、管理岗位核心能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-%E4%BA%8C%E3%80%81%E6%8A%80%E6%9C%AF%E7%AE%A1%E7%90%86%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-number">2.</span> <span class="toc-text">📚 二、技术管理相关知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%88-%E4%B8%89%E3%80%81%E4%B8%9A%E5%8A%A1%E7%90%86%E8%A7%A3%E8%83%BD%E5%8A%9B"><span class="toc-number">3.</span> <span class="toc-text">📈 三、业务理解能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%B0-%E5%9B%9B%E3%80%81%E5%8F%AF%E6%8E%A8%E8%8D%90%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84"><span class="toc-number">4.</span> <span class="toc-text">🧰 四、可推荐学习路径</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&text=关于前端开发转管理岗位"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&is_video=false&description=关于前端开发转管理岗位"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于前端开发转管理岗位&body=Check out this article: https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&title=关于前端开发转管理岗位"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&name=关于前端开发转管理岗位&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/&t=关于前端开发转管理岗位"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="本文主要说明一些常用的 Markdown 语法及主题 Minimalism 中的渲染效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 语法及渲染">
+<meta property="og:url" content="https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog">
+<meta property="og:description" content="本文主要说明一些常用的 Markdown 语法及主题 Minimalism 中的渲染效果。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.z4a.net/images/2017/08/31/shortcut_icon.png">
+<meta property="og:image" content="https://www.z4a.net/images/2017/08/31/shortcut_icon.png">
+<meta property="article:published_time" content="2018-08-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-21T08:56:52.000Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="Markdown">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.z4a.net/images/2017/08/31/shortcut_icon.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Markdown 语法及渲染</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2018/08/26/macOs%20homebrew%E6%9B%B4%E6%96%B0MongoDB%E5%88%B04.0%E6%8A%A5%E9%94%99/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2018/07/16/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84js%E5%B0%81%E8%A3%85/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&text=Markdown 语法及渲染"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&is_video=false&description=Markdown 语法及渲染"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markdown 语法及渲染&body=Check out this article: https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&name=Markdown 语法及渲染&description=本文主要说明一些常用的 Markdown 语法及主题 Minimalism 中的渲染效果。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&t=Markdown 语法及渲染"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Markdown 基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%9C%E4%BD%93%E5%92%8C%E7%B2%97%E4%BD%93"><span class="toc-number">2.1.</span> <span class="toc-text">1. 斜体和粗体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.2.</span> <span class="toc-text">2. 分级标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number"></span> <span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">六级标题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%96%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.</span> <span class="toc-text">3. 外链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">4. 无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.4.</span> <span class="toc-text">5. 有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BC%95%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">6. 引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.6.</span> <span class="toc-text">7. 行内代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.7.</span> <span class="toc-text">8. 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%8F%92%E5%85%A5%E5%9B%BE%E5%83%8F"><span class="toc-number">1.8.</span> <span class="toc-text">9. 插入图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">1.9.</span> <span class="toc-text">10. 分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%8F%8D%E8%BD%AC%E4%B9%89"><span class="toc-number">1.10.</span> <span class="toc-text">11. 反转义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Emoji"><span class="toc-number">1.11.</span> <span class="toc-text">12. Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E6%AE%B5%E5%86%85%E6%8D%A2%E8%A1%8C"><span class="toc-number">1.12.</span> <span class="toc-text">13. 段内换行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Markdown 高阶语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">2.1.</span> <span class="toc-text">1. 删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B3%A8%E8%84%9A"><span class="toc-number">2.2.</span> <span class="toc-text">2. 注脚</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A0%E5%BC%BA%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.3.</span> <span class="toc-text">3. 加强的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%A8%E6%A0%BC%E6%94%AF%E6%8C%81"><span class="toc-number">2.4.</span> <span class="toc-text">4. 表格支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E5%9E%8B%E5%88%97%E8%A1%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5. 定义型列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Html-%E6%A0%87%E7%AD%BE"><span class="toc-number">2.6.</span> <span class="toc-text">6. Html 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9-Todo-%E5%88%97%E8%A1%A8"><span class="toc-number">2.7.</span> <span class="toc-text">7. 待办事项 Todo 列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text">写在最后</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Markdown 语法及渲染
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-11T16:00:00.000Z" class="dt-published" itemprop="datePublished">2018-08-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/Markdown/">Markdown</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Markdown/" rel="tag">Markdown</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Jekyll 默认使用 <a target="_blank" rel="noopener" href="https://github.com/gettalong/kramdown">kramdown</a> 来渲染 markdown 类型文件，在 Minimalism 主题中也是使用其默认配置，但在其渲染的基础上自定义了自己的样式，主要参考了 GitHub 的渲染风格。</p>
+<h2 id="Markdown-基本语法"><a href="#Markdown-基本语法" class="headerlink" title="Markdown 基本语法"></a>Markdown 基本语法</h2><p>:stuck_out_tongue: 可能 Markdown 的基本语法大家都很熟悉了，这里主要还是想展示一下主题对各种格式的渲染效果，况且日常写作中，通常也不会全用得上。</p>
+<h3 id="1-斜体和粗体"><a href="#1-斜体和粗体" class="headerlink" title="1. 斜体和粗体"></a>1. 斜体和粗体</h3><p>使用 * 和 ** 表示斜体和粗体。</p>
+<p>示例：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是 <span class="strong">*斜体*</span>，这是 <span class="strong">**粗体**</span>。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+<h3 id="2-分级标题"><a href="#2-分级标题" class="headerlink" title="2. 分级标题"></a>2. 分级标题</h3><p>标题分 6 级，在行首加 <code>#</code> 以表示不同级别的标题 (H1-H6)，例如：# H1, ## H2, ### H3，#### H4，常用的标题主要就是 1 ~ 3 级，往后标题基本同加粗的效果差不多了。</p>
+<p>示例：</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line"></span><br><span class="line">## 二级标题</span><br><span class="line"></span><br><span class="line">### 三级标题</span><br><span class="line"></span><br><span class="line">#### 四级标题</span><br><span class="line"></span><br><span class="line">##### 五级标题</span><br><span class="line"></span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h3 id="3-外链接"><a href="#3-外链接" class="headerlink" title="3. 外链接"></a>3. 外链接</h3><p>使用 [描述](链接地址) 为文章增加外链接。</p>
+<p>示例：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是去往 <span class="selector-attr">[主题 Minimalism]</span>(<span class="attribute">https</span>:<span class="comment">//github.com/showzeng/minimalism) 的链接。</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是去往 <a target="_blank" rel="noopener" href="https://github.com/showzeng/minimalism">主题 Minimalism</a> 的链接。</p>
+<p>也可在链接地址后加一个标题，直观效果时鼠标悬停时的文本提示，其语法是链接后加空格和标题文本。</p>
+<p>示例：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是去往 [主题 Minimalism](https:<span class="regexp">//gi</span>thub.com<span class="regexp">/showzeng/mi</span>nimalism <span class="string">&quot;Minimalism&quot;</span>) 的链接。</span><br></pre></td></tr></table></figure>
+
+<p>效果 (鼠标悬停在链接上时触发)：</p>
+<p>这是去往 <a target="_blank" rel="noopener" href="https://github.com/showzeng/minimalism" title="Minimalism">主题 Minimalism</a> 的链接。</p>
+<p>同时外链接还有另一种使用方式，一般是在文末放置链接标注，在文中就直接使用标注。</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文末放置 Minimalism 的链接标注：</span><br><span class="line">[<span class="symbol">Minimalism</span>]: <span class="link">https://github.com/showzeng/minimalism</span></span><br><span class="line"></span><br><span class="line">文章中直接使用标注替代链接：</span><br><span class="line">这是我开发的一个新主题 [Minimalism]。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是我开发的一个新主题 <a target="_blank" rel="noopener" href="https://github.com/showzeng/minimalism">Minimalism</a>。</p>
+<p>此外，在使用链接标注时，可以替换需要显示的链接文本。</p>
+<p>示例：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">文末放置 <span class="selector-tag">Minimalism</span> 的链接标注：</span><br><span class="line"><span class="selector-attr">[Minimalism]</span>: <span class="selector-tag">https</span>:<span class="comment">//github.com/showzeng/minimalism</span></span><br><span class="line"></span><br><span class="line">文章中直接使用标注替代链接：</span><br><span class="line">这是我开发的一个新主题 <span class="selector-attr">[Minimalism Theme]</span><span class="selector-attr">[Minimalism]</span>。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是我开发的一个新主题 <a target="_blank" rel="noopener" href="https://github.com/showzeng/minimalism">Minimalism Theme</a>。</p>
+<h3 id="4-无序列表"><a href="#4-无序列表" class="headerlink" title="4. 无序列表"></a>4. 无序列表</h3><p>使用 <code>*</code> / <code>-</code> / <code>+</code> 表示无序列表。</p>
+<p>示例：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>无序列表项 一</span><br><span class="line"><span class="bullet">* </span>无序列表项 二</span><br><span class="line"><span class="bullet">* </span>无序列表项 三</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+<h3 id="5-有序列表"><a href="#5-有序列表" class="headerlink" title="5. 有序列表"></a>5. 有序列表</h3><p>使用数字和点表示有序列表。</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 有序列表项 一</span><br><span class="line"><span class="bullet">2.</span> 有序列表项 二</span><br><span class="line"><span class="bullet">3.</span> 有序列表项 三</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ol>
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
+</ol>
+<h3 id="6-引用"><a href="#6-引用" class="headerlink" title="6. 引用"></a>6. 引用</h3><p>使用 <code>&gt;</code> 表示引用。</p>
+<p>示例：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Less is <span class="built_in">more</span>. —— 「Andrea <span class="built_in">del</span> Sarto」</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<p>Less is more. —— 「Andrea del Sarto」</p>
+</blockquote>
+<p>当然，引用也可以嵌套使用。</p>
+<p>示例：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Less is <span class="built_in">more</span>. —— 「Andrea <span class="built_in">del</span> Sarto」</span><br><span class="line">&gt;&gt; 万物之始，大道至简，衍化至繁。 —— 『道德经』</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<blockquote>
+<p>Less is more. —— 「Andrea del Sarto」</p>
+<blockquote>
+<p>万物之始，大道至简，衍化至繁。 —— 『道德经』</p>
+</blockquote>
+</blockquote>
+<h3 id="7-行内代码块"><a href="#7-行内代码块" class="headerlink" title="7. 行内代码块"></a>7. 行内代码块</h3><p>使用 `代码` 表示行内代码块。</p>
+<p>示例：</p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">让主题 `Minimalism` 成为行内代码块。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>让主题 <code>Minimalism</code> 成为行内代码块。</p>
+<h3 id="8-代码块"><a href="#8-代码块" class="headerlink" title="8. 代码块"></a>8. 代码块</h3><p>使用四个缩进空格表示代码块。</p>
+<p>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个代码块，此行左侧有四个不可见的空格。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<pre><code>这是一个代码块，此行左侧有四个不可见的空格。
+</code></pre>
+<p>需要指出的是，我并不喜欢和推荐用这种格式来书写，其实这个代码块在主题中就是没有指定代码类型默认的代码块样式 (而指定代码类型使用的是 <a target="_blank" rel="noopener" href="https://prismjs.com/">Prism</a> 官网定制的代码渲染主题，你也可以制作你自己的代码渲染主题并替换博客主题的代码渲染主题，具体请参考博客主题定制文章。)，所以，当你想实现一个代码块效果时，推荐如下用法。</p>
+<p>示例：</p>
+<pre class="highlight">
+  <code>
+  <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个代码块。</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指定代码类型的代码块。</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// Prints &quot;Hello, World&quot; to the terminal window.</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </code>
+</pre>
+
+<p>效果：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个代码块。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">指定代码类型的代码块。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// Prints &quot;Hello, World&quot; to the terminal window.</span></span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-插入图像"><a href="#9-插入图像" class="headerlink" title="9. 插入图像"></a>9. 插入图像</h3><p>使用 ![描述](图片链接地址) 插入图像。</p>
+<p>示例：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![头像](https:<span class="regexp">//</span>www.z4a.net<span class="regexp">/images/</span><span class="number">2017</span><span class="regexp">/08/</span><span class="number">31</span>/shortcut_icon.png)</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><img src="https://www.z4a.net/images/2017/08/31/shortcut_icon.png" alt="头像"></p>
+<p>同外链接，图片也可在链接地址后加一个标题，直观效果时鼠标悬停时的文本提示，其语法是链接后加空格和标题文本。</p>
+<p>示例：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![头像](https:<span class="regexp">//</span>www.z4a.net<span class="regexp">/images/</span><span class="number">2017</span><span class="regexp">/08/</span><span class="number">31</span>/shortcut_icon.png <span class="string">&quot;头像&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>效果 (鼠标悬停在头像上时触发)：</p>
+<p><img src="https://www.z4a.net/images/2017/08/31/shortcut_icon.png" alt="头像" title="头像"></p>
+<h3 id="10-分隔符"><a href="#10-分隔符" class="headerlink" title="10. 分隔符"></a>10. 分隔符</h3><p>使用 <code>---</code> 可显示分隔符。</p>
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<hr>
+<h3 id="11-反转义"><a href="#11-反转义" class="headerlink" title="11. 反转义"></a>11. 反转义</h3><p>使用 <code>\</code> 可使 Markdown 解析时不会去解析本该属于语法部分的一些符号。</p>
+<p>示例：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\`代码块\`</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>`代码块`</p>
+<h3 id="12-Emoji"><a href="#12-Emoji" class="headerlink" title="12. Emoji"></a>12. Emoji</h3><p>主题同样也支持 Emoji 表情，使用方法很简单。</p>
+<p>示例：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="name">Smile</span>) <span class="symbol">:smile:</span> (<span class="name">Sob</span>) <span class="symbol">:sob:</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>(Smile) :smile: (Sob) :sob:</p>
+<p>Emoji 的代码参考 <a target="_blank" rel="noopener" href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji sheet</a>。</p>
+<h3 id="13-段内换行"><a href="#13-段内换行" class="headerlink" title="13. 段内换行"></a>13. 段内换行</h3><p>在同一段落里让文本换行，只需在上一行末尾加 2 个空格即可。</p>
+<p>示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这是这个段落的第一行。  </span><br><span class="line">这是同一个段落的第二行。</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是这个段落的第一行。<br>这是同一个段落的第二行。</p>
+<h2 id="Markdown-高阶语法"><a href="#Markdown-高阶语法" class="headerlink" title="Markdown 高阶语法"></a>Markdown 高阶语法</h2><h3 id="1-删除线"><a href="#1-删除线" class="headerlink" title="1. 删除线"></a>1. 删除线</h3><p>使用 <code>~~</code> 表示删除线。</p>
+<p>示例：</p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~~这是一段错误的文本。~~</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p><del>这是一段错误的文本。</del></p>
+<h3 id="2-注脚"><a href="#2-注脚" class="headerlink" title="2. 注脚"></a>2. 注脚</h3><p>使用 [^keyword] 表示注脚。</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">这是第一个注脚 [^footnote1] 的样例。</span><br><span class="line"></span><br><span class="line">这是第二个注脚 [^footnote2] 的样例。</span><br><span class="line"></span><br><span class="line">对应在文章末尾放置如下，点击效果中的注脚即可跳转至文章末尾的注脚注解。</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^footnote1</span>]: <span class="link">这是第一个注脚的注解。</span></span><br><span class="line">[<span class="symbol">^footnote2</span>]: <span class="link">这是第二个注脚的注解。</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<p>这是第一个注脚 <a href="%E8%BF%99%E6%98%AF%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%B3%A8%E8%84%9A%E7%9A%84%E6%B3%A8%E8%A7%A3%E3%80%82">^footnote1</a> 的样例。</p>
+<p>这是第二个注脚 <a href="%E8%BF%99%E6%98%AF%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%B3%A8%E8%84%9A%E7%9A%84%E6%B3%A8%E8%A7%A3%E3%80%82">^footnote2</a> 的样例。</p>
+<h3 id="3-加强的代码块"><a href="#3-加强的代码块" class="headerlink" title="3. 加强的代码块"></a>3. 加强的代码块</h3><p>使用 <a target="_blank" rel="noopener" href="https://prismjs.com/">Prism</a> 官网定制的代码高亮主题，选择了所有支持的编程语言，你可以定制你自己的语法主题。</p>
+<p>非代码示例：</p>
+<pre class="highlight">
+<code>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> sudo pacman <span class="literal">-S</span> <span class="built_in">oh</span><span class="literal">-my-zsh-git</span></span><br></pre></td></tr></table></figure>
+</code>
+</pre>
+
+<p>效果：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> sudo pacman <span class="literal">-S</span> <span class="built_in">oh</span><span class="literal">-my-zsh-git</span></span><br></pre></td></tr></table></figure>
+
+<p>Python 示例：</p>
+<pre class="highlight">
+<code>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">somefunc</span>(<span class="params">param1=<span class="string">&#x27;&#x27;</span>, param2=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;A docstring&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;Greater&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">&#x27;&#x27;&#x27;interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+</code>
+</pre>
+
+<p>效果：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@requires_authorization</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">somefunc</span>(<span class="params">param1=<span class="string">&#x27;&#x27;</span>, param2=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;A docstring&#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></span><br><span class="line">        <span class="built_in">print</span> <span class="string">&#x27;Greater&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SomeClass</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">&#x27;&#x27;&#x27;interpreter</span></span><br><span class="line"><span class="string"><span class="meta">... </span>prompt&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>JavaScript 示例：</p>
+<pre class="highlight">
+<code>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* nth element in the fibonacci series.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n &gt;= 0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> the nth element, &gt;= 0.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title function_">fib</span>(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+</code>
+</pre>
+
+<p>效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* nth element in the fibonacci series.</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> n &gt;= 0</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> the nth element, &gt;= 0.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fib</span>(<span class="params">n</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> tmp;</span><br><span class="line">  <span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">    tmp = a;</span><br><span class="line">    a += b;</span><br><span class="line">    b = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">write</span>(<span class="title function_">fib</span>(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-表格支持"><a href="#4-表格支持" class="headerlink" title="4. 表格支持"></a>4. 表格支持</h3><p>示例：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> 项目 </span>|<span class="string"> 价格 </span>|<span class="string"> 数量 </span>|</span><br><span class="line">|<span class="string"> -- </span>|<span class="string"> -- </span>|<span class="string"> -- </span>|</span><br><span class="line">|<span class="string"> 计算机 </span>|<span class="string"> \$1600 </span>|<span class="string"> 5 </span>|</span><br><span class="line">|<span class="string"> 手机 </span>|<span class="string"> \$12 </span>|<span class="string"> 12 </span>|</span><br><span class="line">|<span class="string"> 管线 </span>|<span class="string"> \$1 </span>|<span class="string"> 234 </span>|</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>价格</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机</td>
+<td>$1600</td>
+<td>5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>$12</td>
+<td>12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td>$1</td>
+<td>234</td>
+</tr>
+</tbody></table>
+<p>表格中的项默认都是左对齐，使用 <code>:--:</code> 和 <code>--:</code> 可设置居中和右对齐。</p>
+<p>示例：</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string"> 项目 </span>|<span class="string"> 价格 </span>|<span class="string"> 数量 </span>|</span><br><span class="line">|<span class="string"> -- </span>|<span class="string"> :--: </span>|<span class="string"> --: </span>|</span><br><span class="line">|<span class="string"> 计算机 </span>|<span class="string"> \$1600 </span>|<span class="string"> 5 </span>|</span><br><span class="line">|<span class="string"> 手机 </span>|<span class="string"> \$12 </span>|<span class="string"> 12 </span>|</span><br><span class="line">|<span class="string"> 管线 </span>|<span class="string"> \$1 </span>|<span class="string"> 234 </span>|</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th align="center">价格</th>
+<th align="right">数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算机</td>
+<td align="center">$1600</td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td align="center">$12</td>
+<td align="right">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td align="center">$1</td>
+<td align="right">234</td>
+</tr>
+</tbody></table>
+<h3 id="5-定义型列表"><a href="#5-定义型列表" class="headerlink" title="5. 定义型列表"></a>5. 定义型列表</h3><p>示例：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">名词 <span class="number">1</span></span><br><span class="line">: 定义 1（左侧有一个可见的冒号和空格）</span><br><span class="line"></span><br><span class="line">名词 <span class="number">2</span></span><br><span class="line">: 定义 2（左侧有一个可见的冒号和空格）</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<dl><dt>名词 1</dt><dd>定义 1（左侧有一个可见的冒号和空格）</dd></dl><dl><dt>名词 2</dt><dd>定义 2（左侧有一个可见的冒号和空格）</dd></dl><h3 id="6-Html-标签"><a href="#6-Html-标签" class="headerlink" title="6. Html 标签"></a>6. Html 标签</h3><p>可在 Markdown 语法中直接嵌套 Html 标签，譬如，你可以用 Html 写一个纵跨两行的表格：</p>
+<p>示例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>值班人员<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>李强<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>王平<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<table>
+    <tr>
+        <th rowspan="2">值班人员</th>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+    </tr>
+    <tr>
+        <td>李强</td>
+        <td>张明</td>
+        <td>王平</td>
+    </tr>
+</table>
+
+<h3 id="7-待办事项-Todo-列表"><a href="#7-待办事项-Todo-列表" class="headerlink" title="7. 待办事项 Todo 列表"></a>7. 待办事项 Todo 列表</h3><p>使用带有 <code>[ ]</code> 或 <code>[x]</code> (未完成或已完成) 项的列表语法撰写一个待办事项列表，并且支持子列表嵌套以及混用Markdown语法。</p>
+<p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] <span class="strong">**博客改版**</span></span><br><span class="line"><span class="bullet">    -</span> [x] 响应式布局，移动端适配</span><br><span class="line"><span class="bullet">    -</span> [ ] 多语言支持</span><br><span class="line"><span class="bullet">    -</span> [x] 主页</span><br><span class="line"><span class="bullet">    -</span> [x] 文章列表页</span><br><span class="line"><span class="bullet">    -</span> [x] 归档页</span><br><span class="line"><span class="bullet">    -</span> [x] 关于页</span><br><span class="line"><span class="bullet">    -</span> [x] 文章详情页</span><br><span class="line"><span class="bullet">        -</span> [x] 排版</span><br><span class="line"><span class="bullet">        -</span> [x] Markdown 渲染</span><br><span class="line"><span class="bullet">        -</span> [<span class="string">x</span>] 代码高亮，使用 [<span class="string">Prism</span>](<span class="link">https://prismjs.com/</span>)</span><br><span class="line"><span class="bullet">        -</span> [ ] Toc 功能</span><br><span class="line"><span class="bullet">        -</span> [x] 评论功能</span><br><span class="line"><span class="bullet">        -</span> [x] 打赏功能</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> [x] <span class="strong">**Minimalism 主题发布**</span></span><br><span class="line"><span class="bullet">    -</span> [x] 主题编写</span><br><span class="line"><span class="bullet">    -</span> [x] 打包发布</span><br></pre></td></tr></table></figure>
+
+<p>效果：</p>
+<ul>
+<li><p><strong>博客改版</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 响应式布局，移动端适配</li>
+<li><input disabled="" type="checkbox"> 多语言支持</li>
+<li><input checked="" disabled="" type="checkbox"> 主页</li>
+<li><input checked="" disabled="" type="checkbox"> 文章列表页</li>
+<li><input checked="" disabled="" type="checkbox"> 归档页</li>
+<li><input checked="" disabled="" type="checkbox"> 关于页</li>
+<li><input checked="" disabled="" type="checkbox"> 文章详情页<ul>
+<li><input checked="" disabled="" type="checkbox"> 排版</li>
+<li><input checked="" disabled="" type="checkbox"> Markdown 渲染</li>
+<li><input checked="" disabled="" type="checkbox"> 代码高亮，使用 <a target="_blank" rel="noopener" href="https://prismjs.com/">Prism</a></li>
+<li><input disabled="" type="checkbox"> Toc 功能</li>
+<li><input checked="" disabled="" type="checkbox"> 评论功能</li>
+<li><input checked="" disabled="" type="checkbox"> 打赏功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Minimalism 主题发布</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 主题编写</li>
+<li><input checked="" disabled="" type="checkbox"> 打包发布</li>
+</ul>
+</li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>本篇博客列举的语法模板部分参考了 <a target="_blank" rel="noopener" href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown">Cmd Markdown 编辑阅读器的语法说明</a> :+1:，感谢。</p>
+<hr>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Markdown 基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%9C%E4%BD%93%E5%92%8C%E7%B2%97%E4%BD%93"><span class="toc-number">2.1.</span> <span class="toc-text">1. 斜体和粗体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%88%86%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.2.</span> <span class="toc-text">2. 分级标题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number"></span> <span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">六级标题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%A4%96%E9%93%BE%E6%8E%A5"><span class="toc-number">1.2.</span> <span class="toc-text">3. 外链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%97%A0%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">4. 无序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8"><span class="toc-number">1.4.</span> <span class="toc-text">5. 有序列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%BC%95%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">6. 引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.6.</span> <span class="toc-text">7. 行内代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">1.7.</span> <span class="toc-text">8. 代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E6%8F%92%E5%85%A5%E5%9B%BE%E5%83%8F"><span class="toc-number">1.8.</span> <span class="toc-text">9. 插入图像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%88%86%E9%9A%94%E7%AC%A6"><span class="toc-number">1.9.</span> <span class="toc-text">10. 分隔符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%8F%8D%E8%BD%AC%E4%B9%89"><span class="toc-number">1.10.</span> <span class="toc-text">11. 反转义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-Emoji"><span class="toc-number">1.11.</span> <span class="toc-text">12. Emoji</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E6%AE%B5%E5%86%85%E6%8D%A2%E8%A1%8C"><span class="toc-number">1.12.</span> <span class="toc-text">13. 段内换行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown-%E9%AB%98%E9%98%B6%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Markdown 高阶语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%A0%E9%99%A4%E7%BA%BF"><span class="toc-number">2.1.</span> <span class="toc-text">1. 删除线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B3%A8%E8%84%9A"><span class="toc-number">2.2.</span> <span class="toc-text">2. 注脚</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A0%E5%BC%BA%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">2.3.</span> <span class="toc-text">3. 加强的代码块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%A1%A8%E6%A0%BC%E6%94%AF%E6%8C%81"><span class="toc-number">2.4.</span> <span class="toc-text">4. 表格支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AE%9A%E4%B9%89%E5%9E%8B%E5%88%97%E8%A1%A8"><span class="toc-number">2.5.</span> <span class="toc-text">5. 定义型列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Html-%E6%A0%87%E7%AD%BE"><span class="toc-number">2.6.</span> <span class="toc-text">6. Html 标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9-Todo-%E5%88%97%E8%A1%A8"><span class="toc-number">2.7.</span> <span class="toc-text">7. 待办事项 Todo 列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="toc-number">3.</span> <span class="toc-text">写在最后</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&text=Markdown 语法及渲染"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&is_video=false&description=Markdown 语法及渲染"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Markdown 语法及渲染&body=Check out this article: https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&title=Markdown 语法及渲染"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&name=Markdown 语法及渲染&description=本文主要说明一些常用的 Markdown 语法及主题 Minimalism 中的渲染效果。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2018/08/11/Markdown%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%B8%B2%E6%9F%93/&t=Markdown 语法及渲染"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>

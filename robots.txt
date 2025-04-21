@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drakecb.github.io/sitemap.xml

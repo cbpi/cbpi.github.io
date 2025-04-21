@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="使用Homebrew安装或者更新资源下载缓慢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Homebrew更新资源缓慢">
+<meta property="og:url" content="https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog">
+<meta property="og:description" content="使用Homebrew安装或者更新资源下载缓慢">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-21T08:56:52.000Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="解决方案">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Homebrew更新资源缓慢</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2019/01/11/Git%E9%A3%9E%E8%A1%8C%E8%A7%84%E5%88%99(Flight%20Rules)/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&text=Homebrew更新资源缓慢"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&is_video=false&description=Homebrew更新资源缓慢"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Homebrew更新资源缓慢&body=Check out this article: https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&name=Homebrew更新资源缓慢&description=使用Homebrew安装或者更新资源下载缓慢"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&t=Homebrew更新资源缓慢"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E8%BF%99%E5%8F%A5%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%9B%B4%E6%8D%A2%E4%B8%BA%E4%B8%AD%E7%A7%91%E9%99%A2%E7%9A%84%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">手动执行下面这句命令，更换为中科院的镜像：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8E%E6%8A%8Ahomebrew-core%E7%9A%84%E9%95%9C%E5%83%8F%E5%9C%B0%E5%9D%80%E4%B9%9F%E8%AE%BE%E4%B8%BA%E4%B8%AD%E7%A7%91%E9%99%A2%E7%9A%84%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-number">2.</span> <span class="toc-text">复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%84%B6%E5%90%8E%E6%89%A7%E8%A1%8C"><span class="toc-number">3.</span> <span class="toc-text">然后执行</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Homebrew更新资源缓慢
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-03-11T16:00:00.000Z" class="dt-published" itemprop="datePublished">2021-03-12</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">解决方案</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" rel="tag">解决方案</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>　　很久没有写Blog了最近想起来再搞搞记录下生活记录下工作中碰到的事情，时间过去很久发现pull仓库里的github-page竟然很多依赖都需要更新，能怎么办呢，先得更新一波啊不然一大堆报错，或者就是本地无法运行起来。首先Homebrew就得更新，发现超级慢，就算连了vpn也依旧很慢。尝试了几条解决方案都不能够提上下载速度，最后在简书上发现一个解决的方案，亲测有效：</p>
+<h4 id="手动执行下面这句命令，更换为中科院的镜像："><a href="#手动执行下面这句命令，更换为中科院的镜像：" class="headerlink" title="手动执行下面这句命令，更换为中科院的镜像："></a>手动执行下面这句命令，更换为中科院的镜像：</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:<span class="regexp">//mi</span>rrors.ustc.edu.cn<span class="regexp">/homebrew-core.git/</span> <span class="regexp">/usr/</span>local<span class="regexp">/Homebrew/</span>Library<span class="regexp">/Taps/</span>homebrew/homebrew-core --depth=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像"><a href="#复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像" class="headerlink" title="复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像"></a>复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="built_in">set-url</span> <span class="string">origin</span> <span class="string">https</span>://<span class="string">mirrors</span>.<span class="string">ustc</span>.<span class="string">edu</span>.<span class="string">cn</span>/<span class="string">brew</span>.<span class="string">git</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">&quot;<span class="subst">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">git</span> <span class="string">remote</span> <span class="built_in">set-url</span> <span class="string">origin</span> <span class="string">https</span>://<span class="string">mirrors</span>.<span class="string">ustc</span>.<span class="string">edu</span>.<span class="string">cn</span>/<span class="string">homebrew-core</span>.<span class="string">git</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="然后执行"><a href="#然后执行" class="headerlink" title="然后执行"></a>然后执行</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">brew update</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E6%89%A7%E8%A1%8C%E4%B8%8B%E9%9D%A2%E8%BF%99%E5%8F%A5%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%9B%B4%E6%8D%A2%E4%B8%BA%E4%B8%AD%E7%A7%91%E9%99%A2%E7%9A%84%E9%95%9C%E5%83%8F%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">手动执行下面这句命令，更换为中科院的镜像：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81%E7%84%B6%E5%90%8E%E6%8A%8Ahomebrew-core%E7%9A%84%E9%95%9C%E5%83%8F%E5%9C%B0%E5%9D%80%E4%B9%9F%E8%AE%BE%E4%B8%BA%E4%B8%AD%E7%A7%91%E9%99%A2%E7%9A%84%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="toc-number">2.</span> <span class="toc-text">复制代码然后把homebrew-core的镜像地址也设为中科院的国内镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%84%B6%E5%90%8E%E6%89%A7%E8%A1%8C"><span class="toc-number">3.</span> <span class="toc-text">然后执行</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&text=Homebrew更新资源缓慢"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&is_video=false&description=Homebrew更新资源缓慢"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Homebrew更新资源缓慢&body=Check out this article: https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&title=Homebrew更新资源缓慢"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&name=Homebrew更新资源缓慢&description=使用Homebrew安装或者更新资源下载缓慢"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/&t=Homebrew更新资源缓慢"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>

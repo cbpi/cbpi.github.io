@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="vue2结合百度地图v3.0在内网环境下做开发。需要修改百度地图js文件，需要下载地图离线瓦片。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue.js结合百度地图3.0离线开发">
+<meta property="og:url" content="https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog">
+<meta property="og:description" content="vue2结合百度地图v3.0在内网环境下做开发。需要修改百度地图js文件，需要下载地图离线瓦片。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://drakecb.github.io/images/baidumap1.png">
+<meta property="og:image" content="https://drakecb.github.io/images/baidumap2.png">
+<meta property="og:image" content="https://drakecb.github.io/images/baidumap3.png">
+<meta property="og:image" content="https://drakecb.github.io/images/replace1.png">
+<meta property="og:image" content="https://drakecb.github.io/images/replace2.png">
+<meta property="og:image" content="https://drakecb.github.io/images/replace3.png">
+<meta property="og:image" content="https://drakecb.github.io/images/replace4.png">
+<meta property="og:image" content="https://drakecb.github.io/images/replace5.png">
+<meta property="article:published_time" content="2021-03-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-21T08:56:52.000Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="solution">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://drakecb.github.io/images/baidumap1.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Vue.js结合百度地图3.0离线开发</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2021/03/16/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2021/03/11/Homebrew%E6%9B%B4%E6%96%B0%E8%B5%84%E6%BA%90%E7%BC%93%E6%85%A2/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&text=Vue.js结合百度地图3.0离线开发"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&is_video=false&description=Vue.js结合百度地图3.0离线开发"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue.js结合百度地图3.0离线开发&body=Check out this article: https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&name=Vue.js结合百度地图3.0离线开发&description=vue2结合百度地图v3.0在内网环境下做开发。需要修改百度地图js文件，需要下载地图离线瓦片。"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&t=Vue.js结合百度地图3.0离线开发"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-ak"><span class="toc-number">1.</span> <span class="toc-text">申请百度地图 ak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-v3-0-js-%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">修改百度地图 v3.0 js 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">根目录结构</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Vue.js结合百度地图3.0离线开发
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-03-16T16:00:00.000Z" class="dt-published" itemprop="datePublished">2021-03-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/vue/">vue</a> › <a class="category-link" href="/categories/vue/solution/">solution</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/solution/" rel="tag">solution</a>, <a class="p-category" href="/tags/vue/" rel="tag">vue</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><mark>vue+百度地图 api 如何在内网环境中开发呢？大致思路就是把所有资源都下载到本地，通过加载本地资源来展示，前期准备：</mark></p>
+<ul>
+<li>申请百度地图 ak</li>
+<li>下载地图离线瓦片</li>
+</ul>
+<p>下面介绍具体步骤</p>
+<h2 id="申请百度地图-ak"><a href="#申请百度地图-ak" class="headerlink" title="申请百度地图 ak"></a>申请百度地图 ak</h2><p><a target="_blank" rel="noopener" href="http://lbsyun.baidu.com/index.php?title=%E9%A6%96%E9%A1%B5">申请地址</a><br>账号密码登陆后在这个页面点击控制台<br><img src="/images/baidumap1.png" alt="image"><br>然后在左侧菜单栏上点击我的应用并<code>创建应用</code>，创建完成后会生成一个<strong>访问应用(ak)</strong><br><img src="/images/baidumap2.png" alt="image"><br>接下来修改百度地图的 JS 文件</p>
+<h2 id="修改百度地图-v3-0-js-文件"><a href="#修改百度地图-v3-0-js-文件" class="headerlink" title="修改百度地图 v3.0 js 文件"></a>修改百度地图 v3.0 js 文件</h2><ol>
+<li><p>第一步在浏览起立输入<code>http://api.map.baidu.com/api?v=3.0&amp;ak=这里填写刚才你申请的ak码</code>。</p>
+</li>
+<li><p>回车后会在浏览器里看见一段代码:<img src="/images/baidumap3.png" alt="image">,找到这串代码中<code>src=&quot;&quot;</code>中的部分，复制进浏览器地址栏并回车，这时候会看到一个压缩后的 js 把它另存为一下取名为 baidu-api.js。</p>
+</li>
+<li><p>用编辑器打开 baidu-api.js，首先代码格式化一下。</p>
+</li>
+<li><p>这一步就是重点了:</p>
+<ul>
+<li><p>control+f 搜索如下代码<code>var c = (1e5 * Math.random()).toFixed(0)</code><img src="/images/replace1.png" alt="image">，找到类似的代码块（因为 ak 码不一样所以下载的 js 文件里面的变量名也不一样。）在红框处添加:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="regexp">/^http/</span>.<span class="title function_">test</span>(a)) <span class="keyword">return</span> <span class="comment">//修改  屏蔽ak验证，若调用外部资源直接返回</span></span><br></pre></td></tr></table></figure>
+
+<p>这段代码屏蔽 ak 验证。</p>
+</li>
+<li><p>control+f 搜索如下代码 <code>url.domain.main_domain_cdn.other[0]</code><img src="/images/replace2.png" alt="image">，找到类似的代码块，注释掉原来的添加以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D.<span class="property">pa</span> = bmapcfg.<span class="property">home</span></span><br></pre></td></tr></table></figure>
+
+<p><code>bmapcfg.home</code>是下面一个 js 里面的变量。<br>注意代码不要照抄，要根据你的 js 文件来复制，<code>D.pa</code>是我 js 里面的变量名这个不是固定的，不同 ak 码会生成不同的 js 文件。</p>
+</li>
+<li><p>control+f 搜索<code>&amp;mod=</code>，定位到如下代码<img src="/images/replace3.png" alt="image">，如截图所示修改修改原来的代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (a.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    mf = bmapcfg.<span class="property">home</span> + <span class="string">&quot;modules/&quot;</span> + a[i] + <span class="string">&quot;.js&quot;</span></span><br><span class="line">    <span class="title function_">qa</span>(mf)</span><br><span class="line">  &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  f.<span class="title function_">WK</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>control+f 搜索<code>panoramaflash</code><img src="/images/replace4.png" alt="image">，找到如截图所示代码块，这些就是我们离线要用到的 js 模块，需要我们手动下载下来，下载方法就是在浏览器里输入<code>http://api.map.baidu.com/getmodules?v=3.0&amp;mod=key_value</code>这个 key 加 value 的形式，比如截图中第一个就是<code>http://api.map.baidu.com/getmodules?v=3.0&amp;mod=map_0zz35j</code>，把这些文件全部下载下来后，在根目录下新建一个 modules 文件夹，然后把这些 js 文件通通放进去。到这里所有修改 baidu-api.js 的操作已经结束了。</p>
+</li>
+</ul>
+</li>
+<li><p>接下来我们在根目录下新建一个 map_load.js 作为入口文件，里面代码是这样的</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bmapcfg = &#123;</span><br><span class="line">  <span class="attr">imgext</span>: <span class="string">&quot;.png&quot;</span>, <span class="comment">//瓦片图的后缀  根据需要修改，一般是 .png .jpg</span></span><br><span class="line">  <span class="attr">tiles_dir</span>: <span class="string">&quot;&quot;</span>, <span class="comment">//普通瓦片图的地址，为空默认在tiles/ 目录</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> scripts = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&quot;script&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> <span class="variable constant_">JS__FILE__</span> = scripts[scripts.<span class="property">length</span> - <span class="number">1</span>].<span class="title function_">getAttribute</span>(<span class="string">&quot;src&quot;</span>) <span class="comment">//获得当前js文件路径</span></span><br><span class="line">bmapcfg.<span class="property">home</span> = <span class="variable constant_">JS__FILE__</span>.<span class="title function_">substr</span>(<span class="number">0</span>, <span class="variable constant_">JS__FILE__</span>.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;/&quot;</span>) + <span class="number">1</span>) <span class="comment">//地图API主目录</span></span><br><span class="line">;(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="property">BMap_loadScriptTime</span> = <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>()</span><br><span class="line">  <span class="comment">//加载地图API主文件</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">write</span>(</span><br><span class="line">    <span class="string">&#x27;&lt;script type=&quot;text/javascript&quot; src=&quot;&#x27;</span> +</span><br><span class="line">      bmapcfg.<span class="property">home</span> +</span><br><span class="line">      <span class="string">&#x27;baidu-api.js&quot;&gt;&lt;/script&gt;&#x27;</span></span><br><span class="line">  )</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p>这个 js 文件中的代码就是定义了文件读取路径。</p>
+</li>
+<li><p>下载地图瓦片，这是一个很烦的过程，需要付费购买瓦片下载程序，这个我就不多介绍了，附上本人现在使用的瓦片文件，一共 1-17 级，如果离线地图出现无法正常显示的正方形区域，说明缺少当前瓦片。<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1QsssyzZRKN1ufiDofj5WMw">瓦片链接</a>，密码: alo0</p>
+</li>
+</ol>
+<h2 id="根目录结构"><a href="#根目录结构" class="headerlink" title="根目录结构"></a>根目录结构</h2><p><img src="/images/replace5.png" alt="image"><br>如果有问题可以留言讨论</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B3%E8%AF%B7%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-ak"><span class="toc-number">1.</span> <span class="toc-text">申请百度地图 ak</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE-v3-0-js-%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">修改百度地图 v3.0 js 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">根目录结构</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&text=Vue.js结合百度地图3.0离线开发"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&is_video=false&description=Vue.js结合百度地图3.0离线开发"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Vue.js结合百度地图3.0离线开发&body=Check out this article: https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&title=Vue.js结合百度地图3.0离线开发"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&name=Vue.js结合百度地图3.0离线开发&description=vue2结合百度地图v3.0在内网环境下做开发。需要修改百度地图js文件，需要下载地图离线瓦片。"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2021/03/16/Vue.js%E7%BB%93%E5%90%88%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE3.0%E7%A6%BB%E7%BA%BF%E5%BC%80%E5%8F%91/&t=Vue.js结合百度地图3.0离线开发"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>
