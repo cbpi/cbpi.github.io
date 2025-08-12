@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="详细介绍一个自动检测和升级 Node.js 及 npm 版本的 Bash 脚本，支持 nvm 和 Homebrew 两种安装方式，帮助开发者快速升级开发环境到最新版本。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境">
+<meta property="og:url" content="https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog - 前端开发技术分享">
+<meta property="og:description" content="详细介绍一个自动检测和升级 Node.js 及 npm 版本的 Bash 脚本，支持 nvm 和 Homebrew 两种安装方式，帮助开发者快速升级开发环境到最新版本。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-01-12T03:30:00.000Z">
+<meta property="article:modified_time" content="2025-08-12T06:52:35.655Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="npm">
+<meta property="article:tag" content="升级脚本">
+<meta property="article:tag" content="开发环境">
+<meta property="article:tag" content="Bash脚本">
+<meta property="article:tag" content="前端工具">
+<meta property="article:tag" content="自动化">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Drake&#39;s Blog - 前端开发技术分享" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" aria-label="上一篇" href="/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/11/28/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BA%93/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&text=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&is_video=false&description=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境&body=Check out this article: https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&name=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&t=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">脚本功能特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">完整升级脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">脚本详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%89%88%E6%9C%AC%E6%A3%80%E6%B5%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1. 版本检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83%E9%AA%8C%E8%AF%81"><span class="toc-number">3.2.</span> <span class="toc-text">2. 环境验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83"><span class="toc-number">3.3.</span> <span class="toc-text">3. 版本比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%99%BA%E8%83%BD%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5"><span class="toc-number">3.4.</span> <span class="toc-text">4. 智能升级策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%9D%E5%AD%98%E8%84%9A%E6%9C%AC"><span class="toc-number">4.1.</span> <span class="toc-text">1. 保存脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90"><span class="toc-number">4.2.</span> <span class="toc-text">2. 添加执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="toc-number">4.3.</span> <span class="toc-text">3. 运行脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">扩展功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-01-12T03:30:00.000Z" class="dt-published" itemprop="datePublished">2025-01-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Bash%E8%84%9A%E6%9C%AC/" rel="tag">Bash脚本</a>, <a class="p-category" href="/tags/Node-js/" rel="tag">Node.js</a>, <a class="p-category" href="/tags/npm/" rel="tag">npm</a>, <a class="p-category" href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/" rel="tag">前端工具</a>, <a class="p-category" href="/tags/%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC/" rel="tag">升级脚本</a>, <a class="p-category" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" rel="tag">开发环境</a>, <a class="p-category" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag">自动化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>在前端开发过程中，保持 Node.js 和 npm 的版本更新是非常重要的。新版本通常包含性能优化、安全修复和新功能。本文将详细介绍一个自动化的升级脚本，帮助开发者快速升级开发环境。</p>
+<h2 id="脚本功能特点"><a href="#脚本功能特点" class="headerlink" title="脚本功能特点"></a>脚本功能特点</h2><ul>
+<li>✅ <strong>自动检测</strong>：检测当前 Node.js 和 npm 版本</li>
+<li>✅ <strong>智能升级</strong>：支持 nvm 和 Homebrew 两种安装方式</li>
+<li>✅ <strong>版本验证</strong>：确保升级到指定的目标版本</li>
+<li>✅ <strong>错误处理</strong>：完善的错误提示和异常处理</li>
+<li>✅ <strong>用户友好</strong>：清晰的进度提示和状态反馈</li>
+</ul>
+<h2 id="完整升级脚本"><a href="#完整升级脚本" class="headerlink" title="完整升级脚本"></a>完整升级脚本</h2><p>以下是完整的 Node.js 和 npm 自动升级脚本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;🔍 检查当前 Node.js 和 npm 版本...&quot;</span></span><br><span class="line">NODE_VERSION=$(node -v 2&gt;/dev/null)</span><br><span class="line">NPM_VERSION=$(npm -v 2&gt;/dev/null)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$NODE_VERSION</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;❌ 未检测到 Node.js，请先安装 Node.js 再运行此脚本。&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;📦 当前 Node.js: <span class="variable">$NODE_VERSION</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;📦 当前 npm: <span class="variable">$NPM_VERSION</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 Node 版本</span></span><br><span class="line">TARGET_NODE_VERSION=<span class="string">&quot;20.17.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 Node 版本是否低于要求</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(printf &#x27;%s\n&#x27; <span class="string">&quot;v<span class="variable">$TARGET_NODE_VERSION</span>&quot;</span> <span class="string">&quot;<span class="variable">$NODE_VERSION</span>&quot;</span> | sort -V | head -n1)</span>&quot;</span> != <span class="string">&quot;v<span class="variable">$TARGET_NODE_VERSION</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;⚠️  Node.js 版本低于 <span class="variable">$TARGET_NODE_VERSION</span>，需要升级...&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 判断安装方式</span></span><br><span class="line">  <span class="keyword">if</span> <span class="built_in">command</span> -v nvm &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;🔄 使用 nvm 升级 Node.js...&quot;</span></span><br><span class="line">    nvm install <span class="variable">$TARGET_NODE_VERSION</span></span><br><span class="line">    nvm <span class="built_in">alias</span> default <span class="variable">$TARGET_NODE_VERSION</span></span><br><span class="line">    nvm use <span class="variable">$TARGET_NODE_VERSION</span></span><br><span class="line">  <span class="keyword">elif</span> <span class="built_in">command</span> -v brew &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;🔄 使用 Homebrew 升级 Node.js...&quot;</span></span><br><span class="line">    brew update</span><br><span class="line">    brew upgrade node</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;❌ 未检测到 nvm 或 Homebrew，请手动升级 Node.js。&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;✅ Node.js 版本满足要求（<span class="variable">$TARGET_NODE_VERSION</span> 及以上）。&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级 npm 到最新版</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;⬆️ 升级 npm 到最新版...&quot;</span></span><br><span class="line">npm install -g npm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示升级后版本</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;✅ 升级完成：&quot;</span></span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="脚本详解"><a href="#脚本详解" class="headerlink" title="脚本详解"></a>脚本详解</h2><h3 id="1-版本检测"><a href="#1-版本检测" class="headerlink" title="1. 版本检测"></a>1. 版本检测</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NODE_VERSION=$(node -v 2&gt;/dev/null)</span><br><span class="line">NPM_VERSION=$(npm -v 2&gt;/dev/null)</span><br></pre></td></tr></table></figure>
+
+<p>脚本首先检测当前系统中 Node.js 和 npm 的版本，使用 <code>2&gt;/dev/null</code> 来抑制错误输出。</p>
+<h3 id="2-环境验证"><a href="#2-环境验证" class="headerlink" title="2. 环境验证"></a>2. 环境验证</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$NODE_VERSION</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;❌ 未检测到 Node.js，请先安装 Node.js 再运行此脚本。&quot;</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<p>如果未检测到 Node.js，脚本会提示用户先安装 Node.js 并退出。</p>
+<h3 id="3-版本比较"><a href="#3-版本比较" class="headerlink" title="3. 版本比较"></a>3. 版本比较</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(printf &#x27;%s\n&#x27; <span class="string">&quot;v<span class="variable">$TARGET_NODE_VERSION</span>&quot;</span> <span class="string">&quot;<span class="variable">$NODE_VERSION</span>&quot;</span> | sort -V | head -n1)</span>&quot;</span> != <span class="string">&quot;v<span class="variable">$TARGET_NODE_VERSION</span>&quot;</span> ]; <span class="keyword">then</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>sort -V</code> 进行版本号比较，判断当前版本是否低于目标版本。</p>
+<h3 id="4-智能升级策略"><a href="#4-智能升级策略" class="headerlink" title="4. 智能升级策略"></a>4. 智能升级策略</h3><p>脚本支持两种主流的 Node.js 安装方式：</p>
+<p><strong>nvm 方式：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">command</span> -v nvm &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">  nvm install <span class="variable">$TARGET_NODE_VERSION</span></span><br><span class="line">  nvm <span class="built_in">alias</span> default <span class="variable">$TARGET_NODE_VERSION</span></span><br><span class="line">  nvm use <span class="variable">$TARGET_NODE_VERSION</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Homebrew 方式：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> <span class="built_in">command</span> -v brew &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">  brew update</span><br><span class="line">  brew upgrade node</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="1-保存脚本"><a href="#1-保存脚本" class="headerlink" title="1. 保存脚本"></a>1. 保存脚本</h3><p>将脚本保存为 <code>upgrade-node.sh</code> 文件。</p>
+<h3 id="2-添加执行权限"><a href="#2-添加执行权限" class="headerlink" title="2. 添加执行权限"></a>2. 添加执行权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x upgrade-node.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-运行脚本"><a href="#3-运行脚本" class="headerlink" title="3. 运行脚本"></a>3. 运行脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./upgrade-node.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><ul>
+<li><strong>项目初始化</strong>：新项目开始前确保环境版本最新</li>
+<li><strong>团队协作</strong>：统一团队开发环境版本</li>
+<li><strong>CI/CD 流程</strong>：自动化部署前的环境准备</li>
+<li><strong>定期维护</strong>：定期更新开发环境</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>权限要求</strong>：升级 npm 可能需要管理员权限</li>
+<li><strong>网络连接</strong>：确保网络连接正常，以便下载新版本</li>
+<li><strong>备份重要数据</strong>：升级前建议备份重要的项目文件</li>
+<li><strong>测试兼容性</strong>：升级后测试现有项目的兼容性</li>
+</ol>
+<h2 id="扩展功能"><a href="#扩展功能" class="headerlink" title="扩展功能"></a>扩展功能</h2><p>可以根据需要对脚本进行以下扩展：</p>
+<ul>
+<li>添加多个目标版本选择</li>
+<li>支持 yarn 包管理器升级</li>
+<li>添加升级日志记录</li>
+<li>集成到 CI/CD 流程中</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个自动化升级脚本能够帮助开发者快速、安全地升级 Node.js 和 npm 版本。通过智能检测安装方式和完善的错误处理，大大简化了环境维护的工作量。建议将此脚本加入到项目的工具集中，定期使用以保持开发环境的最新状态。</p>
+<hr>
+<p><strong>相关文章推荐：</strong></p>
+<ul>
+<li><a href="">Node.js 版本管理最佳实践</a></li>
+<li><a href="">前端开发环境配置指南</a></li>
+<li><a href="">npm 包管理器使用技巧</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">tags</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%9F%E8%83%BD%E7%89%B9%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">脚本功能特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">完整升级脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3"><span class="toc-number">3.</span> <span class="toc-text">脚本详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%89%88%E6%9C%AC%E6%A3%80%E6%B5%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1. 版本检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83%E9%AA%8C%E8%AF%81"><span class="toc-number">3.2.</span> <span class="toc-text">2. 环境验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%89%88%E6%9C%AC%E6%AF%94%E8%BE%83"><span class="toc-number">3.3.</span> <span class="toc-text">3. 版本比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%99%BA%E8%83%BD%E5%8D%87%E7%BA%A7%E7%AD%96%E7%95%A5"><span class="toc-number">3.4.</span> <span class="toc-text">4. 智能升级策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BF%9D%E5%AD%98%E8%84%9A%E6%9C%AC"><span class="toc-number">4.1.</span> <span class="toc-text">1. 保存脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%B7%BB%E5%8A%A0%E6%89%A7%E8%A1%8C%E6%9D%83%E9%99%90"><span class="toc-number">4.2.</span> <span class="toc-text">2. 添加执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC"><span class="toc-number">4.3.</span> <span class="toc-text">3. 运行脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">适用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD"><span class="toc-number">7.</span> <span class="toc-text">扩展功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&text=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&is_video=false&description=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境&body=Check out this article: https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&title=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&name=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/01/12/Node.js%E5%92%8Cnpm%E8%87%AA%E5%8A%A8%E5%8D%87%E7%BA%A7%E8%84%9A%E6%9C%AC%E8%AF%A6%E8%A7%A3/&t=Node.js 和 npm 自动升级脚本详解 - 一键升级开发环境"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>

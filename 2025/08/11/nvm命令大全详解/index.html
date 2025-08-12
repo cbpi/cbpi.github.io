@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="完整的 nvm（Node Version Manager）命令大全，包含安装、切换、删除、查看等所有常用命令的详细说明和示例，帮助开发者高效管理 Node.js 版本。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nvm 命令大全详解 - Node.js 版本管理完整指南">
+<meta property="og:url" content="https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Drake&#39;s Blog - 前端开发技术分享">
+<meta property="og:description" content="完整的 nvm（Node Version Manager）命令大全，包含安装、切换、删除、查看等所有常用命令的详细说明和示例，帮助开发者高效管理 Node.js 版本。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-11T07:30:00.000Z">
+<meta property="article:modified_time" content="2025-08-12T06:52:35.655Z">
+<meta property="article:author" content="Drake">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="nvm">
+<meta property="article:tag" content="版本管理">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="开发工具">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>nvm 命令大全详解 - Node.js 版本管理完整指南</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J75CS2V052"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J75CS2V052');
+  </script>
+
+
+    <!-- Umami Analytics -->
+
+    <script async defer
+            data-website-id="a88c9224-4912-43c0-9641-2b7cf246d100"
+            src="https://cloud.umami.is/script.js/umami.js">
+    </script>
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/atom.xml" title="Drake&#39;s Blog - 前端开发技术分享" type="application/atom+xml" />
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/04/09/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%BD%AC%E7%AE%A1%E7%90%86%E5%B2%97%E4%BD%8D/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&text=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&is_video=false&description=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=nvm 命令大全详解 - Node.js 版本管理完整指南&body=Check out this article: https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&name=nvm 命令大全详解 - Node.js 版本管理完整指南&description=&lt;h1 id=&#34;nvm-命令大全详解-Node-js-版本管理完整指南&#34;&gt;&lt;a href=&#34;#nvm-命令大全详解-Node-js-版本管理完整指南&#34; class=&#34;headerlink&#34; title=&#34;nvm 命令大全详解 - Node.js 版本管理完整指南&#34;&gt;&lt;/a&gt;nvm 命令大全详解 - Node.js 版本管理完整指南&lt;/h1&gt;&lt;p&gt;nvm（Node Version Manager）是 Node.js 开发者必备的版本管理工具，它允许你在同一台机器上安装和切换多个 Node.js 版本。本文为你整理了完整的 nvm 命令大全，包含详细说明和实用示例。&lt;/p&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&t=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nvm-%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3-Node-js-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">nvm 命令大全详解 - Node.js 版本管理完整指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-nvm-%E5%AE%89%E8%A3%85%E4%B8%8E%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">1️⃣ nvm 安装与版本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E5%AE%89%E8%A3%85-Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">2️⃣ 安装 Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%E4%BD%BF%E7%94%A8-Node-js-%E7%89%88%E6%9C%AC"><span class="toc-number">1.3.</span> <span class="toc-text">3️⃣ 使用 Node.js 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8F%AF%E7%94%A8%E7%89%88%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4️⃣ 查看已安装与可用版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%E5%88%A0%E9%99%A4-Node-js-%E7%89%88%E6%9C%AC"><span class="toc-number">1.5.</span> <span class="toc-text">5️⃣ 删除 Node.js 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%EF%B8%8F%E2%83%A3-%E7%AE%A1%E7%90%86%E5%85%A8%E5%B1%80%E5%8C%85"><span class="toc-number">1.6.</span> <span class="toc-text">6️⃣ 管理全局包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%EF%B8%8F%E2%83%A3-%E5%85%B6%E4%BB%96%E6%9C%89%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.</span> <span class="toc-text">7️⃣ 其他有用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%EF%B8%8F%E2%83%A3-%E5%B8%B8%E7%94%A8%E7%BB%84%E5%90%88%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">8️⃣ 常用组合示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="toc-number">1.9.</span> <span class="toc-text">💡 小贴士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.10.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        nvm 命令大全详解 - Node.js 版本管理完整指南
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">Drake</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-08-11T07:30:00.000Z" class="dt-published" itemprop="datePublished">2025-08-11</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fa-solid fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/Node-js/" rel="tag">Node.js</a>, <a class="p-category" href="/tags/nvm/" rel="tag">nvm</a>, <a class="p-category" href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">前端开发</a>, <a class="p-category" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">开发工具</a>, <a class="p-category" href="/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/" rel="tag">版本管理</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="nvm-命令大全详解-Node-js-版本管理完整指南"><a href="#nvm-命令大全详解-Node-js-版本管理完整指南" class="headerlink" title="nvm 命令大全详解 - Node.js 版本管理完整指南"></a>nvm 命令大全详解 - Node.js 版本管理完整指南</h1><p>nvm（Node Version Manager）是 Node.js 开发者必备的版本管理工具，它允许你在同一台机器上安装和切换多个 Node.js 版本。本文为你整理了完整的 nvm 命令大全，包含详细说明和实用示例。</p>
+<span id="more"></span>
+
+<h2 id="1️⃣-nvm-安装与版本信息"><a href="#1️⃣-nvm-安装与版本信息" class="headerlink" title="1️⃣ nvm 安装与版本信息"></a>1️⃣ nvm 安装与版本信息</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm --version</code></td>
+<td>查看 nvm 自身版本</td>
+<td><code>nvm --version</code></td>
+</tr>
+<tr>
+<td><code>nvm help</code></td>
+<td>查看帮助文档</td>
+<td><code>nvm help</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2️⃣-安装-Node-js"><a href="#2️⃣-安装-Node-js" class="headerlink" title="2️⃣ 安装 Node.js"></a>2️⃣ 安装 Node.js</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm install &lt;version&gt;</code></td>
+<td>安装指定版本的 Node.js（支持 x.y.z、x.y、x 格式）</td>
+<td><code>nvm install 20.17.0</code></td>
+</tr>
+<tr>
+<td><code>nvm install &lt;version&gt; --reinstall-packages-from=&lt;src&gt;</code></td>
+<td>安装指定版本并复制已有版本的全局包</td>
+<td><code>nvm install 20.17.0 --reinstall-packages-from=18</code></td>
+</tr>
+<tr>
+<td><code>nvm install --lts</code></td>
+<td>安装最新 LTS（长期支持）版本</td>
+<td><code>nvm install --lts</code></td>
+</tr>
+<tr>
+<td><code>nvm install node</code></td>
+<td>安装最新稳定版</td>
+<td><code>nvm install node</code></td>
+</tr>
+<tr>
+<td><code>nvm install --lts=argon</code></td>
+<td>安装指定代号的 LTS 版本（如 argon、boron）</td>
+<td><code>nvm install --lts=hydrogen</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3️⃣-使用-Node-js-版本"><a href="#3️⃣-使用-Node-js-版本" class="headerlink" title="3️⃣ 使用 Node.js 版本"></a>3️⃣ 使用 Node.js 版本</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm use &lt;version&gt;</code></td>
+<td>临时切换到指定版本</td>
+<td><code>nvm use 20.17.0</code></td>
+</tr>
+<tr>
+<td><code>nvm use node</code></td>
+<td>切换到最新版本</td>
+<td><code>nvm use node</code></td>
+</tr>
+<tr>
+<td><code>nvm use --lts</code></td>
+<td>切换到最新 LTS 版本</td>
+<td><code>nvm use --lts</code></td>
+</tr>
+<tr>
+<td><code>nvm alias default &lt;version&gt;</code></td>
+<td>设置默认版本（新终端会自动使用）</td>
+<td><code>nvm alias default 20.17.0</code></td>
+</tr>
+<tr>
+<td><code>nvm unalias &lt;alias&gt;</code></td>
+<td>删除别名</td>
+<td><code>nvm unalias default</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="4️⃣-查看已安装与可用版本"><a href="#4️⃣-查看已安装与可用版本" class="headerlink" title="4️⃣ 查看已安装与可用版本"></a>4️⃣ 查看已安装与可用版本</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm ls</code></td>
+<td>列出本地已安装的 Node.js 版本，显示当前使用版本</td>
+<td><code>nvm ls</code></td>
+</tr>
+<tr>
+<td><code>nvm ls-remote</code></td>
+<td>列出所有可安装的 Node.js 版本</td>
+<td><code>nvm ls-remote</code></td>
+</tr>
+<tr>
+<td><code>nvm ls-remote --lts</code></td>
+<td>列出所有可安装的 LTS 版本</td>
+<td><code>nvm ls-remote --lts</code></td>
+</tr>
+<tr>
+<td><code>nvm current</code></td>
+<td>显示当前正在使用的 Node.js 版本</td>
+<td><code>nvm current</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5️⃣-删除-Node-js-版本"><a href="#5️⃣-删除-Node-js-版本" class="headerlink" title="5️⃣ 删除 Node.js 版本"></a>5️⃣ 删除 Node.js 版本</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm uninstall &lt;version&gt;</code></td>
+<td>卸载指定版本的 Node.js</td>
+<td><code>nvm uninstall 18.17.0</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="6️⃣-管理全局包"><a href="#6️⃣-管理全局包" class="headerlink" title="6️⃣ 管理全局包"></a>6️⃣ 管理全局包</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm reinstall-packages &lt;version&gt;</code></td>
+<td>将一个版本的全局包复制到当前版本</td>
+<td><code>nvm reinstall-packages 18.17.0</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="7️⃣-其他有用命令"><a href="#7️⃣-其他有用命令" class="headerlink" title="7️⃣ 其他有用命令"></a>7️⃣ 其他有用命令</h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>nvm which &lt;version&gt;</code></td>
+<td>显示指定版本 Node.js 的安装路径</td>
+<td><code>nvm which 20.17.0</code></td>
+</tr>
+<tr>
+<td><code>nvm alias &lt;name&gt; &lt;version&gt;</code></td>
+<td>给版本创建别名</td>
+<td><code>nvm alias dev 20.17.0</code></td>
+</tr>
+<tr>
+<td><code>nvm install-latest-npm</code></td>
+<td>升级当前 Node.js 使用的 npm 到最新</td>
+<td><code>nvm install-latest-npm</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="8️⃣-常用组合示例"><a href="#8️⃣-常用组合示例" class="headerlink" title="8️⃣ 常用组合示例"></a>8️⃣ 常用组合示例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装最新 LTS 版本并设置为默认</span></span><br><span class="line">nvm install --lts</span><br><span class="line">nvm <span class="built_in">alias</span> default lts/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有本地版本</span></span><br><span class="line">nvm <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到最新版本</span></span><br><span class="line">nvm use node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 升级当前 npm</span></span><br><span class="line">nvm install-latest-npm</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="💡-小贴士"><a href="#💡-小贴士" class="headerlink" title="💡 小贴士"></a>💡 小贴士</h2><ul>
+<li><strong>切换 Node 版本是即时的</strong>，不会影响其他终端。</li>
+<li><strong>如果你打开新终端后版本变回去了</strong>，那是因为没设置 <code>nvm alias default &lt;version&gt;</code>。</li>
+<li><strong>nvm 不支持 Windows 原生</strong>，需要在 WSL、Git Bash 或 nvm-windows（不同项目）中使用。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>nvm 是 Node.js 开发中不可或缺的版本管理工具，掌握这些命令可以让你在不同项目间轻松切换 Node.js 版本，提高开发效率。建议将常用的版本设置别名，并合理使用 LTS 版本进行生产环境开发。</p>
+<p>通过本文的命令大全，你可以快速查找所需的 nvm 命令，无论是安装新版本、切换版本还是管理全局包，都能找到对应的解决方案。</p>
+
+  </div>
+</article>
+
+
+    <div class="blog-post-comments">
+        <div id="utterances_thread">
+            <noscript>加载评论需要在浏览器启用 JavaScript 脚本支持。</noscript>
+        </div>
+    </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/tags/">tags</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li>
+        
+          <li><a href="/privacy-policy/">隐私政策</a></li>
+        
+          <li><a href="/disclaimer/">免责声明</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nvm-%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3-Node-js-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">nvm 命令大全详解 - Node.js 版本管理完整指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%EF%B8%8F%E2%83%A3-nvm-%E5%AE%89%E8%A3%85%E4%B8%8E%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="toc-number">1.1.</span> <span class="toc-text">1️⃣ nvm 安装与版本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%EF%B8%8F%E2%83%A3-%E5%AE%89%E8%A3%85-Node-js"><span class="toc-number">1.2.</span> <span class="toc-text">2️⃣ 安装 Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%B8%8F%E2%83%A3-%E4%BD%BF%E7%94%A8-Node-js-%E7%89%88%E6%9C%AC"><span class="toc-number">1.3.</span> <span class="toc-text">3️⃣ 使用 Node.js 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%EF%B8%8F%E2%83%A3-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85%E4%B8%8E%E5%8F%AF%E7%94%A8%E7%89%88%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4️⃣ 查看已安装与可用版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%EF%B8%8F%E2%83%A3-%E5%88%A0%E9%99%A4-Node-js-%E7%89%88%E6%9C%AC"><span class="toc-number">1.5.</span> <span class="toc-text">5️⃣ 删除 Node.js 版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%EF%B8%8F%E2%83%A3-%E7%AE%A1%E7%90%86%E5%85%A8%E5%B1%80%E5%8C%85"><span class="toc-number">1.6.</span> <span class="toc-text">6️⃣ 管理全局包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%EF%B8%8F%E2%83%A3-%E5%85%B6%E4%BB%96%E6%9C%89%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.</span> <span class="toc-text">7️⃣ 其他有用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%EF%B8%8F%E2%83%A3-%E5%B8%B8%E7%94%A8%E7%BB%84%E5%90%88%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">8️⃣ 常用组合示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E5%B0%8F%E8%B4%B4%E5%A3%AB"><span class="toc-number">1.9.</span> <span class="toc-text">💡 小贴士</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.10.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&text=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&is_video=false&description=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=nvm 命令大全详解 - Node.js 版本管理完整指南&body=Check out this article: https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&title=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&name=nvm 命令大全详解 - Node.js 版本管理完整指南&description=&lt;h1 id=&#34;nvm-命令大全详解-Node-js-版本管理完整指南&#34;&gt;&lt;a href=&#34;#nvm-命令大全详解-Node-js-版本管理完整指南&#34; class=&#34;headerlink&#34; title=&#34;nvm 命令大全详解 - Node.js 版本管理完整指南&#34;&gt;&lt;/a&gt;nvm 命令大全详解 - Node.js 版本管理完整指南&lt;/h1&gt;&lt;p&gt;nvm（Node Version Manager）是 Node.js 开发者必备的版本管理工具，它允许你在同一台机器上安装和切换多个 Node.js 版本。本文为你整理了完整的 nvm 命令大全，包含详细说明和实用示例。&lt;/p&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://drakecb.github.io/2025/08/11/nvm%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E8%AF%A6%E8%A7%A3/&t=nvm 命令大全详解 - Node.js 版本管理完整指南"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2018-2025
+    Drake
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/tags/">tags</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/cbpi">项目</a></li><!--
+     --><!--
+       --><li><a href="/privacy-policy/">隐私政策</a></li><!--
+     --><!--
+       --><li><a href="/disclaimer/">免责声明</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+  <script type="text/javascript">
+    if (location.hostname !== 'localhost') {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?ba072fcfdf90fddc0aa538a47e32c4c5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+        </script>
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+    <script type="text/javascript">
+      var utterances_repo = 'cbpi/utterancesRepo';
+      var utterances_issue_term = 'pathname';
+      var utterances_label = 'Comment';
+      var utterances_theme = 'github-dark';
+
+      (function(){
+          var script = document.createElement('script');
+
+          script.src = 'https://utteranc.es/client.js';
+          script.setAttribute('repo', utterances_repo);
+          script.setAttribute('issue-term', 'pathname');
+          script.setAttribute('label', utterances_label);
+          script.setAttribute('theme', utterances_theme);
+          script.setAttribute('crossorigin', 'anonymous');
+          script.async = true;
+          (document.getElementById('utterances_thread')).appendChild(script);
+      }());
+  </script>
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6801371888980245"
+     crossorigin="anonymous"></script>
+</body>
+</html>
